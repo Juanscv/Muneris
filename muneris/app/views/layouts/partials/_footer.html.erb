@@ -1,0 +1,24 @@
+
+    <div id="footer">
+        <div class="wrapper">
+            <div class="logo"><%#= image_tag "logo-branco.png" %></div> 
+            <div class="like-fb">
+            <%#= image_tag "social-media.png" %>
+            </div>
+            <div class="menu-footer">
+                <ul>
+                    <li>
+                        <a href="#">Suporte</a>                        
+                    </li>
+                    <li>
+                        <%= link_to 'Contato'%>
+                    </li>
+                </ul>
+            </div>
+            <p class="direitos-autorais"> © 2014 - Todos los derechos reservados Fundación Universidad el norte</p>
+        </div>
+    </div>
+
+
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</body>

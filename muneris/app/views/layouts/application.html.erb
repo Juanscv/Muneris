@@ -1,0 +1,13 @@
+<%= render 'layouts/partials/header' %> 
+<div id="content" class="layout-principal">
+
+  <div class="wrapper">
+      <%#= navegacao_usuario %>
+      <div class="wrapper-interno">
+        <%= yield %>
+      </div>
+      <%#= sidebar %>
+  </div> 
+
+</div>
+<%= render 'layouts/partials/footer' %>
