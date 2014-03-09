@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+h1 {
+  font-size: 46px;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.wrapper {
+  width: 940px;
+  min-width: 940px;
+  display: table;
+  margin: auto;
+}
+
+#header {
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	z-index: 1;
+	padding-top: 28px;
+	padding-bottom: 28px;
+  .nome-perfil {
+    padding: 0 5px 0 0;
+  }
+  .logo {
+	padding-right: 0px;
+	padding-left: 0px;
+	position: relative;
+	float: left;
+	min-height: 1px;
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block;
+  }
+  .menu {
+	position: static;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin-top: 5px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	text-align: right;
+    >div {
+      margin: 23px auto 0;
+      display: table;
+      ul {
+        li {
+          display: inline-block;
+          vertical-align: bottom;
+          font-size: 12px;
+          &.separador-menu {
+            margin: -2px 10px 0;
+            font-size: 23px;
+            vertical-align: top;
+            color: rgb(178, 27, 25);
+          }
+        }
+        a {
+          color: rgb(178, 27, 25);
+          font-style: none;
+          text-decoration: none;
+          font-size: 18px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .login {
+    display: inline-block;
+    font-size: 17px;
+    width: auto;
+    margin: 17px 0 0 0px;
+    float: right;
+    a {
+      width: 70px;
+      height: auto;
+      background: #b21b19;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      padding: 6px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      float: right;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+        background: #801815;
+      }
+    }
+  }
+}
+
+#footer {
+  width: 100%;
+  background: #4374a1;
+  color: white;
+  padding: 0px 0 23px;
+  .wrapper {
+    >div , ul {
+      float: left;
+    }
+    .logo {
+      width: 150px;
+      float: left;
+      margin: 53px 0px 0 0;
+    }
+    .like-fb {
+      float: left;
+      width: 914px;
+      padding: 45px 0 0 0;
+      text-align: center;
+    }
+    .menu-footer {
+      float: right;
+      width: 100px;
+      margin: 20px 0 0 0;
+      height: 55px;
+      li {
+        width: 100px;
+        text-align: right;
+        margin: 0 0 16px 0;
+        a {
+          color: white;
+          font-size: 14px;
+          text-decoration: none;
+          text-align: right;
+        }
+      }
+    }
+  }
+  p.direitos-autorais {
+    display: inline-block;
+    float: right;
+    margin: -4px 0 0 0;
+  }
+}

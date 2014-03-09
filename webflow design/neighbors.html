@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Thu Feb 27 2014 03:51:21 GMT+0000 (UTC) -->
+<html data-wf-site="52e85101141f8e087d000001">
+<head>
+  <meta charset="utf-8">
+  <title>Muneris - Neighbors</title>
+  <meta name="description" content="Muneris is a social network that helps households and local businesses administrate and share their consumption bills.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/muneris-proyecto-final.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,400,600,700,800","Duru Sans:regular:latin-ext,latin","Carrois Gothic:regular","Dosis:200,regular"]
+      }
+    });
+  </script>
+  <script>
+    if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
+  </script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51e081c5241660ce7800001f/51e755c7e48178d53e000034_thumbnail-starter.png">
+</head>
+<body>
+  <div class="section header">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-4 company-column">
+          <img class="logo" src="images/logo-05ccfe14a6d77e14d49fc33a05ef36f2.png" width="108" alt="52e859964d2cf7837f000012_logo-05ccfe14a6d77e14d49fc33a05ef36f2.png">
+        </div>
+        <div class="w-col w-col-8 nav-bar"><a class="nav-link" href="dashboard.html">Dashboard</a><a class="nav-link" href="profile.html">Profile</a><a class="nav-link" href="#">Neighbors</a><a class="nav-link" href="map.html">Map</a><a class="nav-link log-in" href="login.html">Log In</a><a class="nav-link sign-up"
+          href="signup.html">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-map">
+    <div class="w-container dashboard-map"></div>
+  </div>
+  <div>
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 neighbor-options">
+          <div>
+            <div class="profle-banner">
+              <div class="w-form">
+                <form name="email-form" data-name="Email Form">
+                  <div class="w-row search-box">
+                    <div class="w-col w-col-10">
+                      <input class="w-input" type="text" placeholder="Search for a neighbor" name="search" data-name="Search"></input>
+                    </div>
+                    <div class="w-col w-col-2">
+                      <input class="w-button search" type="submit" value="Go" data-wait="Please wait..."></input>
+                    </div>
+                  </div>
+                </form>
+                <div class="w-form-done">
+                  <p>Thank you! Your submission has been received!</p>
+                </div>
+                <div class="w-form-fail">
+                  <p>Oops! Something went wrong while submitting the form :(</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="w-list-unstyled">
+            <li>
+              <div class="w-row">
+                <div class="w-col w-col-2">
+                  <img src="images/pin-map-icon-2-614x460.png" alt="52f473b62b5f8139190006f1_pin-map-icon-2-614x460.png">
+                </div>
+                <div class="w-col w-col-10">
+                  <h4 class="profile-sections">Show on map</h4>
+                </div>
+              </div>
+              <div class="w-row">
+                <div class="w-col w-col-2">
+                  <img src="images/filter-icon.png" alt="52f47073bc0395d971000616_filter-icon.png">
+                </div>
+                <div class="w-col w-col-10">
+                  <h4 class="profile-sections">Add filters</h4>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="w-row">
+            <div class="w-col w-col-2">
+              <img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">
+            </div>
+            <div class="w-col w-col-10">
+              <h4 class="profile-sections">Add neighbors</h4>
+            </div>
+          </div>
+        </div>
+        <div class="w-col w-col-9">
+          <div class="w-clearfix neighbors-grid">
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 2</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 3</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 4</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 5</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 6</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 7</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 8</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 9</div>
+            </div>
+            <div class="user-grid-item">
+              <img class="neighbor-image" src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">
+              <div class="user-grid-label">Neighbor 1</div>
+            </div>
+          </div>
+          <div class="w-row page-switcher">
+            <div class="w-col w-col-6 previous-page"><a href="#">&lt; Previous Page</a>
+            </div>
+            <div class="w-col w-col-6 next-page"><a href="#">Next Page &gt;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="section footer">
+    <footer class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-6 left-footer-col">
+          <div class="footer-text">© Muneris. All Rights Reserved.</div>
+        </div>
+        <div class="w-col w-col-6 footer-nav-bar"><a class="footer-link" href="http://uninorte.edu.co">Universidad del Norte</a>
+        </div>
+      </div>
+    </footer>
+  </footer>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+</body>
+</html>
