@@ -1,0 +1,3018 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-17 20:37:02 -0300
+Connecting to database specified by database.yml
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Warning. Error encountered while saving cache /Users/michaeldussan/Workspace/Muneris/tmp/cache/sass/1e974b2c7aea7dab3350344484130f201e6c316c/welcome.css.scssc: can't dump anonymous class #<Class:0x0000010309af20>
+
+Compiled welcome.css  (394ms)  (pid 47306)
+Compiled application.css  (399ms)  (pid 47306)
+Compiled jquery.js  (5ms)  (pid 47306)
+Compiled jquery_ujs.js  (0ms)  (pid 47306)
+Compiled welcome.js  (1ms)  (pid 47306)
+Compiled application.js  (40ms)  (pid 47306)
+Completed 200 OK in 556.3ms (Views: 555.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-17 20:37:03 -0300
+Served asset /application.css - 200 OK (54ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-03-17 20:37:03 -0300
+Served asset /welcome.css - 200 OK (4ms)
+
+
+Started GET "/assets/stylesheets/welcome.css" for 127.0.0.1 at 2014-03-17 20:37:03 -0300
+Served asset /stylesheets/welcome.css - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/welcome.css"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /jquery_ujs.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /welcome.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /application.js - 200 OK (7ms)
+
+
+Started GET "/assets/images/logo.png" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/logo.png - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/nextdoor.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/bills.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:37:04 -0300
+Served asset /images/amigos.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/logo.png" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/logo.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/nextdoor.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/bills.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/map.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/amigos.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:37:05 -0300
+Served asset /images/alarms.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:37:14 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:37:18 -0300
+Served asset /images/amigos.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4.6ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/nextdoor.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/stylesheets/welcome.css" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /stylesheets/welcome.css - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/welcome.css"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/logo.png" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/logo.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/amigos.jpg - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/bills.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/cloud.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:37:25 -0300
+Served asset /images/nextdoor.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:37:34 -0300
+Served asset /images/alarms.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:39:03 -0300
+Served asset /images/cloud.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:39:03 -0300
+Served asset /images/amigos.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:41:36 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-17 20:43:28 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 17.4ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /welcome.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /welcome.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/stylesheets/welcome.css" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /stylesheets/welcome.css - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/welcome.css"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/logo.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/nextdoor.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/bills.png - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/alarms.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.4ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/amigos.jpg - 404 Not Found (11ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:43:29 -0300
+Served asset /images/map.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/bills.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/amigos.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/logo.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/nextdoor.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:43:30 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:43:38 -0300
+Served asset /images/logo.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:46:20 -0300
+Served asset /images/logo.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:46:46 -0300
+Served asset /images/logo.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:47:54 -0300
+Served asset /images/logo.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 40.6ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /welcome.js - 200 OK (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /welcome.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /images/logo.jpg - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/stylesheets/welcome.css" for 127.0.0.1 at 2014-03-17 20:48:14 -0300
+Served asset /stylesheets/welcome.css - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/welcome.css"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/nextdoor.png - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/cloud.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/map.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/amigos.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/bills.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/nextdoor.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/bills.png - 404 Not Found (9ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/map.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/amigos.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/logo.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 20:48:15 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/assets/images/logo.jpg" for 127.0.0.1 at 2014-03-17 20:48:27 -0300
+Served asset /images/logo.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/logo.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 21:01:31 -0300
+Served asset /images/alarms.jpg - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 21:01:32 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 21:01:32 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 21:01:43 -0300
+Served asset /images/amigos.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4.9ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stylesheets/welcome.css" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /stylesheets/welcome.css - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/welcome.css"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /logo.jpg - 200 OK (88ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 21:10:39 -0300
+Served asset /images/amigos.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/nextdoor.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/bills.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/nextdoor.png" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/nextdoor.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/bills.png" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/bills.png - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 21:10:40 -0300
+Served asset /images/amigos.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 8.4ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /welcome.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /welcome.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stylesheets/welcome.css" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /stylesheets/welcome.css - 404 Not Found (5ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/stylesheets/welcome.css"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/nextdoor.png" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /nextdoor.png - 404 Not Found (33ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/bills.png" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /bills.png - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/cloud.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.9ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/alarms.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/amigos.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/map.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/images/amigos.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/amigos.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/amigos.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/map.jpg - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.4ms)
+
+
+Started GET "/assets/images/cloud.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/cloud.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/cloud.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /images/alarms.jpg - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/assets/bills.png" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /bills.png - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/bills.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/nextdoor.png" for 127.0.0.1 at 2014-03-17 21:13:12 -0300
+Served asset /nextdoor.png - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/nextdoor.png"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.9ms)
+
+
+Started GET "/assets/images/map.jpg" for 127.0.0.1 at 2014-03-17 21:13:15 -0300
+Served asset /images/map.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/map.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/images/alarms.jpg" for 127.0.0.1 at 2014-03-17 21:13:15 -0300
+Served asset /images/alarms.jpg - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/alarms.jpg"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2014-03-17 21:13:17 -0300
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/login.hmtl" for 127.0.0.1 at 2014-03-17 21:13:18 -0300
+
+ActionController::RoutingError (No route matches [GET] "/login.hmtl"):
+  actionpack (3.2.17) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.17) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.17) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.17) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.17) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.17) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.17) lib/rails/engine.rb:484:in `call'
+  railties (3.2.17) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.17) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/michaeldussan/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/michaeldussan/.rvm/gems/ruby-2.1.0/gems/actionpack-3.2.17/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
