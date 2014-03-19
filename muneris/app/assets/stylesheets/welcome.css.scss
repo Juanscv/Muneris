@@ -1740,13 +1740,14 @@ p {
 .pre-sign-up {
   display: block;
   width: 500px;
-  margin-left: 0px;
+  margin-left: 27px;
   padding-right: 0px;
 }
 .container-1 {
-  height: 300px;
+  min-height: 650px;
+  height: auto;
   margin-top: 1px;
-  margin-bottom: 145px;
+  margin-bottom: 0px;
 }
 .dashboard-map {
   position: static;
@@ -2004,3 +2005,19 @@ p {
   }
 }
 
+.slider{
+  width: 2000px;
+  height: 300px;
+}
+
+body > div.section.header > div > div > div.w-col.w-col-8.nav-bar {
+  color: white;
+}
+
+#new_user > div:nth-child(4) > label {
+  display: -webkit-inline-box;
+}
+
+body > div.hero-bg > div.w-container.container-1 {
+  min-height: 0px;
+}

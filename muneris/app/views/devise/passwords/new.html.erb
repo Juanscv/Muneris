@@ -1,0 +1,23 @@
+<div>
+	<div class="hero-bg">
+	  <div class="w-container container-1">
+	    <h1 class="log-title" id="page-nav-Section-1">Forgot your password?</h1>
+	    <div class="pre-sign-up">
+	      <div class="w-form">
+			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div ><%= f.label :email %>
+			  <%= f.email_field :email, :autofocus => true, class: "w-input" %></div>
+
+			  <div><%= f.submit "Send me reset password instructions", class: "w-button" %></div>
+
+			 <%= render "devise/shared/links" %>
+
+			<% end %>
+			
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>	
