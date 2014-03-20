@@ -7,7 +7,9 @@ Muneris::Application.routes.draw do
   get "/profile", to: 'muneris#profile', as: :profile
   get "/network", to: 'muneris#network', as: :network
   get "/map", to: 'muneris#map', as: :map
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+
 
   root to: "welcome#index"
 
