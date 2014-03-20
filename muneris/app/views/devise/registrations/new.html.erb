@@ -1,29 +1,51 @@
-<div>
-	<div class="hero-bg">
-	  <div class="w-container container-1">
-	    <h1 class="log-title" id="page-nav-Section-1">Sign up</h1>
-	    <div class="pre-sign-up">
-	      <div class="w-form">
-			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  			<%= devise_error_messages! %>
-			  <div ><%= f.label :email %>
-			  <%= f.email_field :email, :autofocus => true, class: "w-input" %></div>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
 
-			  <div ><%= f.label :password %>
-			  <%= f.password_field :password, class: "w-input"  %></div>
+<div class="sign-up-block">
+    <div class="hero-bg">
+      <div class="w-container container-1">
+        <h1 id="page-nav-Section-1">Sign Up</h1>
+        <div class="w-row">
+          <div class="w-col w-col-6">
+            <div class="w-form">
 
-		      <div><%= f.label :password_confirmation%><br />
-			  <%= f.password_field :password_confirmation,  class: "w-input" %></div>
+  				  <div ><%= f.label :username %>
+				  <%= f.text_field :username, class: "w-input", :placeholder => "Enter your desired username"  %></div>
 
-			  <div><%= f.submit "Sign up", class: "w-button" %></div>
+				  <div ><%= f.label :email %>
+				  <%= f.email_field :email, :autofocus => true, class: "w-input", :placeholder => "Enter your email address" %></div>
 
-			 <%= render "devise/shared/links" %>
+				  <div ><%= f.label :password %>
+				  <%= f.password_field :password, class: "w-input", :placeholder => "Enter your password"  %></div>
 
-			<% end %>
-			
-	      </div>
-	    </div>
-	  </div>
-	</div>
-</div>	
+			      <div><%= f.label :password_confirmation %>
+				  <%= f.password_field :password_confirmation,  class: "w-input", :placeholder => "Enter your password" %></div>
 
+				  <div><%= f.submit "Sign up", class: "w-button" %></div>
+
+				 <%= render "devise/shared/links" %>				
+
+            </div>
+          </div>
+          <div class="w-col w-col-6">
+            <div class="w-form">
+  				  <div ><%= f.label :familyname %>
+				  <%= f.text_field :familyname, class: "w-input", :placeholder => "Enter your family's to identify you"  %></div>
+
+				  <div ><%= f.label :address %>
+				  <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
+
+				  <div ><%= f.label :neighborhood %>
+				  <%= f.text_field :neighborhood, class: "w-input", :placeholder => "Enter your neighborhood"  %></div>
+
+			      <div><%= f.label :city %>
+				  <%= f.text_field :city,  class: "w-input", :placeholder => "Enter your city" %></div>
+
+            </div>
+          </div>
+        </div>
+        <div class="pre-sign-up"></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
