@@ -1,11 +1,18 @@
-<h1>Muneris#dashboard</h1>
-<p>Find me in app/views/muneris/dashboard.html.erb</p>
-<div id="#feed">
-	<%= render partial: 'user/feed' %>
+<div class="w-container dashboard-map">
+  <div class="w-widget w-widget-map" data-widget-latlng="10.96421,-74.797043" data-widget-style="roadmap" data-widget-zoom="13"></div>
 </div>
-<div id="#notifications">
-	<%= render partial: 'user/notifications' %>
-</div>
-<div id="#friends">
-	<%= render partial: 'user/friends' %>
+<div>
+	<div class="w-container">
+  		<div class="w-row">
+			<%= render partial: 'user/friends' %>
+
+			<div id="#feed">
+				<%= render partial: 'user/feed' %>
+			</div>
+
+			<div id="#notifications">
+				<%= render partial: 'user/notifications' %>
+			</div>
+		</div>
+	</div>
 </div>
