@@ -16,6 +16,7 @@ development:
   pool: 5
   username: root
   password: root
+  #socket: /opt/rubystack-1.9.3-22/mysql/tmp/mysql.sock
   #socket: /var/run/mysqld/mysqld.sock
   #socket: /tmp/mysql.sock
 
@@ -30,6 +31,7 @@ test:
   pool: 5
   username: root
   password: root
+  #socket: /opt/rubystack-1.9.3-22/mysql/tmp/mysql.sock
   #socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -40,4 +42,5 @@ production:
   pool: 5
   username: root
   password: root
+  #socket: /opt/rubystack-1.9.3-22/mysql/tmp/mysql.sock
   #socket: /var/run/mysqld/mysqld.sock
