@@ -1,3 +1,4 @@
+
 # Ignore unneeded files.
 *.swp
 *~
@@ -5,5 +6,4 @@
 .DS_Store
 
 # Ignore sample project
-/sample/
-
+sample/

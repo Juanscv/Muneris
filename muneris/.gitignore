@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore database.yml to avoid conflict.
-/config/database.yml
+config/database.yml
 
 # Ignore other unneeded files.
 doc/
@@ -24,5 +24,3 @@ doc/
 *~
 .project
 .DS_Store
-
-
