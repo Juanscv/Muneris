@@ -1,1 +1,51 @@
-_sidebar.html.erb
+<div class="w-col w-col-3">
+  <div>
+    <div class="profle-banner">
+      <%= image_tag("home-icon.png", class: "profile-picture") %>
+      <!--<img class="profile-picture" src="images/home-icon.png" alt="52f410466f60c03a19000296_home-icon.png">-->
+      <h4><%= current_user.familyname %></h4>
+    </div>
+    <div>
+      <p>Member: <%= current_user.username %>.
+        <br>Latest consumption (KW/h):
+        <br>Latest payment ($ COP):
+        <br>Neighbors: #</p>
+    </div>
+  </div>
+  <ul class="w-list-unstyled">
+    <li>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= image_tag("button-add.png") %>
+          <!--<img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">-->
+        </div>
+        <div class="w-col w-col-10">
+          <h4 class="profile-sections">Add new bill</h4>
+        </div>
+      </div>
+    </li>
+    <!--<li>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= image_tag("button-add.png") %>-->
+          <!--<img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">-->
+        <!--</div>
+        <div class="w-col w-col-10">
+          <h4 class="profile-sections">Invite member</h4>
+        </div>
+      </div>
+    </li>-->
+    <li>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= image_tag("button-add.png") %>
+          <!--<img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">-->
+        </div>
+        <div class="w-col w-col-10">
+          <h4 class="profile-sections">Add neighbors</h4>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
