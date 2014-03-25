@@ -13,4 +13,10 @@ Muneris::Application.routes.draw do
 
   root to: "welcome#index"
 
+  authenticated :user do
+    root :to => "muneris#dashboard" , :as => "authenticated_root"
+    # Rails 4 users must specify the 'as' option to give it a unique name
+    # root :to => "main#dashboard", :as => "authenticated_root"
+  end
+
 end
