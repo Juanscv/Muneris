@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  consumption: 1
+  value: 
+  date: 2014-03-24
+
+two:
+  consumption: 1
+  value: 
+  date: 2014-03-24
