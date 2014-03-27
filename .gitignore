@@ -1,5 +1,15 @@
-.DS_Store
 log/*.log
 tmp/**/*
 config/database.yml
 db/*.sqlite3
+
+
+# Ignore unneeded files.
+*.swp
+*~
+.project
+.DS_Store
+
+# Ignore sample project
+sample/
+
