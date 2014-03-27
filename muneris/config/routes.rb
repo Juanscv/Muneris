@@ -1,5 +1,14 @@
 Muneris::Application.routes.draw do
 
+
+  authenticated :user do
+    root :to => "muneris#dashboard" , :as => "authenticated_root"
+    # Rails 4 users must specify the 'as' option to give it a unique name
+    # root :to => "main#dashboard", :as => "authenticated_root"
+  end
+
+  root :to => "welcome#index"
+
   resources :bills
 
   resources :friendships
@@ -15,13 +24,5 @@ Muneris::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
-
-  root to: "welcome#index"
-
-  authenticated :user do
-    root :to => "muneris#dashboard" , :as => "authenticated_root"
-    # Rails 4 users must specify the 'as' option to give it a unique name
-    # root :to => "main#dashboard", :as => "authenticated_root"
-  end
 
 end
