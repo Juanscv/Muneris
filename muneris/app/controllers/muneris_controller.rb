@@ -30,7 +30,6 @@ class MunerisController < ApplicationController
   end
 
   def people
-  	@users = User.all
-    @friendships = Friendship.all
+  	@users = User.all.paginate(:page => params[:page], :per_page => 8).search(params[:search])
   end
 end

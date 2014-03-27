@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 	      user.email = auth.info.email
 	      user.password = Devise.friendly_token[0,20]
 	      user.username = auth.info.name   # assuming the user model has a name
-	      user.avatar = URI.parse(auth.info.image)  # assuming the user model has an image
+	      user.avatar = URI.parse(auth.info.image) if auth.info.image? # assuming the user model has an image
 	  end
 	end	
 
@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
+    end
+  end
+
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    else
+      scoped
     end
   end
 
