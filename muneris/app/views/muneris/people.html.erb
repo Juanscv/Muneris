@@ -1,19 +1,31 @@
 <div>
     <div class="w-container">
       <div class="w-row">		
-		<div class="w-col w-col-5">
-		  <h1>Comunity Users</h1>
+		<div class="people-list">
+		  <h1>COMUNITY USERS</h1>
+
+		  <%= form_tag people_path, :method => 'get' do %>
+		   <div class="w-row search-box">
+            <div class="w-col w-col-10">
+              <%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a member"  %>              
+            </div>
+            <div class="w-col w-col-2">
+              <%= submit_tag "Search", class: "w-button search", :username => nil %>             
+            </div>
+          </div>
+          <% end %>
+
 		  <% for user in @users %>
 		  	<ul class="w-list-unstyled feed">
 	  		    <li>
 			      <div class="w-row activity-item">
 			        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-			          <%= image_tag("usercircle.png", class: "activity-image") %>
+			          <%= link_to image_tag("usercircle.png", class: "activity-image"), profile_path(user.id) %>
 			          <!--<img class="activity-image" src="images/User%20circle.png" alt="52f3183c73df7f296b000533_User%20circle.png">-->
 			        </div>
 			        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
 			          <div class="activity-description">
-			          		<%=h user.familyname %>
+			          		<%=h user.familyname , profile_path(user.id) %>
 			          		<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
 			          </div>
 			        </div>
@@ -21,7 +33,9 @@
 			    </li>
 		  	 </ul>
 		 <% end %>
+		 <%= will_paginate @users %>
 		</div>
       </div>
     </div>
 </div>
+

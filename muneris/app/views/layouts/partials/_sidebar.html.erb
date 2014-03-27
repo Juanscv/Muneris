@@ -1,17 +1,18 @@
-<div class="w-col w-col-3">
+  <div class="w-col w-col-3">
   <div>
-    <div class="profle-banner">
-      <%= image_tag("home-icon.png", class: "profile-picture") %>
+    <div class="profle-banner profile-picture">
+      <%= image_tag @user.avatar.url(:profile) %>
       <!--<img class="profile-picture" src="images/home-icon.png" alt="52f410466f60c03a19000296_home-icon.png">-->
-      <h4><%= current_user.familyname %></h4>
+      <h4><%= @user.familyname %></h4>
     </div>
     <div>
-      <p>Member: <%= current_user.name %>.
+        <p>Member: <%= @user.name %>
         <br>Latest consumption (KW/h):
         <br>Latest payment ($ COP):
         <br>Neighbors: #</p>
     </div>
   </div>
+  <% if @is_current_user then %>
   <ul class="w-list-unstyled">
     <li>
       <div class="w-row">
@@ -37,15 +38,17 @@
     </li>-->
     <li>
       <div class="w-row">
-        <div class="w-col w-col-2">
-          <%= link_to image_tag("button-add.png"), people_path %>
-          <!--<img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">-->
-        </div>
-        <div class="w-col w-col-10">
-          <h4><%= link_to 'Add neighbors',people_path, class: "profile-sections" %></h4>
-        </div>
+        
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("button-add.png"), people_path %>
+            <!--<img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">-->
+          </div>
+          <div class="w-col w-col-10">
+            <h4><%= link_to 'Add neighbors',people_path, class: "profile-sections" %></h4>
+          </div>        
       </div>
     </li>
   </ul>
+  <% end %>
 </div>
 
