@@ -32,6 +32,8 @@ gem 'devise'
 
 gem 'omniauth-facebook'
 
+gem "paperclip", "~> 4.1"
+
 #---------------------------------------------------------------
 
 group :doc do
