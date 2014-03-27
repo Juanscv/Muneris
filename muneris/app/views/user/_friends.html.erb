@@ -1,48 +1,19 @@
 <div class="w-col w-col-4 w-clearfix", id="#friends">
   <h1>Recently added</h1>
+
+  
   <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
+  <% for friendship in @user.friendships %>
+
+    <div class="usercircleprofile"><%= link_to image_tag("usercircle.png", class: "usercircleprofile"), profile_path(friendship.friend.id) %></div>
+    
     <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 1</div>
+    <div class="user-grid-label">      
+      <%= h link_to friendship.friend.username, profile_path(friendship.friend.id) %>
+      (<%= link_to "remove", friendship, :method => :delete %>)
+    </div>
+  <% end %> 
   </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 2</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 3</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 4</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 5</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 6</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 7</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 8</div>
-  </div>
-  <div class="user-grid-item">
-    <%= image_tag("usercircle.png", class: "usercircleprofile") %>
-    <!--<img src="images/User%20circle.png" width="80" alt="52f3183c73df7f296b000533_User%20circle.png">-->
-    <div class="user-grid-label">User 9</div>
-  </div>
+  
+
 </div>

@@ -2024,4 +2024,10 @@ body > div.hero-bg > div.w-container.container-1 {
 
 .usercircleprofile{
   width: 80px;
+  display: table;
+  margin: auto;
+}
+
+.w-col.w-col-10.w-col-small-6.w-col-tiny-6 > div > a:nth-child(2) {
+  float: right;
 }

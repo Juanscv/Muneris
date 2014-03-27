@@ -54,9 +54,10 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
+    @friendship = current_user.friendships.find(params[:id])
     @friendship.destroy
     respond_to do |format|
-      format.html { redirect_to friendships_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

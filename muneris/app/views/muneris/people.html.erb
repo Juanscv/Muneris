@@ -8,12 +8,12 @@
 	  		    <li>
 			      <div class="w-row activity-item">
 			        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-			          <%= image_tag("usercircle.png", class: "activity-image") %>
+			          <%= link_to image_tag("usercircle.png", class: "activity-image"), profile_path(user.id) %>
 			          <!--<img class="activity-image" src="images/User%20circle.png" alt="52f3183c73df7f296b000533_User%20circle.png">-->
 			        </div>
 			        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
-			          <div class="activity-description">
-			          		<%=h user.username %>
+			          <div class="activity-description">			          
+			          		<%=h link_to user.username, profile_path(user.id) %>
 			          		<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
 			          </div>
 			        </div>
@@ -25,3 +25,4 @@
       </div>
     </div>
 </div>
+
