@@ -2,7 +2,7 @@
     <div class="w-container">
       <div class="w-row">		
 		<div class="people-list">
-		  <h1>COMUNITY USERS</h1>
+		  <h1>All Users</h1>
 
 		  <%= form_tag people_path, :method => 'get' do %>
 		   <div class="w-row search-box">
@@ -25,8 +25,12 @@
 			        </div>
 			        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
 			          <div class="activity-description">
-			          		<%=h user.familyname , profile_path(user.id) %>
-			          		<%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+
+			          		<%=h link_to user.familyname, profile_path(user.id) %>
+					         	 <% if user == current_user then %>
+					         	 <% else %>
+					         	 <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+					         	 <% end %>
 			          </div>
 			        </div>
 			      </div>
