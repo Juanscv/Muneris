@@ -9,8 +9,8 @@
           <div class="w-col w-col-6">
             <div class="w-form">
 
-  				  <div ><%= f.label :username %>
-				  <%= f.text_field :username, class: "w-input", :placeholder => "Enter your desired username"  %></div>
+  				  <div ><%= f.label :name %>
+				  <%= f.text_field :name, class: "w-input", :placeholder => "Enter your full name"  %></div>
 
 				  <div ><%= f.label :email %>
 				  <%= f.email_field :email, :autofocus => true, class: "w-input", :placeholder => "Enter your email address" %></div>
@@ -32,17 +32,22 @@
           </div>
           <div class="w-col w-col-6">
             <div class="w-form">
-  				  <div ><%= f.label :familyname %>
-				  <%= f.text_field :familyname, class: "w-input", :placeholder => "Enter your family's to identify you"  %></div>
+  				  <div >
+              <%= f.label :familyname, "Domicile Identifier" %>
+				      <%= f.text_field :familyname, class: "w-input", :placeholder => "Enter a name to identify your domicile (example: Family name)"  %></div>
 
-				  <div ><%= f.label :address %>
-				  <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
+  				  <div >
+              <%= f.label :address %>
+  				    <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
 
-				  <div ><%= f.label :neighborhood %>
-				  <%= f.text_field :neighborhood, class: "w-input", :placeholder => "Enter your neighborhood"  %></div>
+				    <div>
+              <%= f.label :tariff %>
+              <%= f.text_field :tariff,  class: "w-input", :placeholder => "Example Residencial Estrato 4" %></div>
 
-			      <div><%= f.label :city %>
-				  <%= f.text_field :city,  class: "w-input", :placeholder => "Enter your city" %></div>
+			      <div>
+              <%= f.label :locale %>
+				      <%= f.text_field :locale,  class: "w-input", :placeholder => "Enter by City, State, Country" %></div>
+
 
             </div>
           </div>

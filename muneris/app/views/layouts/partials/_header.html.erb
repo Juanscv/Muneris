@@ -1,23 +1,24 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
+<!--
 <html>
 <head>
   <title>Muneris</title>-->
 
   <!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
   <!--<%= csrf_meta_tags %>
-</head>-->
+</head>
+-->
 
-<!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
 <!-- Last Published: Thu Feb 27 2014 03:51:21 GMT+0000 (UTC) -->
 <html data-wf-site="52e85101141f8e087d000001">
 <head>
   <meta charset="utf-8">
   <title>Muneris</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <meta name="description" content="Muneris is a social network that helps households and local businesses administrate and share their consumption bills.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <link rel="stylesheet" type="text/css" href="../../assets/stylesheets/welcome.css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
   <script>
@@ -30,10 +31,10 @@
   <script>
     if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
   </script>
-  <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
-  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  <%= favicon_link_tag 'favicon.ico' %>
   <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51e081c5241660ce7800001f/51e755c7e48178d53e000034_thumbnail-starter.png">
 </head>
+
 <body>
     <div class="section header">
       <div class="w-container">
@@ -52,7 +53,7 @@
               <%= link_to 'Profile',profile_path, class: "nav-link" %>
               <%= link_to 'Network',network_path, class: "nav-link" %>
               <%= link_to 'Map', map_path, class: "nav-link" %>
-              Logged as <%= current_user.username %>
+              Signed as <%= current_user.familyname %>
               <%= link_to "Sign out", destroy_user_session_path, :class=> "nav-link log-in", :method => :delete %>
 
             <% else %>
@@ -61,8 +62,6 @@
               <%= link_to "Enter with Facebook", user_omniauth_authorize_path(:facebook), :class=> "nav-link sign-up" %>
               
             <% end %>
-          <!--<a class="nav-link log-in" href="login.hmtl" target="_blank">Log In</a>
-          <a class="nav-link sign-up" href="signup.html" target="_blank">Sign Up</a>-->
           </div>
         </div>
       </div>
