@@ -23,7 +23,7 @@ class MunerisController < ApplicationController
     else
       @user = User.find(params[:user_id])
     end
-    @friendships = Friendship.all
+ 
   end
 
   def map

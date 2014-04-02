@@ -8,13 +8,13 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
   has_many :userbills
-  has_many :bills, :through => :userbills
+  has_many :bills, :through => :userbills, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "usercircle.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 	def self.find_for_facebook_oauth(auth)

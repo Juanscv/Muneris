@@ -2,16 +2,16 @@
   <div>
     <div class="profle-banner">
       <div class="w-form">
-        <form name="email-form" data-name="Email Form">
-          <div class="w-row search-box">
+      <%= form_tag network_path, :method => 'get', :id => "friends_search" do %>
+       <div class="w-row search-box">
             <div class="w-col w-col-10">
-              <input class="w-input" type="text" placeholder="Search for a neighbor" name="search" data-name="Search"></input>
+              <%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a neighbor"  %>              
             </div>
             <div class="w-col w-col-2">
-              <input class="w-button search" type="submit" value="Go" data-wait="Please wait..."></input>
+              <%= submit_tag "Search", class: "w-button search", :username => nil %>             
             </div>
-          </div>
-        </form>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
