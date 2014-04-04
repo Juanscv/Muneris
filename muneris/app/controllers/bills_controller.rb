@@ -29,7 +29,7 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.save
         current_user.userbills.create!(bill_id: @bill.id)
-        format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
+        format.html { redirect_to profile_path, notice: 'Bill was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bill }
       else
         format.html { render action: 'new' }

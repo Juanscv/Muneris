@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "usercircle.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  
+
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	      user.provider = auth.provider
@@ -93,7 +95,7 @@ class User < ActiveRecord::Base
 
   private
 
-  def process_uri(uri)
+  def self.process_uri(uri)
     require 'open-uri'
     require 'open_uri_redirections'
     open(uri, :allow_redirections => :safe) do |r|
