@@ -35,6 +35,8 @@ gem 'omniauth-facebook'
 
 gem "paperclip", "~> 4.1"
 
+gem 'open_uri_redirections'
+
 #Paginate lists
 gem 'will_paginate', '~> 3.0'
 

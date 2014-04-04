@@ -1,0 +1,28 @@
+<div class="box-advance-search"> 
+	<%= form_tag ( url ) , :method => 'get' do %>
+    <div class="choose-field">
+		  <%= select_tag :estado , options_from_collection_for_select(Estado.all,:id,:sigla) , :prompt => "Estado" %>
+    </div>
+    <div class="choose-field">
+      <%= select_tag :cidade, options_from_collection_for_select(Cidade.all,:id,:nome) , :prompt => "Cidade" %>
+    </div>
+    <div class="choose-field">
+		  <%= select_tag :area_interesse, options_from_collection_for_select(AreaInteresse.all,:id,:nome) , :prompt => "Área de Interesse"%>
+		</div>
+    <% if @projetos || @projeto %> 
+      <div class="choose-field">
+        	<%= select_tag :lei_incentivo, options_from_collection_for_select(LeiIncentivo.all,:id,:descricao) , :prompt => 'Lei de incentivo' %>
+      </div>
+    <% end %>
+    <% if @oportunidades || @oportunidade %>
+      <div class="field">	
+      		<%= text_field_tag :valor_financiamento, params[:valor_financiamento] , :class => 'money' ,:placeholder => 'valor limite para financiamento' %>
+      </div>
+    <% end %>
+
+		<%= hidden_field_tag :tipo_search, :advance ,:placeholder => 'Buscar' %>
+    <div class="actions">
+		  <%= submit_tag "buscar" , class: 'botao-buscar'%>
+    </div>
+	<% end %>
+</div>

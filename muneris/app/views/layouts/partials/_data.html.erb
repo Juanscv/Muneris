@@ -16,7 +16,7 @@
   </div>
 
   <tbody>
-    <% Bill.all.each do |bill| %>
+    <% @user.bills.each do |bill| %>
     <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
       <tr>
         <td><%= bill.consumption %></td>

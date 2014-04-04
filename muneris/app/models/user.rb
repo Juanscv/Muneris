@@ -23,8 +23,11 @@ class User < ActiveRecord::Base
 	      user.uid = auth.uid
 	      user.email = auth.info.email
 	      user.password = Devise.friendly_token[0,20]
-	      user.username = auth.info.name   # assuming the user model has a name
-	      user.avatar = URI.parse(auth.info.image) if auth.info.image? # assuming the user model has an image
+	      user.name = auth.info.name   # assuming the user model has a name
+        if auth.info.image.present?
+           avatar_url = process_uri(auth.info.image)
+           user.update_attribute(:avatar, URI.parse(avatar_url))
+        end
 	  end
 	end	
 
@@ -38,9 +41,19 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('username LIKE ?', "%#{search}%")
+      where('name LIKE ?', "%#{search}%")
     else
       scoped
+    end
+  end
+
+  private
+
+  def process_uri(uri)
+    require 'open-uri'
+    require 'open_uri_redirections'
+    open(uri, :allow_redirections => :safe) do |r|
+      r.base_uri.to_s
     end
   end
 

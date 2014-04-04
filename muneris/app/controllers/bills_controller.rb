@@ -24,10 +24,11 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = @user.bills.create(order_date: Time.now)
+    @bill = Bill.new(bill_params)
 
     respond_to do |format|
       if @bill.save
+        current_user.userbills.create!(bill_id: @bill.id)
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bill }
       else
@@ -56,7 +57,7 @@ class BillsController < ApplicationController
   def destroy
     @bill.destroy
     respond_to do |format|
-      format.html { redirect_to bills_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

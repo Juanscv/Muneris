@@ -7,9 +7,9 @@
     </div>
     <div>
         <p>Member: <%= @user.name %>
-        <br>Latest consumption (KW/h):
-        <br>Latest payment ($ COP):
-        <br>Neighbors: #</p>
+        <br>Latest consumption (KW/h): <%= @user.bills(:consumption).first %>
+        <br>Latest payment ($ COP): <%= @user.bills(:value).first %>
+        <br>Neighbors: <%= @user.friends.count(:id) %> </p>
     </div>
   </div>
   <% if @is_current_user then %>
