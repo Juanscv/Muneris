@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "usercircle.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  
+
 
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -40,17 +40,17 @@ class User < ActiveRecord::Base
       end
     end
   end
-
-  def self.search(search)
-    if search
-      where('familyname LIKE ?', "%#{search}%")
+  
+  scope :search , ->(search) do
+    if search.blank?
+      all
     else
-      scoped
+      where('familyname LIKE ?', "%#{search}%")
     end
   end
 
   def users
-    @users ||= find_users
+    find_users ||  @users
   end
 
   def find_user

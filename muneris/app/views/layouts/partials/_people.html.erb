@@ -11,7 +11,10 @@
               <%=h link_to user.familyname, profile_path(user.id) %>
                <% if user == current_user then %>
                <% else %>
-               <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+
+                <%= link_to_if !current_user.friends.include?(user), "Add Friend", friendships_path(:friend_id => user), :method => :post do %>
+                  <!--<%= link_to "Remove Friend", friendships_path(:friend_id => user), :method => :delete %>-->
+                <% end -%>
                <% end %>
           </div>
         </div>
