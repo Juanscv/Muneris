@@ -6,5 +6,8 @@
 			<%= render partial: 'user/friends' %>
 			</div>
 		</div>
+	  <%= form_tag network_path , :method => 'get' do %>
+        <%= render 'layouts/formsearch/base' %>
+      <% end %>
 	</div>
 </div>

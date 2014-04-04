@@ -5,12 +5,12 @@
   <table>
   <thead>
     <tr>
-      <th>Consumption</th>
-      <th>Value</th>
-      <th>Date</th>
+      <th>Consumption (KW/h)</th>
+      <th>Payment value ($ COP) </th>
+      <th>Date of bill (YYYY/MM/DD)</th>
+      <!--<th></th>
       <th></th>
-      <th></th>
-      <th></th>
+      <th></th>-->
     </tr>
   </thead>
   </div>
@@ -22,9 +22,9 @@
         <td><%= bill.consumption %></td>
         <td><%= bill.value %></td>
         <td><%= bill.date %></td>
-        <td><%= link_to 'Show', bill %></td>
+        <!--<td><%= link_to 'Show', bill %></td>
         <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     </div>
     <% end %>

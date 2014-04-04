@@ -14,11 +14,14 @@
             </div>
           </div>
           <% end %>
-
-          <div id="people"><%= render 'layouts/partials/people'%></div> 
+      
+        <div id="people"><%= render 'layouts/partials/people'%></div>      
           
 		</div>
       </div>
+      <%= form_tag people_path , :method => 'get' do %>
+        <%= render 'layouts/formsearch/base' %>
+      <% end %>
     </div>
 </div>
 

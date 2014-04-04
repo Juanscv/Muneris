@@ -7,8 +7,10 @@
     </div>
     <div>
         <p>Member: <%= @user.name %>
-        <br>Latest consumption (KW/h): <%= @user.bills(:consumption).first %>
-        <br>Latest payment ($ COP): <%= @user.bills(:value).first %>
+        <% @user.bills.each do |bill| %>
+        <br>Latest consumption (KW/h): <%= bill.consumption %>
+        <br>Latest payment ($ COP): <%= bill.value %>
+        <% end %>
         <br>Neighbors: <%= @user.friends.count(:id) %> </p>
     </div>
   </div>

@@ -41,10 +41,54 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('familyname LIKE ?', "%#{search}%")
     else
       scoped
     end
+  end
+
+  def users
+    @users ||= find_users
+  end
+
+  def find_user
+    User.find(:all, :conditions => conditions)
+  end
+
+  def name_conditions
+    ["users.name LIKE ?", "%#{name}%"] unless name.blank?
+  end
+
+  def email_conditions
+    ["users.email >= ?", "%#{email}%"] unless email.blank?
+  end
+
+  def familyname_conditions
+    ["users.familyname <= ?", "%#{familyname}%"] unless familyname.blank?
+  end
+
+  def tariff_conditions
+    ["users.tariff = ?", "%#{tariff}%"] unless tariff.blank?
+  end
+
+  def locale_conditions
+    ["users.locale = ?", "%#{locale}%"] unless locale.blank?
+  end
+
+  def conditions
+    [conditions_clauses.join(' AND '), *conditions_options]
+  end
+
+  def conditions_clauses
+    conditions_parts.map { |condition| condition.first }
+  end
+
+  def conditions_options
+    conditions_parts.map { |condition| condition[1..-1] }.flatten
+  end
+
+  def conditions_parts
+    private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
   end
 
   private
