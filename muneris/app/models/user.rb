@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "usercircle.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
            user.update_attribute(:avatar, URI.parse(avatar_url))
         end
 	  end
-	end	
+	end
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -40,7 +41,7 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
   scope :search , ->(search) do
     if search.blank?
       all
@@ -91,6 +92,18 @@ class User < ActiveRecord::Base
 
   def conditions_parts
     private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
+  end
+
+  def consumption_picture
+    # Array de imagens de consumo, usado para testes
+    consumption_pics = [
+      ActionController::Base.helpers.asset_path('poweroutage-blue.png'),
+      ActionController::Base.helpers.asset_path('poweroutage-red.png'),
+      ActionController::Base.helpers.asset_path('poweroutage-green.png')
+    ]
+
+    # TODO mudar a url para a imagem que corresponde ao consumo do usuário
+    consumption_pics[self.id % consumption_pics.size]
   end
 
   private

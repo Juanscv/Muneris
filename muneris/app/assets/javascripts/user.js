@@ -7,7 +7,7 @@ setInterval(function () {
 	$.get('/user/' + user + '/feed', function (data) {
 		$('#feed').append(data);
 	});
-} 1000);
+}, 1000);
 
 setInterval(function () {
 	// body...
@@ -15,7 +15,7 @@ setInterval(function () {
 	$.get('/user/' + user + '/notifications', function (data) {
 		$('#notifications').append(data);
 	});
-} 1000);
+}, 1000);
 
 setInterval(function () {
 	// body...
@@ -23,4 +23,4 @@ setInterval(function () {
 	$.get('/user/' + user + '/friends', function (data) {
 		$('#friends').append(data);
 	});
-} 1000);
+}, 1000);

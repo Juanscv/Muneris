@@ -40,6 +40,9 @@ gem 'open_uri_redirections'
 #Paginate lists
 gem 'will_paginate', '~> 3.0'
 
+gem 'geocoder'
+gem 'gmaps4rails'
+
 #---------------------------------------------------------------
 
 group :doc do

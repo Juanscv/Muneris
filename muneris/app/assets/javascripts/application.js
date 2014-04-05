@@ -14,9 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require gmaps/google
 
 $(function () {
-  $('#people .pagination a').live('click', function () {
+  $('#people .pagination a').on('click', function () {
     $.getScript(this.href);
     return false;
   });

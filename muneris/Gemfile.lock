@@ -50,6 +50,8 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    geocoder (1.1.9)
+    gmaps4rails (2.1.2)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.1)
@@ -152,6 +154,8 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+  geocoder
+  gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
