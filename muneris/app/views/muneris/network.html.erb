@@ -6,8 +6,10 @@
 			<%= render partial: 'user/friends' %>
 			</div>
 		</div>
-	  <%= form_tag network_path , :method => 'get' do %>
-        <%= render 'layouts/formsearch/base' %>
-      <% end %>
 	</div>
+</div>
+<div id="filter-search" class="demo-description" style="display: none; ">
+  <%= form_tag network_path , :method => 'get' do %>
+    <%= render 'layouts/formsearch/base' %>
+  <% end %>
 </div>

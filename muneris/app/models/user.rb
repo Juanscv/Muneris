@@ -26,8 +26,10 @@ class User < ActiveRecord::Base
 	      user.email = auth.info.email
 	      user.password = Devise.friendly_token[0,20]
 	      user.name = auth.info.name   # assuming the user model has a name
+        user.address = auth.info.user_location
         if auth.info.image.present?
-           avatar_url = process_uri(auth.info.image)
+           image = auth.info.image
+           avatar_url = process_uri(image)
            user.update_attribute(:avatar, URI.parse(avatar_url))
         end
 	  end
@@ -40,7 +42,7 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
   scope :search , ->(search) do
     if search.blank?
       all

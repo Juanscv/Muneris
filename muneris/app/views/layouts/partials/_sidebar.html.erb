@@ -6,10 +6,14 @@
       <h4><%= @user.familyname %></h4>
     </div>
     <div>
-        <p>Member: <%= @user.name %>
-        <br>Latest consumption (KW/h): <%= @user.bills.order("created_at").last.consumption %>
-        <br>Latest payment ($ COP): <%= @user.bills.order("created_at").last.value %>
-      
+        <p><strong><%= @user.name %></strong>
+        <% if @user.bills.nil? then %>
+          <br>Latest consumption (KW/h): <%= @user.bills.order("created_at").last.consumption %>
+          <br>Latest payment ($ COP): <%= @user.bills.order("created_at").last.value %>
+        <% else %>
+          <br>Latest consumption (KW/h): 
+          <br>Latest payment ($ COP):
+        <% end %>      
         <br>Neighbors: <%= @user.friends.count(:id) %> </p>
     </div>
   </div>

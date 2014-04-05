@@ -1773,9 +1773,10 @@ p {
   font-weight: 400;
 }
 .activity-description {
-  padding-top: 8px;
+  padding-top: 0px;
   padding-left: 3px;
   font-size: 13px;
+  display: inline-table;
 }
 .activity-image {
   width: 35px;
@@ -2043,6 +2044,44 @@ body > div:nth-child(2) > div > div > div > form > div.w-row.search-box {
 }
 
 .box-advance-search {
-  width: 500px;
+  width: 100%;
   margin: auto;
+}
+
+#people_search > div:nth-child(3) {
+  margin: 0 auto;
+  display: table;
+}
+.modal a.close-modal{
+  background: url('close.png') no-repeat 0 0 !important;
+}
+
+.people-image {
+  width: 110px;
+  float: right;
+}
+
+div > h5 > a {
+  text-decoration: none;
+}
+
+div > h4 > a {
+  text-decoration: none;
+}
+
+div > div > h5 {
+  margin: 13px auto;
+  display: table;
+}
+
+body > div:nth-child(2) > div.w-container > div > div.w-col.w-col-5 > div > table > thead > tr > th {
+  width: 33%;
+}
+
+body > div:nth-child(2) > div.w-container > div > div.w-col.w-col-5 > div > table {
+  width: 360px;
+}
+
+div > div.w-col.w-col-10.w-col-small-6.w-col-tiny-6 > div > h5 > a {
+  padding: 8px 16px;
 }
