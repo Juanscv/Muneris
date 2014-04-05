@@ -21,10 +21,7 @@
 <script type="text/javascript">
 	var App = App || {};
 
-	App.map = {
-		current_user: { "latitude": <%= current_user.latitude %>, "longitude": <%= current_user.longitude %> },
-		markers: <%= raw @markers.to_json %>
-	};
+	App.map = { markers: <%= raw @markers.to_json %> };
 </script>
 
 <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>

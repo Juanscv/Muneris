@@ -39,6 +39,16 @@ class MunerisController < ApplicationController
   end
 
   def map
+    @users = [current_user] + current_user.nearbys(10)
+
+    @markers = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+
+      # TODO mudar o width e o height para a largura e altura correspondentes
+      # a imagem que o icone final possui.
+      marker.picture url: user.consumption_picture, width: 32, height: 37
+    end
   end
 
   def people
