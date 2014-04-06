@@ -15,9 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require gmaps/google
+//= require jquery.ui.all
+//= require jquery.modal
 
 $(function () {
-  $('#people .pagination a').on('click', function () {
+  $('#people .pagination a').live('click', function () {
     $.getScript(this.href);
     return false;
   });

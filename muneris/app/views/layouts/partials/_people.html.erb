@@ -3,16 +3,16 @@
       <li>
       <div class="w-row activity-item">
         <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-          <%= link_to image_tag(user.avatar.url(:friend), class: "activity-image"), profile_path(user.id) %>
+          <%= link_to image_tag(user.avatar.url(:friend), class: "people-image"), profile_path(user.id) %>
         </div>
         <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
           <div class="activity-description">
 
-              <%=h link_to user.familyname, profile_path(user.id) %>
+              <h5> <%=h link_to user.familyname, profile_path(user.id) %> <h5/>
                <% if user == current_user then %>
                <% else %>
 
-                <%= link_to_if !current_user.friends.include?(user), "Add Friend", friendships_path(:friend_id => user), :method => :post do %>
+                <%= link_to_if !current_user.friends.include?(user), "Add Friend", friendships_path(:friend_id => user), class: "button", :method => :post do %>
                   <!--<%= link_to "Remove Friend", friendships_path(:friend_id => user), :method => :delete %>-->
                 <% end -%>
                <% end %>

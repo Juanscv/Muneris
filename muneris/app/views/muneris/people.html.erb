@@ -10,18 +10,24 @@
               <%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a member"  %>              
             </div>
             <div class="w-col w-col-2">
-              <%= submit_tag "Search", class: "w-button search", :familyname => nil %>             
+              <%= submit_tag "Search", class: "w-button search", :familyname => nil %>                        
             </div>
+          </div>
+          <div>
+            <h5><%=  link_to_modal "Advance Search", "#advance-search", :class=>"button" %></h5>                       
           </div>
       <% end %>
       
         <div id="people"><%= render 'layouts/partials/people'%></div>      
           
 		</div>
-      </div>
-      <%= form_tag people_path , :method => 'get' do %>
-        <%= render 'layouts/formsearch/base' %>
-      <% end %>
+      </div>      
+
     </div>
 </div>
 
+<div id="advance-search" class="demo-description" style="display: none; ">
+  <%= form_tag people_path , :method => 'get' do %>
+    <%= render 'layouts/formsearch/base' %>
+  <% end %>
+</div>
