@@ -19,7 +19,7 @@
 //= require jquery.modal
 
 $(function () {
-  $('#people .pagination a').live('click', function () {
+  $('#people .pagination a').on('click', function () {
     $.getScript(this.href);
     return false;
   });

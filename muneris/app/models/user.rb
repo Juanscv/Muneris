@@ -108,6 +108,10 @@ class User < ActiveRecord::Base
     consumption_pics[self.id % consumption_pics.size]
   end
 
+  def has_address?
+    !self.address.blank?
+  end
+
   private
 
   def self.process_uri(uri)

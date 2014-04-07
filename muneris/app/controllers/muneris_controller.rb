@@ -6,15 +6,23 @@ class MunerisController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
-    @users = [current_user] + current_user.nearbys(10)
+    if current_user.has_address?
+      users_nearby = current_user.nearbys(10)
+      @users = [current_user]
+      @users += users_nearby unless users_nearby.blank?
 
-    @markers = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
+      @markers = Gmaps4rails.build_markers(@users) do |user, marker|
+        if user.has_address?
+          marker.lat user.latitude
+          marker.lng user.longitude
 
-      # TODO mudar o width e o height para a largura e altura correspondentes
-      # a imagem que o icone final possui.
-      marker.picture url: user.consumption_picture, width: 32, height: 37
+          # TODO mudar o width e o height para a largura e altura correspondentes
+          # a imagem que o icone final possui.
+          marker.picture url: user.consumption_picture, width: 32, height: 37
+        end
+      end
+    else
+      @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
 
     @friendships = Friendship.all
@@ -39,15 +47,23 @@ class MunerisController < ApplicationController
   end
 
   def map
-    @users = [current_user] + current_user.nearbys(10)
+    if current_user.has_address?
+      users_nearby = current_user.nearbys(10)
+      users = [current_user]
+      users += users_nearby unless users_nearby.blank?
 
-    @markers = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
+      @markers = Gmaps4rails.build_markers(users) do |user, marker|
+        if user.has_address?
+          marker.lat user.latitude
+          marker.lng user.longitude
 
-      # TODO mudar o width e o height para a largura e altura correspondentes
-      # a imagem que o icone final possui.
-      marker.picture url: user.consumption_picture, width: 32, height: 37
+          # TODO mudar o width e o height para a largura e altura correspondentes
+          # a imagem que o icone final possui.
+          marker.picture url: user.consumption_picture, width: 32, height: 37
+        end
+      end
+    else
+      @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
   end
 
