@@ -1,0 +1,86 @@
+<div class="hero-bg">
+  <div class="w-slider w-hidden-small w-hidden-tiny" data-animation="slide" data-duration="500" data-infinite="1" data-hide-arrows="1">
+    <div class="w-slider-mask">
+      <div class="w-slide">
+        <%= image_tag("header_bg.png", class: "logo, slider") %>
+        <!-- <img src="../../assets/images/nextdoor.jpg" width="1500" height="300" alt="52f31dfe5d8eed2b6b00072b_nextdoor.jpg"> -->
+      </div>
+      <div class="w-slide">
+        <%= image_tag("bills.jpg", class: "logo, slider") %>
+        <!-- <img src="../../assets/images/bills.jpg" alt="52f31dba73df7f296b0005a1_bills.jpg"> -->
+      </div>
+    </div>
+    <div class="w-slider-arrow-left">
+      <div class="w-icon-slider-left"></div>
+    </div>
+    <div class="w-slider-arrow-right">
+      <div class="w-icon-slider-right"></div>
+    </div>
+    <div class="w-slider-nav w-round"></div>
+  </div>
+  <div class="w-container container-1">
+    <div class="w-clearfix pre-sign-up">
+      <h1 id="page-nav-Section-1">A new way to administrate&nbsp;<br>and share your consumption bills</h1>
+      <a><%= link_to "Sign up", new_user_registration_path, :class=> "sing-up-link" %></a>
+    </div>
+  </div>
+</div>
+</div>
+<footer class="section">
+<div class="w-container">
+  <h4>Use Muneris an enjoy the following services</h4>
+  <div class="section-description">Just a little snippet of what we can do.</div>
+  <div class="w-row snippet-row">
+    <div class="w-col w-col-3 w-col-small-6">
+      <a class="w-inline-block snippet">
+      	<%= image_tag("network.jpg", class: "example-image") %>
+        <!--<img class="example-image" src="../../assets/images/amigos.jpg" alt="52e9989008c9b5800e0007b7_amigos.jpg">-->
+        <div class="snippet-text-section social-snippet">
+          <div class="snippet-title">Share with your network</div>
+          <div class="snippet-text">We allow to share your record with close friends, neighbors and local businesses.</div>
+        </div>
+      </a>
+    </div>
+    <div class="w-col w-col-3 w-col-small-6">
+      <a class="w-inline-block snippet">
+      	<%= image_tag("cloud.jpg", class: "example-image") %>
+        <!--<<img class="example-image" src="../../assets/images/cloud.jpg" alt="52e99850b75b892d130008b9_cloud.jpg">-->
+        <div class="snippet-text-section cloud-snippet">
+          <div class="snippet-title">Your records on the cloud</div>
+          <div class="snippet-text">Backup and manage your records on the cloud for easy lookup and comparison.</div>
+        </div>
+      </a>
+    </div>
+    <div class="w-col w-col-3 w-col-small-6">
+      <a class="w-inline-block snippet">
+      	<%= image_tag("map.jpg", class: "example-image") %>
+        <!--<img class="example-image" src="../../assets/images/map.jpg" alt="52e998614887ee2e13000889_map.jpg">-->
+        <div class="snippet-text-section map-snippet">
+          <div class="snippet-title">Map view of your sector</div>
+          <div class="snippet-text">Have an ample vision for the consumption around you with our georeference system.</div>
+        </div>
+      </a>
+    </div>
+    <div class="w-col w-col-3 w-col-small-6">
+      <a class="w-inline-block snippet">
+      	<%= image_tag("alarms.jpg", class: "example-image") %>
+        <!--<img class="example-image" src="../../assets/images/alarms.jpg" alt="52e9987cd1e4ea7e0e000993_alarms.jpg">-->
+        <div class="snippet-text-section alert-snippet">
+          <div class="snippet-title">Alerts</div>
+          <div class="snippet-text">Set alerts for&nbsp;and be notified if&nbsp;your consumption seems to high.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="w-row secondary-row">
+    <div class="w-col w-col-9 w-col-small-6">
+      <h4>Other important stuff</h4>
+      <p class="section-description">We want to provide users with a new and improved way to manage their consumption bills that helps them in the long run to save money, and the quality of living.</p>
+    </div>
+    <div class="w-col w-col-3 w-col-small-6 button-column"><a class="nav-link sign-up" href="">Enter now</a>
+    </div>
+  </div>
+</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="../../assets/javascripts/welcome.js"></script>

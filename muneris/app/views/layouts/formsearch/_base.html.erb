@@ -1,0 +1,27 @@
+<h1>Advance Search</h1>
+
+<div class="box-advance-search"> 
+
+    <div class="">
+		  <%= text_field_tag :name , params[:name] , :placeholder => "Name", class:  "w-input"%> 
+    </div>
+    <div class="">
+      <%= text_field_tag :email, params[:email] , :placeholder => "Email", class:  "w-input"%>
+    </div>
+    <div class="">
+		  <%= text_field_tag :familyname, params[:familyname] , :placeholder => "Family name", class:  "w-input"%>
+		</div>
+    <div class="">
+      <%= text_field_tag :tariff, params[:tariff] , :placeholder => "Tariff", class:  "w-input"%>
+    </div>
+    <div class="">
+      <%= text_field_tag :locale, params[:locale] , :placeholder => "Locale", class:  "w-input"%>
+    </div>
+
+    <!--<%= hidden_field_tag :tipo_search, :advance ,:placeholder => 'Buscar' %>-->
+
+    <div class="actions">
+      <%= submit_tag "Search" , class: "w-button"%>
+    </div>
+
+</div>

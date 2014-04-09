@@ -1,0 +1,40 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+      <div class="hero-bg">
+        <div class="w-container container-1">
+          <div class="pre-sign-up">
+            <div class="w-form">
+              <div class="field">
+                <%= f.label :consumption %>
+                <%= f.number_field :consumption, class: "w-input"%>
+              </div>
+              <div class="field">
+                <%= f.label :value %>
+                <%= f.number_field :value, class: "w-input" %>
+              </div>
+              <div class="field">
+                <%= f.label :date %>
+                <%= f.date_select :date, class: "w-button" %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Add new bill", class: "w-button" %>
+              </div>
+              <%= link_to 'Back', :back %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

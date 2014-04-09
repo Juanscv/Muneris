@@ -1,0 +1,70 @@
+<div class="w-col w-col-5">
+  <h1>My consumption</h1>
+
+  <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+  <table>
+  <thead>
+    <tr>
+      <th>Consumption </th>
+      <th>Payment value </th>
+      <th>Date of bill (Y/M/D)</th>
+      <!--<th></th>
+      <th></th>
+      <th></th>-->
+    </tr>
+  </thead>
+  </div>
+
+  <tbody>
+    <% @user.bills.each do |bill| %>
+    <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+      <tr>
+        <td><%= bill.consumption %></td>
+        <td><%= bill.value %></td>
+        <td><%= bill.date %></td>
+        <!--<td><%= link_to 'Show', bill %></td>
+        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    </div>
+    <% end %>
+  </tbody>
+</table>
+
+  <!--
+   <ul class="w-list-unstyled feed">
+    <li>
+      <div class="w-row activity-item">
+        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+          <%= image_tag("usercircle.png", class: "activity-image") %>
+        </div>
+        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+          <div class="activity-description">This is some&nbsp;text inside of a div block.</div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="w-row activity-item">
+        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+          <%= image_tag("usercircle.png", class: "activity-image") %>
+          <img class="activity-image" src="images/User%20circle.png" alt="52f3183c73df7f296b000533_User%20circle.png">
+        </div>
+        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+          <div class="activity-description">This is some&nbsp;text inside of a div block.</div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="w-row activity-item">
+        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+           <%= image_tag("usercircle.png", class: "activity-image") %>
+        </div>
+        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+          <div class="activity-description">This is some&nbsp;text inside of a div block.</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  -->
+
+</div>

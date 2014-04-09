@@ -1,0 +1,23 @@
+<h1>Network</h1>
+
+<div>
+	<div class="w-container">
+ 		<div class="w-row">
+ 			<%= render partial: 'layouts/partials/netsidebar' %>
+			<div id="#friends">
+			
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="filter-search" class="demo-description" style="display: none; ">
+  <%= form_tag network_index_path , :method => 'get' do %>
+    <%= render 'layouts/formsearch/base' %>
+  <% end %>
+</div>

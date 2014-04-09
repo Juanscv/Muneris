@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+<html>
+<head>
+  <title>Muneris</title>-->
+
+  <!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+  <!--<%= csrf_meta_tags %>
+</head>
+-->
+
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Thu Feb 27 2014 03:51:21 GMT+0000 (UTC) -->
+<html data-wf-site="52e85101141f8e087d000001">
+<head>
+  <meta charset="utf-8">
+  <title>Muneris</title>
+  <meta name="description" content="Muneris is a social network that helps households and local businesses administrate and share their consumption bills.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" type="text/css" href="../../assets/stylesheets/welcome.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,400,600,700,800","Duru Sans:regular:latin-ext,latin","Carrois Gothic:regular","Dosis:200,regular"]
+      }
+    });
+  </script>
+  <script>
+    if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
+  </script>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51e081c5241660ce7800001f/51e755c7e48178d53e000034_thumbnail-starter.png">
+</head>
+
+<body>
+    <div class="section header">
+      <div class="w-container">
+        <div class="w-row">
+          <div class="w-col w-col-4 company-column">
+            <% if user_signed_in? %>
+            <%= link_to (image_tag 'logomuneris.png', class: "logo") , dashboard_path %>
+            <% else %>
+            <%= link_to (image_tag 'logomuneris.png', class: "logo") , root_path %>
+            <% end %>
+          </div>
+          <div class="w-col w-col-8 nav-bar">
+
+            <% if user_signed_in? %>
+              <%= link_to 'Dashboard',dashboard_path, class: "nav-link" %>                        
+              <%= link_to 'Profile',profile_path, class: "nav-link" %>
+              <%= link_to 'Network',network_index_path, class: "nav-link" %>
+              <%= link_to 'Map', map_path, class: "nav-link" %>
+              Signed as <%= current_user.familyname %>
+              <%= link_to "Sign out", destroy_user_session_path, :class=> "nav-link log-in", :method => :delete %>
+
+            <% else %>
+              <%= link_to "Sign in", new_user_session_path, :class=> "nav-link log-in" %>
+              <%= link_to "Sign up", new_user_registration_path, :class=> "nav-link sign-up" %> 
+              <%= link_to "Enter with Facebook", user_omniauth_authorize_path(:facebook), :class=> "nav-link sign-up" %>
+              
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

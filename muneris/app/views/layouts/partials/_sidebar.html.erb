@@ -1,0 +1,56 @@
+<div class="w-col w-col-3">
+  <div>
+    <div class="profle-banner profile-picture">
+      <%= image_tag @user.avatar.url(:profile) %>
+      <!--<img class="profile-picture" src="images/home-icon.png" alt="52f410466f60c03a19000296_home-icon.png">-->
+      <h4><%= @user.familyname %></h4>
+    </div>
+
+    <div>
+      <p><strong><%= @user.name %></strong>
+        <% if @user.bills.nil? then %>
+        <br>Latest consumption (KW/h): <%= @user.bills.order("created_at").last.consumption %>
+        <br>Latest payment ($ COP): <%= @user.bills.order("created_at").last.value %>
+        <% else %>
+        <br>Latest consumption (KW/h): 
+        <br>Latest payment ($ COP):
+        <% end %>      
+        <br>Neighbors: <%= @user.friends.count(:id) %> </p>
+    </div>
+  </div>
+
+  <% if @is_current_user then %>
+  <ul class="w-list-unstyled">
+    <li>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= link_to image_tag("button-add.png"), new_bill_path %>
+        </div>
+        <div class="w-col w-col-10">
+          <h4><%= link_to 'Add new bill',new_bill_path, class: "profile-sections" %></h4>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="w-row">
+
+        <div class="w-col w-col-2">
+          <%= link_to image_tag("button-add.png"), new_network_path %>
+        </div>
+        <div class="w-col w-col-10">
+          <h4><%= link_to 'Add to network', new_network_path, class: "profile-sections" %></h4>
+        </div>        
+      </div>
+    </li>
+    <li>
+      <div class="w-row">
+
+        <div class="w-col w-col-10">
+          <h5><%= link_to 'Edit profile',edit_user_registration_path, class: "profile-sections" %></h5>
+        </div>        
+      </div>
+    </li>
+  </ul>
+  <% end %>
+</div>
+

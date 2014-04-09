@@ -1,0 +1,28 @@
+<div>
+	<div class="hero-bg">
+	  <div class="w-container container-1">
+	    <h1 class="log-title" id="page-nav-Section-1">Change your password</h1>
+	    <div class="pre-sign-up">
+	      <div class="w-form">
+			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+			  <%= devise_error_messages! %>
+			  <%= f.hidden_field :reset_password_token %>
+
+			  <div><%= f.label :password, "New password" %>
+  			  <%= f.password_field :password, :placeholder => "Enter your new password", :autofocus => true, class: "w-input" %></div>
+
+  			  <div><%= f.label :password_confirmation, "Confirm new password" %>
+  			  <%= f.password_field :password_confirmation, class: "w-input", :placeholder => "Confirm your new password" %></div>
+
+			  <div><%= f.submit "Change my password", class: "w-button" %></div>
+
+			 <%= render "devise/shared/links" %>
+
+			<% end %>
+			
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>	
+

@@ -1,0 +1,47 @@
+<div class="w-col w-col-3 neighbor-options">
+  <div>
+    <div class="profle-banner">
+      <div class="w-form">
+      <%= form_tag network_index_path, :method => 'get', :id => "friends_search" do %>
+       <div class="w-row search-box">
+            <div class="w-col w-col-10">
+              <%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a neighbor"  %>              
+            </div>
+            <div class="w-col w-col-2">
+              <%= submit_tag "Search", class: "w-button search", :familyname => nil %>             
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <ul class="w-list-unstyled">
+    <li>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= image_tag("pinmapicon.png") %>
+        </div>
+        <div class="w-col w-col-10">
+          <h4 class="profile-sections">Show on map</h4>
+        </div>
+      </div>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= image_tag("filtericon.png") %>
+        </div>
+        <div class="w-col w-col-10">
+          <h4 class="profile-sections"><%= link_to_modal "Advance Filter", "#filter-search"%> </h4>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="w-row">
+    <div class="w-col w-col-2">
+      <%= image_tag("button-add.png") %>
+      <!--<img src="images/button-add.png" alt="52f438992b5f813919000448_button-add.png">-->
+    </div>
+    <div class="w-col w-col-10">
+      <h4 class="profile-sections"><%= link_to 'Add to network',new_network_path, class: "profile-sections" %></h4>
+    </div>
+  </div>
+</div>
