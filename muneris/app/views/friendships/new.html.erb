@@ -4,7 +4,7 @@
 			<div class="people-list">
 				<h1>Add friends</h1>
 
-				<%= form_tag new_nerwork_path, :method => 'get', :id => "people_search" do %>
+				<%= form_tag new_network_path, :method => 'get', :id => "people_search" do %>
 				<div class="w-row search-box">
 					<div class="w-col w-col-10">
 						<%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a member"  %>
@@ -32,9 +32,9 @@
 									<% elsif current_user.invited? user %>
 										Pending request ...
 									<% elsif user.invited? current_user %>
-										<%= link_to "Confirm friend?", friend_path(user), :method => "put" %>
+										<%= link_to "Confirm friend?", network_path(user), :method => "put" %>
 									<% else  %>
-										<%= link_to "Add friend?", friends_path(:user_id => user), :method => "post" %>
+										<%= link_to "Add friend?", network_index_path(:user_id => user), :method => "post" %>
 									<% end %>
 								</div>
 							</div>
