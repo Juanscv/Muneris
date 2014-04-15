@@ -48,6 +48,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+gem 'faker'
+
 #---------------------------------------------------------------
 
 group :doc do

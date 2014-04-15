@@ -1,5 +1,7 @@
 class MunerisController < ApplicationController
   
+  before_filter :authenticate_user!
+
   def dashboard
     if params[:user_id].nil? then
       @user = current_user
