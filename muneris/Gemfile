@@ -35,6 +35,8 @@ gem 'amistad'
 #Facebook Login
 gem 'omniauth-facebook'
 
+gem 'cancan'
+
 gem "paperclip", "~> 4.1"
 
 gem 'open_uri_redirections'

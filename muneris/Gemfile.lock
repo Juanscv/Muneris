@@ -31,6 +31,7 @@ GEM
     bcrypt (3.1.7)
     bcrypt (3.1.7-x86-mingw32)
     builder (3.1.4)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -174,6 +175,7 @@ PLATFORMS
 
 DEPENDENCIES
   amistad
+  cancan
   devise
   faker
   geocoder
