@@ -25,9 +25,13 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    amistad (0.9.2)
+      squeel
     arel (4.0.2)
     bcrypt (3.1.7)
+    bcrypt (3.1.7-x86-mingw32)
     builder (3.1.4)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -47,6 +51,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    faker (1.3.0)
+      i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     geocoder (1.1.9)
@@ -102,6 +108,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -140,6 +148,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    squeel (1.1.1)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      polyamorous (~> 0.6.0)
     thor (0.19.1)
     thread_safe (0.3.2)
     tilt (1.4.1)
@@ -159,9 +171,13 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
+  amistad
+  cancan
   devise
+  faker
   geocoder
   gmaps4rails
   jbuilder (~> 1.2)

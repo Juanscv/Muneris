@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-	
+
   def feed
   	render partial: 'feed'
   end

@@ -11,18 +11,19 @@ Muneris::Application.routes.draw do
 
   resources :bills
 
-  resources :friendships
-
+  resources :network, :controller => 'friendships', :except => [:show, :edit] do
+    get "requests", :on => :collection
+    get "invites", :on => :collection
+  end
+  
   get "/user/:id/feed", to: 'user#feed', as: :feed
   get "/user/:id/notifications", to: 'user#notifications', as: :notifications
-  get "/user/:id/friends", to: 'user#friends', as: :friends
+  get "/user/:id/network", to: 'user#network', as: :usernetwork
   get "/dashboard", to: 'muneris#dashboard', as: :dashboard
   get "/profile(/:user_id)", to: 'muneris#profile', as: :profile
-  get "/network", to: 'muneris#network', as: :network
   get "/map", to: 'muneris#map', as: :map
-  get "/people", to: 'muneris#people', as: :people
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
-
+  
+  
 
 end

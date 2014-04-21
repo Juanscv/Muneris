@@ -1,5 +1,56 @@
-<h1>New friendship</h1>
+<div>
+	<div class="w-container">
+		<div class="w-row">		
+			<div class="people-list">
+				<h1>Add friends</h1>
 
-<%= render 'form' %>
+				<%= form_tag new_network_path, :method => 'get', :id => "people_search" do %>
+				<div class="w-row search-box">
+					<div class="w-col w-col-10">
+						<%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a member"  %>
+					</div>
+					<div class="w-col w-col-2">
+						<%= submit_tag "Search", class: "w-button search", :familyname => nil %>
+						<%=  link_to_modal "Advance Search", "#advance-search", :class=>"w-button search" %>                        
+					</div>
+				</div>
+				<% end %>
 
-<%= link_to 'Back', friendships_path %>
+
+				<ul class="w-list-unstyled feed">
+					<% for user in @users %>
+					<li>
+						<div class="w-row activity-item">
+							<div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+								<%= link_to image_tag(user.avatar.url(:friend), class: "people-image"), profile_path(user.id) %>
+							</div>
+							<div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
+								<div class="activity-description">
+									<%= user.familyname %>
+									<% if current_user.friend_with? user %>
+										You are already friends!
+									<% elsif current_user.invited? user %>
+										Pending request ...
+									<% elsif user.invited? current_user %>
+										<%= link_to "Confirm friend?", network_path(user), :method => "put" %>
+									<% else  %>
+										<%= link_to "Add friend?", network_index_path(:user_id => user), :method => "post" %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					<% end %>
+					</li>
+				</ul>
+				<%= will_paginate @users %>
+
+			</div>
+		</div>      
+	</div>
+</div>
+
+<div id="advance-search" class="demo-description" style="display: none; ">
+	<%= form_tag new_network_path , :method => 'get' do %>
+	<%= render 'layouts/formsearch/base' %>
+	<% end %>
+</div>

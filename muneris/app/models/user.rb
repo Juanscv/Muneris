@@ -2,10 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_many :friendships
-  has_many :friends, :through => :friendships
-  has_many :inverse_friendships, :class_name => "friendship", :foreign_key => "friend_id"
-  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  include Amistad::FriendModel
 
   has_many :userbills
   has_many :bills, :through => :userbills, dependent: :destroy
@@ -17,8 +14,12 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "usercircle.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  geocoded_by :address
+  geocoded_by :get_location
   after_validation :geocode, :if => :address_changed?
+
+  def get_location
+    ["#{address}","#{locale}"].compact.join(', ')
+  end
 
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -33,7 +34,7 @@ class User < ActiveRecord::Base
            avatar_url = process_uri(image)
            user.update_attribute(:avatar, URI.parse(avatar_url))
         end
-	  end
+  end
 	end
 
   def self.new_with_session(params, session)
@@ -123,3 +124,4 @@ class User < ActiveRecord::Base
   end
 
 end
+

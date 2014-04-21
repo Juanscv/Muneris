@@ -30,8 +30,12 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
+gem 'amistad'
+
 #Facebook Login
 gem 'omniauth-facebook'
+
+gem 'cancan'
 
 gem "paperclip", "~> 4.1"
 
@@ -45,6 +49,8 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+
+gem 'faker'
 
 #---------------------------------------------------------------
 

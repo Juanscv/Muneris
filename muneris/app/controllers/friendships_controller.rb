@@ -1,77 +1,50 @@
 class FriendshipsController < ApplicationController
-  before_action :set_friendship, only: [:show, :edit, :update, :destroy]
+    
+  before_filter :authenticate_user!
 
-  # GET /friendships
-  # GET /friendships.json
+  require 'will_paginate/array'
+
   def index
-    @friendships = Friendship.all
+    @friends = current_user.friends.paginate(:page => params[:page], :per_page => 8).search(params[:search])
   end
 
-  # GET /friendships/1
-  # GET /friendships/1.json
-  def show
-  end
-
-  # GET /friendships/new
   def new
-    @friendship = Friendship.new
+    @users = User.all(:conditions => ["id != ?", current_user.id]).paginate(:page => params[:page], :per_page => 8)
   end
 
-  # GET /friendships/1/edit
-  def edit
-  end
-
-  # POST /friendships
-  # POST /friendships.json
   def create
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-
-    respond_to do |format|
-      if @friendship.save
-        format.html { redirect_to :back, notice: 'Friendship was successfully created.' }
-        format.json { render action: 'show', status: :created, location: :back }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+    invitee = User.find_by_id(params[:user_id])
+    if current_user.invite invitee
+      redirect_to new_network_path, :notice => "Successfully invited friend!"
+    else
+      redirect_to new_network_path, :notice => "Sorry! You can't invite that user!"
     end
   end
 
-  # PATCH/PUT /friendships/1
-  # PATCH/PUT /friendships/1.json
   def update
-    respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+    inviter = User.find_by_id(params[:id])
+    if current_user.approve inviter
+      redirect_to new_network_path, :notice => "Successfully confirmed friend!"
+    else
+      redirect_to new_network_path, :notice => "Sorry! Could not confirm friend!"
     end
   end
 
-  # DELETE /friendships/1
-  # DELETE /friendships/1.json
+  def requests
+    @pending_requests = current_user.pending_invited_by
+  end
+
+  def invites
+    @pending_invites = current_user.pending_invited
+  end
+
   def destroy
-    @friendship = current_user.friendships.find(params[:id])
-    @friendship.destroy
-    flash[:notice] = "Removed friendship."
-    redirect_to :back
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
+    user = User.find_by_id(params[:id])
+    if current_user.remove_friendship user
+      redirect_to network_path, :notice => "Successfully removed friend!"
+    else
+      redirect_to network_path, :notice => "Sorry, couldn't remove friend!"
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_friendship
-      @friendship = Friendship.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id)
-    end
+  
 end
