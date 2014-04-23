@@ -1,4 +1,7 @@
 class Friendship < ActiveRecord::Base
-	belongs_to :user 
+	include PublicActivity::Model
+  	tracked
+
+	belongs_to :user
 	belongs_to :friend, :class_name => "User"  
 end
