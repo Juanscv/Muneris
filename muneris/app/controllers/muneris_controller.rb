@@ -26,9 +26,10 @@ class MunerisController < ApplicationController
       end
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
+      @friends = current_user.friends.paginate(:page => params[:page], :per_page => 8).search(params[:search])
     end
 
-    @activities = PublicActivity::Activity.order("created_at desc")
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
     @friendships = Friendship.all
   end
@@ -41,7 +42,7 @@ class MunerisController < ApplicationController
     end
     @is_current_user = current_user == @user
 
-    @activities = PublicActivity::Activity.order("created_at desc")
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
     
   end
 

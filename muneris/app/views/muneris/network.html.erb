@@ -1,0 +1,15 @@
+<div>
+	<div class="w-container">
+ 		<div class="w-row">
+ 			<%= render 'layouts/partials/netsidebar' %>
+			<div id="#friends">
+			<%= render partial: 'user/friends' %>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="filter-search" class="demo-description" style="display: none; ">
+  <%= form_tag network_path , :method => 'get' do %>
+    <%= render 'layouts/formsearch/base' %>
+  <% end %>
+</div>

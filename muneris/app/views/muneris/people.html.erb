@@ -1,0 +1,33 @@
+<div>
+    <div class="w-container">
+      <div class="w-row">		
+		<div class="people-list">
+		  <h1>All Users</h1>
+
+		  <%= form_tag people_path, :method => 'get', :id => "people_search" do %>
+		   <div class="w-row search-box">
+            <div class="w-col w-col-10">
+              <%= text_field_tag :search, params[:search], class: "w-input", :placeholder => "Search for a member"  %>              
+            </div>
+            <div class="w-col w-col-2">
+              <%= submit_tag "Search", class: "w-button search", :familyname => nil %>                        
+            </div>
+          </div>
+          <div>
+            <h5><%=  link_to_modal "Advance Search", "#advance-search", :class=>"button" %></h5>                       
+          </div>
+      <% end %>
+      
+        <div id="people"><%= render 'layouts/partials/people'%></div>      
+          
+		</div>
+      </div>      
+
+    </div>
+</div>
+
+<div id="advance-search" class="demo-description" style="display: none; ">
+  <%= form_tag people_path , :method => 'get' do %>
+    <%= render 'layouts/formsearch/base' %>
+  <% end %>
+</div>

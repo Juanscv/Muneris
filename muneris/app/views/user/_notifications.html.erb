@@ -1,5 +1,8 @@
 <h1>User#notifications</h1>
 
 <% @activities.each do |activity| %>
-  <%= activity.inspect %>
+  <div class="activity">
+  	<%= activity.owner if activity.owner %>
+  	<%= render_activity activity %>
+  </div>
 <% end %>
