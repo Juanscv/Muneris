@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "#{name}"
+  end
+
   scope :search , ->(search) do
     if search.blank?
       all
