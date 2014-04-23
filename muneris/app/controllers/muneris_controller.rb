@@ -29,6 +29,8 @@ class MunerisController < ApplicationController
       @friends = current_user.friends.paginate(:page => params[:page], :per_page => 8).search(params[:search])
     end
 
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
+
     @friendships = Friendship.all
   end
 
@@ -39,6 +41,9 @@ class MunerisController < ApplicationController
       @user = User.find(params[:user_id])
     end
     @is_current_user = current_user == @user
+
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
+    
   end
 
   def map

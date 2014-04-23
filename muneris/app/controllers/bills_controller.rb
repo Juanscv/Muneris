@@ -27,8 +27,9 @@ class BillsController < ApplicationController
     @bill = Bill.new(bill_params)
 
     respond_to do |format|
-      if @bill.save
+      if @bill.save        
         current_user.userbills.create!(bill_id: @bill.id)
+        @bill.create_activity :create, owner: current_user
         format.html { redirect_to profile_path, notice: 'Bill was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bill }
       else
@@ -43,6 +44,7 @@ class BillsController < ApplicationController
   def update
     respond_to do |format|
       if @bill.update(bill_params)
+        @bill.create_activity :update, owner: current_user
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
         format.json { head :no_content }
       else
@@ -56,6 +58,7 @@ class BillsController < ApplicationController
   # DELETE /bills/1.json
   def destroy
     @bill.destroy
+    @bill.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }

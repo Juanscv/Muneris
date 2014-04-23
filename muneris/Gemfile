@@ -52,6 +52,8 @@ gem 'gmaps4rails'
 
 gem 'faker'
 
+gem 'public_activity'
+
 #---------------------------------------------------------------
 
 group :doc do
