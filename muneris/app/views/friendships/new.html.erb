@@ -22,22 +22,19 @@
 					<li>
 						<div class="w-row activity-item">
 							<div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-								<%= link_to image_tag(user.avatar.url(:link), class: "people-image"), profile_path(user.id) %>
+								<%= link_to image_tag(user.avatar.url(:friend), class: "people-image"), profile_path(user.id) %>
 							</div>
 							<div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
 								<div class="activity-description">
 									<%= user.familyname %>
 									<% if current_user.friend_with? user %>
-										You are friends
-										<%= link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?' } %>
+										You are already friends!
 									<% elsif current_user.invited? user %>
 										Pending request ...
 									<% elsif user.invited? current_user %>
-										<%= link_to "Confirm", network_path(user), :method => "put" %>
-										|
-										<%= link_to "Cancel", network_path(user), :method => "delete" %>
+										<%= link_to "Confirm friend?", network_path(user), :method => "put" %>
 									<% else  %>
-										<%= link_to "Add", network_index_path(:user_id => user), :method => "post" %>
+										<%= link_to "Add friend?", network_index_path(:user_id => user), :method => "post" %>
 									<% end %>
 								</div>
 							</div>

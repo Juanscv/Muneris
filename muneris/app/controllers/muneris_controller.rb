@@ -28,8 +28,6 @@ class MunerisController < ApplicationController
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
 
-    @activities = PublicActivity::Activity.order("created_at desc")
-
     @friendships = Friendship.all
   end
 
@@ -40,9 +38,6 @@ class MunerisController < ApplicationController
       @user = User.find(params[:user_id])
     end
     @is_current_user = current_user == @user
-
-    @activities = PublicActivity::Activity.order("created_at desc")
-    
   end
 
   def map
