@@ -1,17 +1,8 @@
 <h1>Your feeds</h1>
 <% @activities.each do |activity| %>
   <div class="activity">
-	  <div class="body">
-	  	<div class="mega-icon" style="background-image: url('/assets/add-icon.svg')"></div>	   	
-	   	<div class="title">
-	   		<%= activity.owner if activity.owner %>
-	   		<%= render_activity activity %> 
-	   	</div>
-	   	<div class="details">
-	   		<div class="avatar">
-	   			<%= image_tag @user.avatar.url(:profile) %>
-	   		</div>
-	   	</div>	  	 	
-	  </div>
+  	<%= render_activity activity %>
   </div>
 <% end %>
+
+

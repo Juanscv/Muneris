@@ -1,7 +1,21 @@
-update a bill
+<div class="body">
+	<div class="mega-icon" style="background-image: url('/assets/update-icon.svg')"></div>	
+	<abbr class="timeago"><%= time_ago_in_words(Time.now) %></abbr>  	
+	<div class="title">
+		<%= link_to activity.owner.familyname, profile_path(activity.owner_id) if activity.owner %>
+		update a bill
 
-<% if activity.trackable %>
-  <%= link_to activity.trackable.name, activity.trackable %>
-<% else %>
-  which has since been removed
-<% end %>
+		<% if activity.trackable %>
+		  <%= link_to activity.trackable_type, activity.trackable %>
+		<% else %>
+		  which has since been removed
+		<% end %>	   		
+	</div>
+	<div class="details">
+		<div class="avatar">
+			<%= image_tag @user.avatar.url(:profile) %>
+		</div>
+		<%= puts "#{activity.parameters['consumption']}" if activity.parameters %>
+		<%= puts "#{activity.parameters['value']}" if activity.parameters %>  
+	</div>	  	 	
+</div>

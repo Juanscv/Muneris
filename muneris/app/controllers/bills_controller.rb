@@ -29,7 +29,7 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.save        
         current_user.userbills.create!(bill_id: @bill.id)
-        @bill.create_activity :create, owner: current_user
+        @bill.create_activity :create, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
         format.html { redirect_to profile_path, notice: 'Bill was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bill }
       else
@@ -44,7 +44,7 @@ class BillsController < ApplicationController
   def update
     respond_to do |format|
       if @bill.update(bill_params)
-        @bill.create_activity :update, owner: current_user
+        @bill.create_activity :update, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
         format.json { head :no_content }
       else

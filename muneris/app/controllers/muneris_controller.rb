@@ -34,7 +34,6 @@ class MunerisController < ApplicationController
 
    
 
-
     @friendships = Friendship.all
   end
 
