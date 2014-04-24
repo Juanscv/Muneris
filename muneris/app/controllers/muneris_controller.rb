@@ -22,6 +22,7 @@ class MunerisController < ApplicationController
           # TODO mudar o width e o height para a largura e altura correspondentes
           # a imagem que o icone final possui.
           marker.picture url: user.consumption_picture, width: 32, height: 37
+
         end
       end
     else
@@ -57,12 +58,17 @@ class MunerisController < ApplicationController
 
       @markers = Gmaps4rails.build_markers(users) do |user, marker|
         if user.has_address?
+          marker.infowindow render_to_string(:partial => "/layouts/partials/infowindow", :locals => { :user => user} )
+          marker.title user.familyname
+
           marker.lat user.latitude
           marker.lng user.longitude
 
           # TODO mudar o width e o height para a largura e altura correspondentes
           # a imagem que o icone final possui.
           marker.picture url: user.consumption_picture, width: 32, height: 37
+
+          
         end
       end
     else
