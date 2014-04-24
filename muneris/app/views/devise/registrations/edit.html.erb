@@ -42,7 +42,17 @@
             <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
 
             <div ><%= f.label :tariff %>
-            <%= f.text_field :tariff, class: "w-input", :placeholder => "Example Residencial Estrato 4"  %></div>
+            <%= select_tag("user[tariff]", options_for_select([
+                                                                ["Residencial Estrato 1" , "Residencial Estrato 1"],
+                                                                ["Residencial Estrato 2" , "Residencial Estrato 3"],
+                                                                ["Residencial Estrato 3" , "Residencial Estrato 3"], 
+                                                                ["Residencial Estrato 4" , "Residencial Estrato 4"],
+                                                                ["Residencial Estrato 5" , "Residencial Estrato 5"],
+                                                                ["Residencial Estrato 6" , "Residencial Estrato 6"],
+                                                                ["Comercial Nivel 1" , "Comercial Nivel 1"],
+                                                                ["Comercial Nivel 2" , "Comercial Nivel 2"]
+                                                              ]), class: 'w-input', prompt: "Select an option") %>
+              
 
               <div><%= f.label :locale %>
             <%= f.text_field :locale,  class: "w-input", :placeholder => "Enter by City, State, Country" %></div>
