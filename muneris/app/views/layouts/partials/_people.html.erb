@@ -1,25 +1,20 @@
-<% for user in @users %>
-  <ul class="w-list-unstyled feed">
-      <li>
-      <div class="w-row activity-item">
-        <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-          <%= link_to image_tag(user.avatar.url(:friend), class: "people-image"), profile_path(user.id) %>
+<div class="w-container">
+  <div class="w-row">
+
+    <div class="user-grid-item">
+      <% for friendship in @friends %>
+      <div class="w-col">
+        <div class="usercircleprofile">
+          <%= link_to image_tag(friendship.avatar.url, class: "usercircleprofile"), profile_path(friendship.id) %>
         </div>
-        <div class="w-col w-col-10 w-col-small-6 w-col-tiny-6">
-          <div class="activity-description">
-
-              <h5> <%=h link_to user.familyname, profile_path(user.id) %> <h5/>
-               <% if user == current_user then %>
-               <% else %>
-
-                <%= link_to_if !current_user.friends.include?(user), "Add Friend", friendships_path(:friend_id => user), class: "button", :method => :post do %>
-                  <!--<%= link_to "Remove Friend", friendships_path(:friend_id => user), :method => :delete %>-->
-                <% end -%>
-               <% end %>
-          </div>
+        <div class="user-grid-label">      
+          <%= h link_to friendship.familyname, profile_path(friendship.id) %>
         </div>
       </div>
-    </li>
-   </ul>
-<% end %>
-<%= will_paginate @users %>
+      <% end %>
+    </div>
+
+
+    <%= will_paginate @friends %>
+  </div>
+</div>

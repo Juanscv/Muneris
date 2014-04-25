@@ -3,19 +3,19 @@
 
 <div class="w-container">
 	<div class="wice-grid">
-		<%= grid(@users_grid) do |g|
+		<%= grid(@friends_grid) do |g|
 
 			g.column do |user|
 				link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
 			end
 
-			g.column name: 'Family Name', attribute: 'name'
+			g.column name: 'Family Name', model: 'User', attribute: 'familyname'
 
-			g.column  name: 'Classification', attribute: 'tariff', custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Comercial Nivel 1", "Comercial Nivel 2"]
+			g.column  name: 'Classification', model: 'User', attribute: 'tariff', custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Comercial Nivel 1", "Comercial Nivel 2"]
 
-				g.column name: 'Address', attribute: 'address'
+			g.column name: 'Address', model: 'User', attribute: 'address'
 
-				g.column name: 'Location', attribute: 'locale'
+			g.column name: 'Location', model: 'User', attribute: 'locale'
 
 		end -%>
 	</div>

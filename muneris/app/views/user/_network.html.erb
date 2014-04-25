@@ -1,2 +1,18 @@
-<h1>User#friends</h1>
-<p>Find me in app/views/user/friends.html.erb</p>
+<h1>Recently added</h1>
+
+
+<ul class="w-list-unstyled feed">
+
+	<% for friendship in @friends %>
+		<li>
+			<div class="w-row activity-item">
+				<div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+					<%= link_to image_tag(friendship.avatar.url(:profile), class: "people-image"), profile_path(friendship.id) %>
+				</div>
+				<div class="w-col w-col-10 w-col-small-6">    
+					<%= h link_to friendship.familyname, profile_path(friendship.id) %>
+				</div>
+			</div>
+		</li>
+	<% end %>
+</ul>

@@ -5,14 +5,11 @@ class FriendshipsController < ApplicationController
   require 'will_paginate/array'
 
   def index
-
-    @users_grid = initialize_grid(User.all(:conditions => ["id != ?", current_user.id]))
-
+    @friends_grid = initialize_grid(Friendship, include: [:user, :friends])
   end
 
   def new
     @users = User.all(:conditions => ["id != ?", current_user.id]).paginate(:page => params[:page], :per_page => 8)
-
   end
 
   def create
