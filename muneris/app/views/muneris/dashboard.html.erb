@@ -5,16 +5,15 @@
 <div>
 	<div class="w-container">
   		<div class="w-row">
-  			<div id="#network">
+  			<div id="network" class="w-col w-col-3">
 				<%= render partial: 'user/network' %>
 			</div>
-			<div id="#feed">
+			<div id="feed" class="w-col w-col-5">
 				<%= render partial: 'user/feed' %>
 			</div>
 
-			<div id="#notifications">
-				<%= render partial: 'user/notifications' %>
-				
+			<div id="notifications" class="w-col notifications">
+				<%= render partial: 'user/notifications' %>				
 			</div>
 		</div>
 	</div>
