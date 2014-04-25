@@ -24,7 +24,7 @@ class FriendshipsController < ApplicationController
   def update
     inviter = User.find_by_id(params[:id])
     if current_user.approve inviter
-      #@frienship.create_activity :update, owner: current_user
+      current_user.create_activity :update, owner: current_user
       redirect_to new_network_path, :notice => "Successfully confirmed friend!"
     else
       redirect_to new_network_path, :notice => "Sorry! Could not confirm friend!"
@@ -42,7 +42,7 @@ class FriendshipsController < ApplicationController
   def destroy
     user = User.find_by_id(params[:id])
     if current_user.remove_friendship user
-      #@frienship.create_activity :destroy, owner: current_user
+      current_user.create_activity :destroy, owner: current_user
       redirect_to network_path, :notice => "Successfully removed friend!"
     else
       redirect_to network_path, :notice => "Sorry, couldn't remove friend!"

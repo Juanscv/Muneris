@@ -32,9 +32,7 @@ class MunerisController < ApplicationController
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
-   
-
-    @friendships = Friendship.all
+    @friends = current_user.friends
   end
 
   def profile
