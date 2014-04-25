@@ -1,17 +1,22 @@
-<h1>Network</h1>
+<h1>Your Network</h1>
 
-<div>
-	<div class="w-container">
- 		<div class="w-row">
- 			<%= render partial: 'layouts/partials/netsidebar' %>
-			<%= render partial: 'user/friends' %>
-		</div>
+
+<div class="w-container">
+	<div class="wice-grid">
+		<%= grid(@users_grid) do |g|
+
+			g.column do |user|
+				link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
+			end
+
+			g.column name: 'Family Name', attribute: 'name'
+
+			g.column  name: 'Classification', attribute: 'tariff', custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Comercial Nivel 1", "Comercial Nivel 2"]
+
+				g.column name: 'Address', attribute: 'address'
+
+				g.column name: 'Location', attribute: 'locale'
+
+		end -%>
 	</div>
 </div>
-
-<div id="filter-search" class="demo-description" style="display: none; ">
-  <%= form_tag network_index_path , :method => 'get' do %>
-    <%= render 'layouts/formsearch/base' %>
-  <% end %>
-</div>
-

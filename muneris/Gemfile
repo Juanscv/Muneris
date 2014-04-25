@@ -40,9 +40,11 @@ gem 'cancan'
 gem "paperclip", "~> 4.1"
 
 gem 'open_uri_redirections'
+
+#jQuery
+gem "jquery-rails"
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails'	
-
 
 #Paginate lists
 gem 'will_paginate', '~> 3.0'
@@ -53,6 +55,8 @@ gem 'gmaps4rails'
 gem 'faker'
 
 gem 'public_activity'
+
+gem "wice_grid", '3.4.2'
 
 #---------------------------------------------------------------
 
