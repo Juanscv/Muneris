@@ -1,14 +1,13 @@
 <div class="w-col w-col-3">
   <div>
     <div class="profle-banner profile-picture">
-      <%= image_tag @user.avatar.url(:profile), class: "usercircleprofile" %>
-      <!--<img class="profile-picture" src="images/home-icon.png" alt="52f410466f60c03a19000296_home-icon.png">-->
+      <%= image_tag @user.avatar.url(:profile), class: "avatar-eprofile" %>
       <h4><%= @user.familyname %></h4>
     </div>
 
     <div>
       <p><strong><%= @user.name %></strong>
-        <% if @user.bills.nil? then %>
+        <% if !@user.bills.nil? then %>
         <br>Latest consumption (KW/h): <%= @user.bills.order("created_at").last.consumption %>
         <br>Latest payment ($ COP): <%= @user.bills.order("created_at").last.value %>
         <% else %>
@@ -62,24 +61,22 @@
 
   <% else %>
 
-  <ul>
+  <ul class="w-list-unstyled">
     <li>
       <div class="w-row">
-
-        <div class="w-col w-col-10">
+        <div class="w-col w-col-12">
           <h5>
             <% if current_user.friend_with? @user %>
                   <br>
                   You are friends
-                  |
+                  <br>
                   <%= link_to 'Remove', network_path(@user), :method => "delete", data: { confirm: 'Are you sure?' } %>
                 <% elsif current_user.invited? @user %>
                   <br>Pending request...
                 <% elsif @user.invited? current_user %>
-                  <br>
-                  <%= link_to "Confirm", network_path(@user), :method => "put" %>
-                  |
-                  <%= link_to "Cancel", network_path(@user), :method => "delete" %>
+                  <br> Waiting response
+                  <br><%= link_to "Confirm", network_path(@user), :method => "put" %>
+                  <br><%= link_to "Cancel", network_path(@user), :method => "delete" %>
                 <% else  %>
                   <br><%= link_to "Add", network_index_path(:user_id => @user), :method => "post" %>
               <% end %>
