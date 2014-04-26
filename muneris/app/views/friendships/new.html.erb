@@ -24,11 +24,15 @@
 		elsif current_user.invited? user
 			link_to "Cancel", network_path(user), :method => "delete"
 		elsif user.invited? current_user
-			link_to "Confirm", network_path(user), :method => "put"
-			"|"	
-			link_to "Cancel", network_path(user), :method => "delete"
+			link_to "Accept", network_path(user), :method => "put"
 		else
 			link_to "Add", network_index_path(:user_id => user), :method => "post"
+		end
+	end
+
+	g.column do |user|
+		if user.invited? current_user
+			link_to "Reject", network_path(user), :method => "delete"
 		end
 	end
 
