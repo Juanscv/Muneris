@@ -1,31 +1,63 @@
 <h1>Listing bills</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Consumption</th>
-      <th>Value</th>
-      <th>Date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= define_grid(@bills_grid, hide_submit_button: true) do |g|
 
-  <tbody>
-    <% @bills.each do |bill| %>
-      <tr>
-        <td><%= bill.consumption %></td>
-        <td><%= bill.value %></td>
-        <td><%= bill.date %></td>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  g.blank_slate  "No records found"
 
-<br>
+  g.column name: 'Consumption', attribute: 'consumption', auto_reload:  true, detach_with_id: :consumption_filter
 
-<%= link_to 'New Bill', new_bill_path %>
+  g.column  name: 'Payment Value', attribute: 'value', auto_reload:  true, detach_with_id: :value_filter
+
+  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date, helper_style: :standard
+
+  g.column do |bill|
+    link_to 'Show', bill
+  end
+
+  g.column do |bill|
+    link_to'Edit', edit_bill_path(bill)
+  end
+
+  g.column do |bill|
+    link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+
+end -%>
+
+<div class="w-container">
+  <div class="w-row">
+    <div class="w-col w-col-3">
+      <div class ="wg-detached-filter">
+        <div>Consumption: <%= grid_filter @bills_grid, :consumption_filter %></div>
+        
+        <div>Payment Value:  <%= grid_filter @bills_grid, :value_filter %></div>
+
+        <div>Date: <%= grid_filter @bills_grid, :date %></div>
+
+        <div class="external-buttons w-container ">
+          <button class="clickable w-button" data-grid-name="grid">Reset</button>
+        </div>
+
+      </div>
+      <div class="w-row">
+        <div class="w-col w-col-2">
+          <%= link_to image_tag("button-add.png"), new_bill_path %>
+        </div>
+        <div class="w-col w-col-10">
+          <h4><%= link_to 'New Bill', new_bill_path, class: "profile-sections" %></h4>
+        </div>        
+      </div>
+
+    </div>
+
+    <div class="w-col w-col-8">
+      <div class="wice-grid">
+
+      <%= render_grid(@bills_grid) %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
