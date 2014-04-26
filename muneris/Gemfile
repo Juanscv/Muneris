@@ -42,12 +42,8 @@ gem "paperclip", "~> 4.1"
 gem 'open_uri_redirections'
 
 #jQuery
-gem "jquery-rails"
 gem 'jquery-ui-rails'
-gem 'jquery-modal-rails'	
-
-#Paginate lists
-gem 'will_paginate', '~> 3.0'
+gem 'jquery-modal-rails'
 
 gem 'geocoder'
 gem 'gmaps4rails'

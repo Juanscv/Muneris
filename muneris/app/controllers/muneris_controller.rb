@@ -27,12 +27,11 @@ class MunerisController < ApplicationController
       end
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
-      @friends = current_user.friends.paginate(:page => params[:page], :per_page => 8).search(params[:search])
     end
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
-    @friends = current_user.friends
+    @friends = current_user.friends 
   end
 
   def profile
