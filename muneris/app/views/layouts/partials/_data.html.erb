@@ -1,34 +1,16 @@
 <div class="w-col w-col-5">
-  <h1>My consumption</h1>
+  <h1>Activity</h1>
 
-  <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-  <table class="table-striped table-bordered table wice-grid">
-  <thead>
-    <tr>
-      <th>Consumption </th>
-      <th>Payment value </th>
-      <th>Date of bill </th>
-      <!--<th></th>
-      <th></th>
-      <th></th>-->
-    </tr>
-  </thead>
-  </div>
+    <%= grid(@bills_grid, show_filters: :no) do |g|
 
-  <tbody>
-    <% @user.bills.each do |bill| %>
-    <div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-      <tr>
-        <td><%= bill.consumption %></td>
-        <td><%= bill.value %></td>
-        <td><%= bill.date %></td>
-        <!--<td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
-    </div>
-    <% end %>
-  </tbody>
-</table>
+        g.blank_slate  "No records found"
+
+        g.column name: 'Consumption', attribute: 'consumption'
+
+        g.column  name: 'Payment Value', attribute: 'value'
+
+        g.column name: 'Date', attribute: 'date'
+
+      end -%>
 
 </div>

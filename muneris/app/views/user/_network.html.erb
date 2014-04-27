@@ -1,27 +1,21 @@
 <h1>Suggestions</h1>
 
-
 <ul class="w-list-unstyled feed">
-<% i = 0 %>
-	<% for user in @users %>
-		<% for friendship in @friends %>
-			<% if user.friend_with? friendship %>
-				<li>
-					<div class="w-row activity-item">
-						<div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-							<%= link_to image_tag(user.avatar.url(:profile), class: "people-image"), profile_path(user.id) %>
+	<% 10.times do %>
+		<% for user in @users %>
+			<% for friendship in @friends %>
+				<% if user.friend_with? friendship %>
+					<li>
+						<div class="w-row activity-item">
+							<div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
+								<%= link_to image_tag(user.avatar.url(:profile), class: "people-image"), profile_path(user.id) %>
+							</div>
+							<div class="w-col w-col-10 w-col-small-6">    
+								<%= h link_to user.familyname, profile_path(user.id) %>
+							</div>
 						</div>
-						<div class="w-col w-col-10 w-col-small-6">    
-							<%= h link_to user.familyname, profile_path(user.id) %>
-						</div>
-					</div>
-				</li>
-				<%	i += 1 
-					if i > 10 then
-						break
-					end
-
-				-%>
+					</li>
+				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>
