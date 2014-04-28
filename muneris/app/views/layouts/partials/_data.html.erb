@@ -13,4 +13,18 @@
 
       end -%>
 
+    <% 
+	    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+	      f.xAxis(:categories => @bills.map{|each| each.date.to_date.strftime "%b %Y"})
+	      f.series(name: "Your data", :yAxis => 0, :data => @bills.map(&:consumption))
+
+	      f.yAxis({:title => {:text => "Consumption (kWh)", :margin => 10} })
+
+	      f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :enabled => false, :layout => 'vertical',)
+	      
+	    end
+    %>
+
+    <%= high_chart("my_id", @chart) %>
+
 </div>

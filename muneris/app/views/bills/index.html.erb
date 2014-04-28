@@ -8,7 +8,7 @@
 
   g.column  name: 'Payment Value', attribute: 'value', auto_reload:  true, detach_with_id: :value_filter
 
-  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date, helper_style: :standard
+  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard
 
   g.column do |bill|
     link_to 'Show', bill
@@ -24,7 +24,9 @@
 
 end -%>
 
+
 <div class="w-container">
+
   <div class="w-row">
     <div class="w-col w-col-3">
       <div class ="wg-detached-filter">
@@ -32,7 +34,7 @@ end -%>
         
         <div>Payment Value:  <%= grid_filter @bills_grid, :value_filter %></div>
 
-        <div>Date: <%= grid_filter @bills_grid, :date %></div>
+        <div>Date: <%= grid_filter @bills_grid, :date_added %></div>
 
         <div class="external-buttons w-container ">
           <button class="clickable w-button" data-grid-name="grid">Reset</button>
@@ -51,13 +53,103 @@ end -%>
     </div>
 
     <div class="w-col w-col-8">
+
       <div class="wice-grid">
 
       <%= render_grid(@bills_grid) %>
 
       </div>
+
+      <% 
+        @chart = LazyHighCharts::HighChart.new('graph') do |f|
+          f.title(:text => "Bill history")
+          f.xAxis(:categories => @all_records.map{|each| each.date.to_date.strftime "%b %Y"})
+          f.series(name: "Your data", :yAxis => 0, :data => @all_records.map(&:consumption))
+
+          f.yAxis({:title => {:text => "Consumption (kWh)", :margin => 20} })
+
+          f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :layout => 'vertical',)
+          
+        end
+      %>
+
+      <%= high_chart("my_id", @chart) %>
+
     </div>
   </div>
+
+<div id="container" style="height: 400px; min-width: 310px"></div>
+    <script  type="text/javascript">
+    $(function() {
+      var seriesOptions = [],
+        yAxisOptions = [],
+        seriesCounter = 0,
+        names = ['MSFT', 'AAPL', 'GOOG'],
+        colors = Highcharts.getOptions().colors;
+
+      $.each(names, function(i, name) {
+
+        $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename='+ name.toLowerCase() +'-c.json&callback=?', function(data) {
+
+          seriesOptions[i] = {
+            name: name,
+            data: data
+          };
+
+          // As we're loading the data asynchronously, we don't know what order it will arrive. So
+          // we keep a counter and create the chart when all the data is loaded.
+          seriesCounter++;
+
+          if (seriesCounter == names.length) {
+            createChart();
+          }
+        });
+      });
+
+
+
+      // create the chart when all data is loaded
+      function createChart() {
+
+        $('#container').highcharts('StockChart', {
+
+            rangeSelector: {
+            inputEnabled: $('#container').width() > 480,
+                selected: 4
+            },
+
+            yAxis: {
+              labels: {
+                formatter: function() {
+                  return (this.value > 0 ? '+' : '') + this.value + '%';
+                }
+              },
+              plotLines: [{
+                value: 0,
+                width: 2,
+                color: 'silver'
+              }]
+            },
+            
+            plotOptions: {
+              series: {
+                compare: 'percent'
+              }
+            },
+            
+            tooltip: {
+              pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+              valueDecimals: 2
+            },
+            
+            series: seriesOptions
+        });
+      }
+
+    });
+
+    </script>
+  
 </div>
 
 

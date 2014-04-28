@@ -6,9 +6,14 @@
   <title>Muneris</title>
   <meta name="description" content="Muneris is a social network that helps households and local businesses administrate and share their consumption bills.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag "welcome", :media => "all" %>
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag :highcharts %>
+  <%= javascript_include_tag :highstock %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
   <script>
     WebFont.load({
       google: {
@@ -16,6 +21,7 @@
       }
     });
   </script>
+
   <script>
     if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
   </script>

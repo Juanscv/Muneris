@@ -5,8 +5,18 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills_grid = initialize_grid(
-      Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id)
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 20
     )
+
+    @all_records = []
+
+    @bills_grid.with_resultset do |records|
+      records.each{|rec| @all_records << rec}
+    end
+
   end
 
   # GET /bills/1
@@ -77,4 +87,5 @@ class BillsController < ApplicationController
     def bill_params
       params.require(:bill).permit(:consumption, :value, :date)
     end
+
 end
