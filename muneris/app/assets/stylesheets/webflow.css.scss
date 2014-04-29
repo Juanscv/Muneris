@@ -267,6 +267,11 @@ textarea.w-select {
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
   -webkit-border-radius: 3px;
 }
+
+.w-col-3new{
+  width: 25%;
+}
+
 .w-col-4 {
   width: 33.33333333333333%;
 }
@@ -2075,6 +2080,9 @@ body > div:nth-child(2) > div > div > div > form > div.w-row.search-box {
 .people-image {
   width: 45px;
   float: right;
+  background-color: #fff;
+  border: 4px solid #fff;
+  -webkit-border-radius: 2px;
 }
 
 div > h5 > a {
@@ -2239,4 +2247,24 @@ tbody {
 
 #network p {
   padding-left: 0px;
+}
+
+div.w-row.activity-item {
+  margin: 20px 0;
+}
+
+.activity-item > div > a {
+  background: rgba(0, 0, 0, .3);
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
+  display: block;
+  left: 103px;
+  margin-top: -4px;
+  padding: 1px;
+  position: absolute;
+}
+
+.w-col-3 > div > h4 {
+  text-align: center;
+  margin: 10px 0;
 }

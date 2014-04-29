@@ -2,14 +2,14 @@
 
   <div>
     <div class="profle-banner profile-picture">
-      <%= image_tag @user.avatar.url(:profile), class: "avatar-eprofile" %>
-      <h4><%= @user.familyname %></h4>
+      <%= image_tag @user.avatar.url(:profile) %>  
     </div>
+    <h4><%= @user.familyname %></h4>
     <div>
       <p><strong><%= @user.name %></strong>
         <% if !@user.bills.empty? then %>
-          <br>Latest consumption (KW/h): <%= @user.bills.order("created_at").last.consumption %>
-          <br>Latest payment ($ COP): <%= @user.bills.order("created_at").last.value %>
+          <br>Latest consumption (KW/h): <strong> <%= @user.bills.order("created_at").last.consumption %></strong>  
+          <br>Latest payment ($ COP): <strong> <%= @user.bills.order("created_at").last.value %></strong>
         <% else %>
           <br>Latest consumption (KW/h): 
           <br>Latest payment ($ COP):

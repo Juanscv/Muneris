@@ -20,6 +20,7 @@ i = 0
 data_users.each do |user|
 	data_locales.each do |locale|
 		if user[2] == locale[0]
+			
 			new_user = User.create({
 				:email => [i.to_s,Faker::Internet.email].join,
 				:password => "12345678",
