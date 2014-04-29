@@ -19,7 +19,10 @@
 //= require turbolinks
 //= require_tree .
 //= require gmaps/google
+
 //= require wice_grid
+
+//= require webflow
 
 //= require highcharts/highcharts                                                            
 //= require highcharts/highcharts-more                                                         
