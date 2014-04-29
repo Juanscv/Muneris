@@ -25,8 +25,17 @@
                 <%= f.number_field :value, class: "w-input" %>
               </div>
               <div class="field">
+                <%= f.label :type, "Type of bill" %>
+                <%= select_tag("user[tariff]", options_for_select([
+                                                                    ["Enery Bill",1],
+                                                                    ["Water Bill",2],
+                                                                    ["Gas Bill",3]
+                                                                  ]), class: 'w-input', prompt: "Select an option") %>
+                
+              </div>
+              <div class="field">
                 <%= f.label :date %>
-                <%= f.date_select :date, class: "w-button" %>
+                <%= f.date_select :date, class: "w-input" %>
               </div>
               <div class="actions">
                 <%= f.submit "Add new bill", class: "w-button" %>
