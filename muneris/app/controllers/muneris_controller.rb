@@ -53,7 +53,7 @@ class MunerisController < ApplicationController
     )
 
     @bills = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id)
-
+    
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
     
   end
