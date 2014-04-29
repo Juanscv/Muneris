@@ -28,6 +28,7 @@ data_users.each do |user|
 				:tariff => user[1],
 				:address => user[0],
 				:locale => [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', ')
+				:familyname => ["User",i.to_s].join
 				})
 
 			i += 1
