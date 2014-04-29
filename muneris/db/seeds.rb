@@ -12,17 +12,37 @@ csv_users = File.read('db/data/Clientes.csv').force_encoding("ISO-8859-1").encod
 data_users = CSV.parse(csv_users, :headers => false)
 csv_locales = File.read('db/data/Localidades.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
 data_locales = CSV.parse(csv_locales, :headers => false)
-i=0
+csv_bills = File.read('db/data/Consumos.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
+data_bills= CSV.parse(csv_bills, :headers => true).to_a
+
+i = 0
+
 data_users.each do |user|
 	data_locales.each do |locale|
 		if user[2] == locale[0]
-			user = User.new
-			user.email=[Faker::Internet.email,i.to_s].join
-			user.tariff=user[1]
-			user.address= user[0]
-			user.locale = [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', ')
-			user.save!(:validate => false)
+			new_user = User.create({
+				:email => [i.to_s,Faker::Internet.email].join,
+				:password => "12345678",
+				:password_confirmation => "12345678",
+				:tariff => user[1],
+				:address => user[0],
+				:locale => [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', ')
+				})
+
 			i += 1
+
+			1.upto(44) do |j|
+
+				new_bill = Bill.create({   
+					:consumption => data_bills[i][j],
+					:value => data_bills[i][j].to_f*Random.rand(200 .. 500),
+					:date => Date.parse(data_bills[0][j])
+					})
+
+				new_user.userbills.create!(bill_id: new_bill.id)
+			end
 		end
 	end
 end
+
+
