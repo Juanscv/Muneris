@@ -16,12 +16,7 @@ i=0
 data_users.each do |user|
 	data_locales.each do |locale|
 		if user[2] == locale[0]
-			user = User.new
-			user.email=[Faker::Internet.email,i.to_s].join
-			user.tariff=user[1]
-			user.address= user[0]
-			user.locale = [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', ')
-			user.save!(:validate => false)
+			User.create!({:email => [Faker::Internet.email,i.to_s].join, :password => "12345678", :password_confirmation => "12345678" ,:tariff => user[1], :address => user[0], :locale => [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', ')})
 			i += 1
 		end
 	end

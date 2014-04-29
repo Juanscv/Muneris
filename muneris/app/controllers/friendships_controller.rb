@@ -2,15 +2,22 @@ class FriendshipsController < ApplicationController
     
   before_filter :authenticate_user!
 
-  require 'will_paginate/array'
-
   def index
-    @friends = current_user.friends.paginate(:page => params[:page], :per_page => 8).search(params[:search])
+    @friends_grid = initialize_grid(
+     User.unscoped.joins('INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)').where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', current_user.id, current_user.id, current_user.id),
+     order: 'users.id',
+     per_page: 8
+     )
   end
 
   def new
-    @users = User.all(:conditions => ["id != ?", current_user.id]).paginate(:page => params[:page], :per_page => 8)
-  end
+    @users_grid = initialize_grid(
+      User,
+      conditions: ["id != ?", current_user.id],
+      order: 'users.id',
+      per_page: 8
+    )
+end
 
   def create
     invitee = User.find_by_id(params[:user_id])
@@ -24,7 +31,7 @@ class FriendshipsController < ApplicationController
   def update
     inviter = User.find_by_id(params[:id])
     if current_user.approve inviter
-      current_user.create_activity :update, owner: current_user
+      # current_user.create_activity :update, owner: current_user
       redirect_to new_network_path, :notice => "Successfully confirmed friend!"
     else
       redirect_to new_network_path, :notice => "Sorry! Could not confirm friend!"
@@ -42,7 +49,7 @@ class FriendshipsController < ApplicationController
   def destroy
     user = User.find_by_id(params[:id])
     if current_user.remove_friendship user
-      current_user.create_activity :destroy, owner: current_user
+      # current_user.create_activity :destroy, owner: current_user
       redirect_to network_path, :notice => "Successfully removed friend!"
     else
       redirect_to network_path, :notice => "Sorry, couldn't remove friend!"

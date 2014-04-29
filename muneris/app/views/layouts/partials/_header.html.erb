@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<!--
-<html>
-<head>
-  <title>Muneris</title>-->
 
-  <!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
-  <!--<%= csrf_meta_tags %>
-</head>
--->
-
-<!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Thu Feb 27 2014 03:51:21 GMT+0000 (UTC) -->
 <html data-wf-site="52e85101141f8e087d000001">
 <head>
   <meta charset="utf-8">
   <title>Muneris</title>
   <meta name="description" content="Muneris is a social network that helps households and local businesses administrate and share their consumption bills.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag :highcharts %>
+  <%= javascript_include_tag :highstock %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag "welcome", :media => "all" %>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
   <script>
     WebFont.load({
       google: {
@@ -28,11 +21,14 @@
       }
     });
   </script>
+
   <script>
     if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
   </script>
+
   <%= favicon_link_tag 'favicon.ico' %>
   <link rel="apple-touch-icon" href="assets/images/thumbnail-icon.png">
+  
 </head>
 
 <body>

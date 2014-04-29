@@ -27,14 +27,14 @@ class MunerisController < ApplicationController
       end
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
-      @friends = current_user.friends.paginate(:page => params[:page], :per_page => 8).search(params[:search])
     end
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
-   
+    @users = User.all(:conditions => ["id != ?", current_user.id])
+    
+    @friends = current_user.friends
 
-    @friendships = Friendship.all
   end
 
   def profile
@@ -44,6 +44,15 @@ class MunerisController < ApplicationController
       @user = User.find(params[:user_id])
     end
     @is_current_user = current_user == @user
+
+    @bills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id),
+      order:           'bills.date',
+      order_direction: 'desc'
+
+    )
+
+    @bills = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id)
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
     

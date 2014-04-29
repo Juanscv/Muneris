@@ -11,12 +11,21 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require jquery.ui.all
+//= require jquery.modal
 //= require jquery_ujs
+
 //= require turbolinks
 //= require_tree .
 //= require gmaps/google
-//= require jquery.ui.all
-//= require jquery.modal
+//= require wice_grid
+
+//= require highcharts/highcharts                                                            
+//= require highcharts/highcharts-more                                                         
+//= require highcharts/highstock
+//= require highcharts/stock/modules/exporting  
+
 
 $(function () {
   $('#people .pagination a').on('click', function () {
