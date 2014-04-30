@@ -32,33 +32,32 @@
             </div>
           </div>
 
-
             <div class="w-col w-col-6">
               <div class="w-form">
-              <div ><%= f.label :familyname %>
-            <%= f.text_field :familyname, class: "w-input", :placeholder => "Enter a name to identify your domicile (example: Family name)"  %></div>
+                <div ><%= f.label :familyname %>
+                <%= f.text_field :familyname, class: "w-input", :placeholder => "Enter a name to identify your domicile (example: Family name)"  %></div>
 
-            <div ><%= f.label :address %>
-            <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
+                <div ><%= f.label :address %>
+                <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
 
-            <div ><%= f.label :tariff %>
-            <%= select_tag("user[tariff]", options_for_select([
-                                                                ["Residencial Estrato 1" , "Residencial Estrato 1"],
-                                                                ["Residencial Estrato 2" , "Residencial Estrato 2"],
-                                                                ["Residencial Estrato 3" , "Residencial Estrato 3"], 
-                                                                ["Residencial Estrato 4" , "Residencial Estrato 4"],
-                                                                ["Residencial Estrato 5" , "Residencial Estrato 5"],
-                                                                ["Residencial Estrato 6" , "Residencial Estrato 6"],
-                                                                ["Comercial Nivel 1" , "Comercial Nivel 1"],
-                                                                ["Comercial Nivel 2" , "Comercial Nivel 2"]
-                                                              ]), class: 'w-input', prompt: "Select an option") %>
-              
+                <div ><%= f.label :tariff %>
+                <%= select_tag("user[tariff]", options_for_select([
+                                                                    ["Residencial Estrato 1" , "Residencial Estrato 1"],
+                                                                    ["Residencial Estrato 2" , "Residencial Estrato 2"],
+                                                                    ["Residencial Estrato 3" , "Residencial Estrato 3"], 
+                                                                    ["Residencial Estrato 4" , "Residencial Estrato 4"],
+                                                                    ["Residencial Estrato 5" , "Residencial Estrato 5"],
+                                                                    ["Residencial Estrato 6" , "Residencial Estrato 6"],
+                                                                    ["Comercial Nivel 1" , "Comercial Nivel 1"],
+                                                                    ["Comercial Nivel 2" , "Comercial Nivel 2"]
+                                                                  ]), class: 'w-input', prompt: "Select an option") %>
+                  
 
-              <div><%= f.label :locale %>
-            <%= f.text_field :locale,  class: "w-input", :placeholder => "Enter by City, State, Country" %></div>
+                  <div><%= f.label :locale %>
+                <%= f.text_field :locale,  class: "w-input", :placeholder => "Enter by City, State, Country" %></div>
 
-              <div><%= f.label :avatar %>
-            <%= f.file_field :avatar,  class: "w-input", :placeholder => "Upload your Avatar" %></div>
+                  <div><%= f.label :avatar %>
+                <%= f.file_field :avatar,  class: "w-input", :placeholder => "Upload your Avatar" %></div>
 
               </div>
             </div>
@@ -67,12 +66,21 @@
       
             </div>
 
-            <h3>Cancel my account</h3>
+            
+          </div>
 
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "w-button" %></p>
+          <div class="w-row">
+            <div class="w-col w-col-4">
+              <h3>Cancel my account</h3>
+
+              <p>Unhappy?</p>
+            </div>
+            <div class="w-col w-col-3new">
+              <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "w-button" %>
+            </div>
+          </div>
 
             <%= link_to "Back", :back %>
-          </div>
         </div>
         <div class="pre-sign-up"></div>
       </div>

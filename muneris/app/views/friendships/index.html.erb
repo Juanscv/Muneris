@@ -2,7 +2,7 @@
 
 <%= define_grid(@friends_grid, hide_submit_button: true) do |g|
 
-	g.blank_slate  "No records found"
+	g.blank_slate  :partial => 'layouts/partials/blank'
 
 	g.column do |user|
 		link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
@@ -35,15 +35,15 @@ end -%>
 				<div>Locale:	<%= grid_filter @friends_grid, :locale_filter %></div>
 
 				<div class="external-buttons w-container ">
-					<button class="clickable w-button" data-grid-name="grid">Reset</button>
+					<button class="clickable btn w-button" data-grid-name="grid">Reset</button>
 				</div>
 			</div>
 			<div class="w-row">
 				<div class="w-col w-col-2">
-					<%= link_to image_tag("button-add.png"), new_network_path %>
+					<%= link_to image_tag("add.png"), new_network_path %>
 				</div>
 				<div class="w-col w-col-10">
-					<h4><%= link_to 'Add to network', new_network_path, class: "profile-sections" %></h4>
+					<%= link_to 'Add to network', new_network_path, class: "profile-sections" %>
 				</div>        
 			</div>
 

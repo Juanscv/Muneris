@@ -60,7 +60,7 @@ end -%>
 
       </div>
 
-      <% 
+      <%
         @chart = LazyHighCharts::HighChart.new('graph') do |f|
           f.title(:text => "Bill history")
           f.xAxis(:categories => @all_records.map{|each| each.date.to_date.strftime "%b %Y"})
@@ -70,10 +70,9 @@ end -%>
 
           f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :layout => 'vertical',)
           
-        end
-      %>
-
-      <%= high_chart("my_id", @chart) %>
+        end %>
+      
+      <%=  high_chart("my_id", @chart) %>
 
     </div>
   </div>

@@ -23,10 +23,10 @@
       <li>
         <div class="w-row">
           <div class="w-col w-col-2">
-            <%= link_to image_tag("button-add.png"), new_bill_path %>
+            <%= link_to image_tag("add.png"), new_bill_path %>
           </div>
           <div class="w-col w-col-10">
-            <h4><%= link_to 'Add new bill',new_bill_path, class: "profile-sections" %></h4>
+            <%= link_to 'Add new bill',new_bill_path, class: "profile-sections" %>
           </div>
         </div>
       </li>
@@ -34,26 +34,30 @@
         <div class="w-row">
 
           <div class="w-col w-col-2">
-            <%= link_to image_tag("button-add.png"), new_network_path %>
+            <%= link_to image_tag("add.png"), new_network_path %>
           </div>
           <div class="w-col w-col-10">
-            <h4><%= link_to 'Add to network', new_network_path, class: "profile-sections" %></h4>
+            <%= link_to 'Add to network', new_network_path, class: "profile-sections" %>
           </div>        
         </div>
       </li>
       <li>
         <div class="w-row">
-
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("edit.png"), edit_user_registration_path %>
+          </div> 
           <div class="w-col w-col-10">
-            <h5><%= link_to 'Edit profile',edit_user_registration_path, class: "profile-sections" %></h5>
+            <%= link_to 'Edit profile',edit_user_registration_path, class: "profile-sections" %>
           </div>        
         </div>
       </li>
       <li>
         <div class="w-row">
-
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("edit.png"), bills_path %>
+          </div> 
           <div class="w-col w-col-10">
-            <h5><%= link_to 'Edit bills',bills_path, class: "profile-sections" %></h5>
+            <%= link_to 'Edit bills',bills_path, class: "profile-sections" %>
           </div>        
         </div>
       </li>
