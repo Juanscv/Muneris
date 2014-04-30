@@ -48,9 +48,9 @@ end
   def destroy
     user = User.find_by_id(params[:id])
     if current_user.remove_friendship user
-      redirect_to network_path, :notice => "Successfully removed friend!"
+      redirect_to new_network_path, :notice => "Successfully removed friend!"
     else
-      redirect_to network_path, :notice => "Sorry, couldn't remove friend!"
+      redirect_to new_etwork_path, :notice => "Sorry, couldn't remove friend!"
     end
   end
   
