@@ -1,7 +1,7 @@
 <h1>Feed</h1>
 <% @activities.each do |activity| %>
   <div class="activity">
-  	<%= render_activity activity %>
+  	<%= render_activity activity if activity.key == "bill.create"%>
   </div>
 <% end %>
 

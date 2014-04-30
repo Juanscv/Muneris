@@ -1,0 +1,21 @@
+<div class="body">
+	<div class="mega-icon" style="background-image: url('/assets/request-icon.png')"></div>	
+	<abbr class="timeago"><%= "#{activity.parameters['time']}" if activity.parameters %></abbr>  	
+	<div class="title">
+		<%= link_to activity.recipient.familyname, profile_path(activity.recipient_id) if activity.recipient %>
+		sent you a
+
+		<% if activity.trackable %>
+		  <%= link_to "request", new_network_path %>
+		<% else %>
+		  request
+		<% end %>	   		
+	</div>
+	<div class="details">
+		<div class="avatar">
+			<%= image_tag activity.recipient.avatar.url(:profile) %>
+		</div>
+		<%= link_to "Accept", network_path(activity.recipient), :method => "put" %>
+	</div>	  	 	
+</div>
+

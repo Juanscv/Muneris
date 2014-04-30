@@ -35,6 +35,8 @@ class MunerisController < ApplicationController
     
     @friends = current_user.friends
 
+    notifications
+
   end
 
   def profile
@@ -54,8 +56,8 @@ class MunerisController < ApplicationController
 
     @bills = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id)
     
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
-    
+    notifications
+
   end
 
   def map
@@ -82,6 +84,12 @@ class MunerisController < ApplicationController
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
+  end
+
+  private
+
+  def notifications
+    @notifications = PublicActivity::Activity.order("created_at desc").where("activities.owner_id = ? AND activities.owner_type = 'User' AND (activities.key = 'bill.alert' OR activities.key = 'friendship.invite')", current_user.id)
   end
 
 end

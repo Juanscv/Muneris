@@ -1,7 +1,7 @@
 <h1>Notifications</h1>
 
-<% @activities.each do |activity| %>
-  <div class="activity">
-
-  </div>
+<% @notifications.each do |activity| %>
+	<div class="activity">
+		<%= render_activity activity %>
+	</div>
 <% end %>

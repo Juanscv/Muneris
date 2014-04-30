@@ -39,9 +39,12 @@ class BillsController < ApplicationController
     @bill = Bill.new(bill_params)
 
     respond_to do |format|
-      if @bill.save        
+      if @bill.save
         current_user.userbills.create!(bill_id: @bill.id)
         @bill.create_activity :create, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
+      
+        alerts
+              
         format.html { redirect_to profile_path, notice: 'Bill was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bill }
       else
@@ -70,7 +73,7 @@ class BillsController < ApplicationController
   # DELETE /bills/1.json
   def destroy
     @bill.destroy
-    @bill.create_activity :destroy, owner: current_user
+    # @bill.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }
@@ -86,6 +89,31 @@ class BillsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
       params.require(:bill).permit(:consumption, :value, :date)
+    end
+
+    def alerts
+
+      avg_bills_yours = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id).average("consumption")
+    
+      avg_bills_friends = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN friendships ON (userbills.user_id = friendships.friendable_id OR userbills.user_id = friendships.friend_id)").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', current_user.id, current_user.id, current_user.id).average("consumption")
+    
+      avg_bills_tariff = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN friendships ON (userbills.user_id = friendships.friendable_id OR userbills.user_id = friendships.friend_id) INNER JOIN users ON userbills.user_id=users.id").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.tariff = ?', current_user.id, current_user.id, current_user.id, current_user.tariff).average("consumption")
+
+      avg_bills_neighbors = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN friendships ON (userbills.user_id = friendships.friendable_id OR userbills.user_id = friendships.friend_id) INNER JOIN users ON userbills.user_id=users.id").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.address = ?', current_user.id, current_user.id, current_user.id, current_user.address).average("consumption")
+
+      create_alert if @bill.consumption > 2.05*avg_bills_friends or @bill.consumption > 1.8*avg_bills_tariff or @bill.consumption > 1.65*avg_bills_neighbors or @bill.consumption > 1.5*avg_bills_yours 
+
+    end
+
+    def create_alert
+      PublicActivity::Activity.create!({
+            :trackable_id =>@bill.id,
+            :trackable_type => "Bill",
+            :owner_id => current_user.id,
+            :owner_type => "User",
+            :key => "bill.alert",
+            :parameters => Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
+            })
     end
 
 end
