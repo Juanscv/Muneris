@@ -38,7 +38,8 @@ data_users.each do |user|
 				new_bill = Bill.create({   
 					:consumption => data_bills[i][j],
 					:value => data_bills[i][j].to_f*Random.rand(200 .. 500),
-					:date => Date.parse(data_bills[0][j])
+					:date => Date.parse(data_bills[0][j]),
+					:type => 1
 					})
 
 				new_user.userbills.create!(bill_id: new_bill.id)
