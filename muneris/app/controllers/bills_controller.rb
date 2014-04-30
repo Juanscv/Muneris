@@ -88,7 +88,7 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:consumption, :value, :date)
+      params.require(:bill).permit(:consumption, :value, :type, :date)
     end
 
     def alerts
