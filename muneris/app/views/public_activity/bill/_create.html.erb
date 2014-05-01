@@ -1,6 +1,6 @@
 <div class="body">
 	<div class="mega-icon" style="background-image: url('/assets/add-icon.svg')"></div>	
-	<abbr class="timeago"><%= "#{activity.parameters['time']}".to_date.strftime "%b %Y" %></abbr>  	
+	<abbr class="timeago"><%= activity.parameters['time'] %></abbr>  	
 	<div class="title">
 		<%= link_to activity.owner.familyname, profile_path(activity.owner_id) if activity.owner %>
 		added a
