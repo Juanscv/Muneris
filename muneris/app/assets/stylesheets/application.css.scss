@@ -15,8 +15,8 @@
  *= require webflow
  *= require wice_grid
  */
-
- $linkHoverColor: #ffffff;
-
+$brand-primary:         #428bca !default;
+$link-color:            $brand-primary !default;
+$link-hover-color: darken($link-color, 30%) !default;
 @import "bootstrap";
 
