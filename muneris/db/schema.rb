@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429015608) do
+ActiveRecord::Schema.define(version: 20140501173007) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 20140429015608) do
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "bills", force: true do |t|
-    t.integer  "consumption"
+    t.float    "consumption"
     t.integer  "value"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "type"
+    t.integer  "service"
   end
 
   create_table "friendships", force: true do |t|
