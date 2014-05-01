@@ -41,7 +41,7 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.save
         current_user.userbills.create!(bill_id: @bill.id)
-        @bill.create_activity :create, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
+        @bill.create_activity :create, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at.strftime("%b %Y")]
       
         alerts
               
@@ -59,7 +59,7 @@ class BillsController < ApplicationController
   def update
     respond_to do |format|
       if @bill.update(bill_params)
-        @bill.create_activity :update, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
+        @bill.create_activity :update, owner: current_user, parameters: Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at.strftime("%b %Y")]
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,7 +88,7 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:consumption, :value, :type, :date)
+      params.require(:bill).permit(:consumption, :value, :service, :date)
     end
 
     def alerts
@@ -112,7 +112,7 @@ class BillsController < ApplicationController
             :owner_id => current_user.id,
             :owner_type => "User",
             :key => "bill.alert",
-            :parameters => Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at]
+            :parameters => Hash["consumption" => @bill.consumption, "value" => @bill.value, "time" => @bill.created_at.strftime("%b %Y")]
             })
     end
 
