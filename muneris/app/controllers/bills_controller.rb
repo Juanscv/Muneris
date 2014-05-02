@@ -93,15 +93,26 @@ class BillsController < ApplicationController
 
     def alerts
 
-      avg_bills_yours = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id).average("consumption")
+      avg_bills_yours = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id).average("consumption").to_f
     
-      avg_bills_friends = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', current_user.id, current_user.id, current_user.id).average("consumption").to_i
+      avg_bills_friends = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', current_user.id, current_user.id, current_user.id).average("consumption")
 
       avg_bills_tariff = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.tariff = ?', current_user.id, current_user.id, current_user.id, current_user.tariff).average("consumption")
 
       avg_bills_neighbors = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.address = ?', current_user.id, current_user.id, current_user.id, current_user.address).average("consumption")
 
-      create_alert if @bill.consumption > 2.05*avg_bills_friends or @bill.consumption > 1.8*avg_bills_tariff or @bill.consumption > 1.65*avg_bills_neighbors or @bill.consumption > 1.5*avg_bills_yours 
+      if !current_user.friends.nil? and @bill.consumption > 2.05*avg_bills_friends.to_f
+        create_alert
+      end
+      if !avg_bills_tariff.nil? and @bill.consumption > 1.8*avg_bills_tariff.to_f
+        create_alert
+      end
+      if !avg_bills_neighbors.nil? and @bill.consumption > 1.65*avg_bills_neighbors.to_f
+       create_alert
+      end
+      if @bill.consumption > 1.5*avg_bills_yours 
+        create_alert
+      end
 
     end
 
