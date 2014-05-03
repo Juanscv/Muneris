@@ -41,6 +41,10 @@ gem "paperclip", "~> 4.1"
 
 gem 'open_uri_redirections'
 
+gem 'friendly_id', '~> 5.0.0'
+
+gem 'date_helper'
+
 # jQuery
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails'

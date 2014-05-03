@@ -16,6 +16,7 @@
 			<%= image_tag activity.recipient.avatar.url(:profile) %>
 		</div>
 		<%= link_to "Accept", network_path(activity.recipient), :method => "put" %>
+		<br><%= link_to "Reject", network_path(activity.recipient), :method => "delete" %>
 	</div>	  	 	
 </div>
 

@@ -1,18 +1,17 @@
 <h1>Suggestions</h1>
 
 <ul class="w-list-unstyled feed">
-	
 	<% i = 0 %>
-		<% for user in @users %>
-			<% for friendship in @friends %>
-				<% if user.friend_with? friendship %>
+		<% for friendship in @friends %>
+			<% for user in current_user.common_friends_with(friendship) %>
+				<% if !user.friends_with? current_user then %>
 					<li>
-						<div class="w-row activity-item">
-							<div class="w-col w-col-2 w-col-small-6 w-col-tiny-6 w-clearfix">
-								<%= link_to image_tag(user.avatar.url(:profile), class: "people-image"), profile_path(user.id) %>
+						<div class="w-row">
+							<div class="w-col w-col-3new">
+								<%= link_to image_tag(user.avatar.url, class: "activity-image"), profile_path(user.id) %>
 							</div>
-							<div class="w-col w-col-10 w-col-small-6">    
-								<%= h link_to user.familyname, profile_path(user.id) %>
+							<div class="w-col w-col-9 w-small-6">    
+								<%= link_to user.familyname, profile_path(user.id) %>
 							</div>
 						</div>
 					</li>
