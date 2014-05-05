@@ -1,21 +1,22 @@
 <div class="body">
 	<div class="mega-icon" style="background-image: url('/assets/update-icon.svg')"></div>	
-	<abbr class="timeago"><%= "#{activity.parameters['time']}".to_date.strftime "%b %Y" %></abbr>  	
+	<abbr class="timeago"><%= distance_of_time_in_words(Time.now,activity.created_at, false, :except => ["seconds"]) %> </abbr>  	
 	<div class="title">
 		<%= link_to activity.owner.familyname, profile_path(activity.owner_id) if activity.owner %>
-		update a bill
+		updated a 
 
 		<% if activity.trackable %>
 		  <%= link_to activity.trackable_type, activity.trackable %>
 		<% else %>
-		  which has since been removed
+		  bill which has since been removed
 		<% end %>	   		
 	</div>
 	<div class="details">
 		<div class="avatar">
 			<%= image_tag @user.avatar.url(:profile) %>
 		</div>
-		<%= puts "#{activity.parameters['consumption']}" if activity.parameters %>
-		<%= puts "#{activity.parameters['value']}" if activity.parameters %>  
+		<br>Consumption: <%= puts "#{activity.parameters['consumption']}" if activity.parameters %>
+		<br>value: <%= puts "#{activity.parameters['value']} " if activity.parameters %> 
+		for <%= "#{activity.parameters['time']}" if activity.parameters %> 
 	</div>	  	 	
 </div>

@@ -16,15 +16,7 @@
         <div class="w-container container-1">
           <div class="pre-sign-up">
             <div class="w-form">
-              <div class="field">
-                <%= f.label :consumption %>
-                <%= f.number_field :consumption, class: "w-input"%>
-              </div>
-              <div class="field">
-                <%= f.label :value %>
-                <%= f.number_field :value, class: "w-input" %>
-              </div>
-              <div class="field">
+            <div class="field">
                 <%= f.label :service, "Type of bill service" %>
                 <%= select_tag("bill[service]", options_for_select([
                                                                     ["Enery Bill",1],
@@ -32,6 +24,14 @@
                                                                     ["Gas Bill",3]
                                                                   ]), class: 'w-input', prompt: "Select an option") %>
                 
+              </div>
+              <div class="field">
+                <%= f.label :consumption, id: 'consum' %>
+                <%= f.number_field :consumption, class: "w-input", :step => 'any'%>
+              </div>
+              <div class="field">
+                <%= f.label :value, "Payment ($)" %>
+                <%= f.number_field :value, class: "w-input" %>
               </div>
               <div class="field">
                 <%= f.label :date %>
@@ -47,3 +47,21 @@
       </div>
     </div>
 <% end %>
+
+<script type="text/javascript">
+  var newLabel = 'Consumption';
+  $('#bill_service').on('change', function(){
+      switch(this.value){
+          case '1':
+              newLabel = 'Consumption (kWh)';
+              break;
+          case '2':
+              newLabel = 'Consumption (m3)';
+              break;
+          case '3':
+              newLabel = 'Consumption (m3)';
+              break;
+      }
+      $('#consum').text(newLabel);
+  }).trigger('change');
+</script>

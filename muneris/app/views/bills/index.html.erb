@@ -4,11 +4,33 @@
 
   g.blank_slate  "No records found"
 
-  g.column name: 'Consumption', attribute: 'consumption', auto_reload:  true, detach_with_id: :consumption_filter
+  g.column name: 'Consumption', attribute: 'consumption', auto_reload:  true, detach_with_id: :consumption_filter do |bill|
+    case bill.service
+    when 1
+      bill.consumption.to_s + " kWh"
+    when 2
+      bill.cosumption.to_s + " m3"
+    when 3
+      bill.consumption.to_s + " m3"
+    end
+  end
 
-  g.column  name: 'Payment Value', attribute: 'value', auto_reload:  true, detach_with_id: :value_filter
+  g.column  name: 'Payment', attribute: 'value', auto_reload:  true, detach_with_id: :value_filter do |bill|
+    number_to_currency(bill.value, :precision => 0)
+  end
 
   g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard
+
+  g.column name: 'Type of bill', attribute: 'service', auto_reload: true, detach_with_id: :service_filter, custom_filter: [['Energy Bill',1],['Water Bill',2],['Gas Bill',3]] do |bill|
+    case bill.service
+    when 1
+      "Energy"
+    when 2
+      "Water"
+    when 3
+      "Gas"
+    end
+  end
 
   g.column do |bill|
     link_to 'Show', bill
@@ -32,7 +54,9 @@ end -%>
       <div class ="wg-detached-filter">
         <div>Consumption: <%= grid_filter @bills_grid, :consumption_filter %></div>
         
-        <div>Payment Value:  <%= grid_filter @bills_grid, :value_filter %></div>
+        <div>Payment:  <%= grid_filter @bills_grid, :value_filter %></div>
+
+        <div>Type of bill:  <%= grid_filter @bills_grid, :service_filter %></div>
 
         <div>Date: <%= grid_filter @bills_grid, :date_added %></div>
 
@@ -63,13 +87,14 @@ end -%>
       <%
         @chart = LazyHighCharts::HighChart.new('graph') do |f|
           f.title(:text => "Bill history")
-          f.xAxis(:categories => @all_records.map{|each| each.date.to_date.strftime "%b %Y"})
-          f.series(name: "Your data", :yAxis => 0, :data => @all_records.map(&:consumption))
+          f.xAxis(:categories => Date.months_between(@all_records.map(&:date).min,@all_records.map(&:date).max))
+          f.yAxis({:title => {:text => "Consumption", :margin => 20} })
 
-          f.yAxis({:title => {:text => "Consumption (kWh)", :margin => 20} })
+          f.series(name: "Energy bills", :yAxis => 0, :data => @all_records.map{|x| x.consumption if x.service == 1})
+          f.series(name: "Water bills", :yAxis => 0, :data => @all_records.map{|x| x.consumption if x.service == 2})
+          f.series(name: "Gas bills", :yAxis => 0, :data => @all_records.map{|x| x.consumption if x.service == 3})
 
-          f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :layout => 'vertical',)
-          
+          f.legend(:align => 'center', :verticalAlign => 'top', :y => 30)         
         end %>
       
       <%=  high_chart("my_id", @chart) %>

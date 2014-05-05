@@ -6,15 +6,20 @@
     </div>
     <h4><%= @user.familyname %></h4>
     <div>
-      <p><strong><%= @user.name %></strong>
+      <p><strong><%= @user.name %></strong></p>
         <% if !@user.bills.empty? then %>
-          <br>Latest consumption (KW/h): <strong> <%= @user.bills.order("created_at").last.consumption %></strong>  
-          <br>Latest payment ($ COP): <strong> <%= @user.bills.order("created_at").last.value %></strong>
-        <% else %>
-          <br>Latest consumption (KW/h): 
-          <br>Latest payment ($ COP):
+          <p>Latest consumption:
+            <br><strong><%= @user.bills.order("created_at").last.consumption %>
+                        <%= case @user.bills.order("created_at").last.service
+                            when 1
+                              "kWh"
+                            else
+                              "m3"
+                            end %></strong></p>
+          <p>Latest payment:
+            <br><strong><%= number_to_currency(@user.bills.order("created_at").last.value, :precision => 0) %> </strong></p>
         <% end %>      
-          <br>Neighbors: <%= @user.friends.count(:id) %> </p>
+          <p>Network: <strong><%= @user.friends.count(:id) %> Users </strong></p>
     </div>
   </div>
 
