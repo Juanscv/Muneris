@@ -88,7 +88,7 @@
                     <br><%= link_to "Cancel", network_path(@user), :method => "delete" %>
                   <% else  %>
                     <br><%= link_to "Add", network_index_path(:user_id => @user), :method => "post" %>
-                <% end %>
+              <% end %>
             </h5>
           </div>        
         </div>
@@ -96,5 +96,23 @@
     </ul>
 
   <% end %>
+
+  <% if !@is_current_user and @current_user.admin? %>
+
+     <ul class="w-list-unstyled">
+      <li>
+        <div class="w-row">
+          <div class="w-col w-col-12">
+            <h5>
+              <%= link_to "Delete this user", admin_destroy_user_path(@user), method: :delete, data: { confirm: "You sure?" } %>
+            </h5>
+          </div>        
+        </div>
+      </li>
+    </ul>
+
+  <% end %>
+
+
 </div>
 

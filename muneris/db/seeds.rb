@@ -48,4 +48,6 @@ data_users.each do |user|
 	end
 end
 
+User.create!({:email => "admin@gmail.com", :admin => 1, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "Admin", :locale => "Barranquilla, Atlantico, Colombia"})
+
 
