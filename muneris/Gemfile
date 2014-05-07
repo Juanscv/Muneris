@@ -41,8 +41,6 @@ gem "paperclip", "~> 4.1"
 
 gem 'open_uri_redirections'
 
-gem 'friendly_id', '~> 5.0.0'
-
 gem 'date_helper'
 
 # jQuery
@@ -65,6 +63,7 @@ gem "wice_grid", '3.4.2'
 
 # Charts
 gem 'lazy_high_charts'
+gem 'highstock_rails'
 
 gem 'dotiw'
 

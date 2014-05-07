@@ -25,9 +25,29 @@
 //= require webflow
 
 //= require highcharts/highcharts                                                            
-//= require highcharts/highcharts-more                                                         
-//= require highcharts/highstock
-//= require highcharts/stock/modules/exporting  
+//= require highcharts/highcharts-more
+
+//= require highstock
+//= require highstock/highcharts-more
+
+//= require highstock/adapters/mootools-adapter
+//= require highstock/adapters/prototype-adapter
+//= require highstock/adapters/standalone-framework
+
+//= require highstock/modules/annotations
+//= require highstock/modules/canvas-tools
+//= require highstock/modules/data
+//= require highstock/modules/drilldown
+//= require highstock/modules/exporting
+//= require highstock/modules/funnel
+//= require highstock/modules/heatmap
+//= require highstock/modules/no-data-to-display
+
+//= require highstock/themes/dark-blue
+//= require highstock/themes/dark-green
+//= require highstock/themes/gray
+//= require highstock/themes/grid
+//= require highstock/themes/skies
 
 
 $(function () {
