@@ -2,13 +2,14 @@
   <div class="w-container">
     <div class="w-row">
       <%= render 'layouts/partials/sidebar' %>
-      <% if @is_current_user or @current_user.friend_with? @user then %>
+
+      <% if @is_current_user or @current_user.friend_with? @user or @current_user.admin? %>
       <%=  render 'layouts/partials/data' %>
       <%end%>
       
-      <% if @is_current_user then %>
-        <div id="#notifications" class="notifications w-col-3 w-col">
-          <%= render partial: 'user/notifications' %>
+      <% if @is_current_user or  @current_user.admin? %>
+        <div id="#notifications" class="notifications w-col-3 w-col">        
+          <%= render partial: 'user/notifications' %>        
         </div>
       <% end %>   
     </div>
