@@ -37,7 +37,7 @@
 
       end -%>
 
-    <% 
+    <%# 
 	    @chart = LazyHighCharts::HighChart.new('graph') do |f|
 	      f.xAxis(:categories => @bills.map{|each| each.date.to_date.strftime "%b %Y"})
 	      f.series(name: "Your data", :yAxis => 0, :data => @bills.map(&:consumption))
@@ -49,6 +49,6 @@
 	    end
     %>
 
-    <%= high_chart("my_id", @chart) %>
+    <%#= high_chart("my_id", @chart) %>
 
 </div>

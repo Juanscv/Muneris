@@ -24,9 +24,6 @@
 
 //= require webflow
 
-//= require highcharts/highcharts                                                            
-//= require highcharts/highcharts-more
-
 //= require highstock
 //= require highstock/highcharts-more
 

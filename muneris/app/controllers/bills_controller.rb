@@ -19,6 +19,8 @@ class BillsController < ApplicationController
       records.each{|rec| @all_records << rec}
     end
 
+    @bills = current_user.bills
+
   end
 
   # GET /bills/1

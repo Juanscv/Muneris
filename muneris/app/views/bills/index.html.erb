@@ -49,8 +49,6 @@ end -%>
 
 <div class="w-container">
 
-<div id="container1"></div>
-
   <div class="w-row">
     <div class="w-col w-col-3">
       <div class ="wg-detached-filter">
@@ -86,20 +84,20 @@ end -%>
 
       </div>
 
-      <%
+      <%#
         @chart = LazyHighCharts::HighChart.new('graph') do |f|
           f.title(:text => "Bill history")
-          f.xAxis(:categories => Date.months_between(@all_records.map(&:date).min,@all_records.map(&:date).max))
+          f.xAxis(:categories =>  ["Jul 2013", "Aug 2013", "Oct 2013", "Jan 2014", "Feb 2014", "Mar 2014", "Apr 2014", "May 2014"])
           f.yAxis({:title => {:text => "Consumption", :margin => 20} })
 
-          f.series(name: "Energy bills", :yAxis => 0, :data => @all_records.map{|x| x.consumption if x.service == 1})
-          f.series(name: "Water bills", :yAxis => 0, :data => @all_records.map{|x| x.consumption if x.service == 2})
-          f.series(name: "Gas bills", :yAxis => 0, :data => @all_records.map{|x| x.consumption if x.service == 3})
+          f.series(name: "Energy bills", :yAxis => 0, :data => @bills.map{|x| x.consumption if x.service == 1})
+          f.series(name: "Water bills", :yAxis => 0, :data => @bills.map{|x| x.consumption if x.service == 2})
+          f.series(name: "Gas bills", :yAxis => 0, :data => @bills.map{|x| x.consumption if x.service == 3})
 
           f.legend(:align => 'center', :verticalAlign => 'top', :y => 30)         
         end %>
       
-      <%=  high_chart("my_id", @chart) %>
+      <%#=  high_stock("my_id", @chart) %>
 
     </div>
   </div>
@@ -107,112 +105,6 @@ end -%>
   
       
 </div>
-
-
-<script  type="text/javascript">
-
-$(function() {
-  $.getJSON("http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?", function(data) {
-    return $("#container1").highcharts("StockChart", {
-      rangeSelector: {
-        selected: 1
-      },
-      title: {
-        text: "AAPL Stock Price"
-      },
-      series: [
-        {
-          name: "AAPL",
-          data: data,
-          tooltip: {
-            valueDecimals: 2
-          }
-        }
-      ]
-    });
-  });
-  $.getJSON("http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?", function(data) {
-    return $("#container3").highcharts({
-      rangeSelector: {
-        selected: 1
-      },
-      title: {
-        text: "AAPL Stock Price"
-      },
-      series: [
-        {
-          name: "AAPL Stock Price",
-          data: data,
-          type: "areaspline",
-          threshold: null,
-          tooltip: {
-            valueDecimals: 2
-          },
-          fillColor: {
-            linearGradient: {
-              x1: 0,
-              y1: 0,
-              x2: 0,
-              y2: 1
-            },
-            stops: [[0, Highcharts.getOptions().colors[0]], [1, "rgba(0,0,0,0)"]]
-          }
-        }
-      ]
-    });
-  });
-  return $("#container2").highcharts({
-    title: {
-      text: "Monthly Average Temperature",
-      x: -20
-    },
-    subtitle: {
-      text: "Source: WorldClimate.com",
-      x: -20
-    },
-    xAxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    },
-    yAxis: {
-      title: {
-        text: "Temperature (°C)"
-      },
-      plotLines: [
-        {
-          value: 0,
-          width: 1,
-          color: "#808080"
-        }
-      ]
-    },
-    tooltip: {
-      valueSuffix: "°C"
-    },
-    legend: {
-      layout: "vertical",
-      align: "right",
-      verticalAlign: "middle",
-      borderWidth: 0
-    },
-    series: [
-      {
-        name: "Tokyo",
-        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-      }, {
-        name: "New York",
-        data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-      }, {
-        name: "Berlin",
-        data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-      }, {
-        name: "London",
-        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-      }
-    ]
-  });
-});
-
-</script>
 
 
 
