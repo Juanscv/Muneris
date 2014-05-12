@@ -15,8 +15,12 @@
 		<div class="avatar">
 			<%= image_tag activity.recipient.avatar.url(:profile) %>
 		</div>
+		<%	if activity.recipient.friend_with? current_user then 
+			else%>
 		<%= link_to "Accept", network_path(activity.recipient), :method => "put" %>
 		<br><%= link_to "Reject", network_path(activity.recipient), :method => "delete" %>
+		<% end %>
+
 	</div>	  	 	
 </div>
 

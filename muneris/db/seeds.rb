@@ -13,7 +13,8 @@ data_users = CSV.parse(csv_users, :headers => false)
 csv_locales = File.read('db/data/Localidades.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
 data_locales = CSV.parse(csv_locales, :headers => false)
 csv_bills = File.read('db/data/Consumos.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
-data_bills= CSV.parse(csv_bills, :headers => true).to_a
+data_bills= CSV.parse(csv_bills, :headers => true)
+data_bills.to_a!
 
 i = 0
 
@@ -27,8 +28,9 @@ data_users.each do |user|
 				:password_confirmation => "12345678",
 				:tariff => user[1],
 				:address => user[0],
-				:locale => [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', ')
-				:familyname => ["User",i.to_s].join
+				:locale => [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', '),
+				:familyname => ["User",i.to_s].join,
+				:admin => 0
 				})
 
 			i += 1

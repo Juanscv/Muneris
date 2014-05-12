@@ -2,7 +2,7 @@
 
 <%= define_grid(@friends_grid, hide_submit_button: true) do |g|
 
-	g.blank_slate  :partial => 'layouts/partials/blank'
+	g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'net' }
 
 	g.column do |user|
 		link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)

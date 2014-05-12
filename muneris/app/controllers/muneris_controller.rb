@@ -32,8 +32,6 @@ class MunerisController < ApplicationController
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
     @users = User.all(:conditions => ["id != ?", current_user.id])
-    
-    @friends = current_user.friends
 
     notifications
 

@@ -1,26 +1,26 @@
 <h1>Suggestions</h1>
 
 <ul class="w-list-unstyled feed">
-	<% i = 0 %>
-		<% for friendship in @friends %>
-			<% for user in current_user.common_friends_with(friendship) %>
-				<% if !user.friends_with? current_user then %>
-					<li>
-						<div class="w-row">
-							<div class="w-col w-col-3new">
-								<%= link_to image_tag(user.avatar.url, class: "activity-image"), profile_path(user.id) %>
-							</div>
-							<div class="w-col w-col-9 w-small-6">    
-								<%= link_to user.familyname, profile_path(user.id) %>
-							</div>
+	<% 	i = 0 
+		suggested = [] %>
+	<% 	for friend in current_user.friends
+			for user in friend.friends
+				if !user.friend_with? current_user and user != current_user and !suggested.include? user and !current_user.invited? user then 
+				suggested << user %>
+				<li>
+					<div class="w-row">
+						<div class="w-col w-col-3new">
+							<%= link_to image_tag(user.avatar.url, class: "activity-image"), profile_path(user.id) %>
 						</div>
-					</li>
-
-					<%	i +=1 
-						break if i >= 10
-					%>
-				<% end %>
+						<div class="w-col w-col-9 w-small-6">    
+							<%= link_to user.familyname, profile_path(user.id) %>
+						</div>
+					</div>
+				</li>
+				<%	i +=1 
+					break if i >= 10
+				%>
 			<% end %>
 		<% end %>
-	
+	<% end %>
 </ul>

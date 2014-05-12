@@ -40,12 +40,6 @@
 //= require highstock/modules/heatmap
 //= require highstock/modules/no-data-to-display
 
-//= require highstock/themes/dark-blue
-//= require highstock/themes/dark-green
-//= require highstock/themes/gray
-//= require highstock/themes/grid
-//= require highstock/themes/skies
-
 
 $(function () {
   $('#people .pagination a').on('click', function () {
