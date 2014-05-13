@@ -20,11 +20,11 @@ class BillsController < ApplicationController
     bills.each do |b|
       case b.service
       when 1
-        @ebills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+        @ebills << [b.date.strftime("%s%L").to_i,b.consumption]
       when 2
-        @wbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+        @wbills << [b.date.strftime("%s%L").to_i,b.consumption]
       when 3
-        @gbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+        @gbills << [b.date.strftime("%s%L").to_i,b.consumption]
       end
     end
 
@@ -125,11 +125,11 @@ class BillsController < ApplicationController
 
       avg_bill_neighbors = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('bills.service = ? AND users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.address = ?', @bill.service, current_user.id, current_user.id, current_user.id, current_user.address).average("consumption").to_f
 
-      if    @bill.consumption > 2.05*avg_bill_friends   and !current_user.friends.zero?
+      if    @bill.consumption > 2.05*avg_bill_friends   and !avg_bill_friends.zero?
         create_alert
-      elsif @bill.consumption > 1.8*avg_bill_tariff     and !avg_bills_tariff.zero?
+      elsif @bill.consumption > 1.8*avg_bill_tariff     and !avg_bill_tariff.zero?
         create_alert
-      elsif @bill.consumption > 1.65*avg_bill_neighbors and !avg_bills_neighbors.zero?
+      elsif @bill.consumption > 1.65*avg_bill_neighbors and !avg_bill_neighbors.zero?
        create_alert
       elsif @bill.consumption > 1.5*avg_bill_yours      and current_user.bills.where(:service => @bill.service).count > 1
         create_alert

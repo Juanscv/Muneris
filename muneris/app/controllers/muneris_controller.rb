@@ -60,28 +60,29 @@ class MunerisController < ApplicationController
     bills.each do |b|
       case b.service
       when 1
-        @ebills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+        @ebills << [b.date.strftime("%s%L").to_i,b.consumption]
       when 2
-        @wbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+        @wbills << [b.date.strftime("%s%L").to_i,b.consumption]
       when 3
-        @gbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+        @gbills << [b.date.strftime("%s%L").to_i,b.consumption]
       end
     end
 
     @your_ebills, @your_wbills, @your_gbills = [], [], []
 
-    your_bills = current_user.bills.sort_by(&:date)
-
-    your_bills.each do |b|
-      case b.service
-      when 1
-        @your_ebills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
-      when 2
-        @your_wbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
-      when 3
-        @your_gbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
-      end
-    end   
+    if !@is_current_user then
+      your_bills = current_user.bills.sort_by(&:date)
+      your_bills.each do |b|
+        case b.service
+        when 1
+          @your_ebills << [b.date.strftime("%s%L").to_i,b.consumption]
+        when 2
+          @your_wbills << [b.date.strftime("%s%L").to_i,b.consumption]
+        when 3
+          @your_gbills << [b.date.strftime("%s%L").to_i,b.consumption]
+        end
+      end   
+    end
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.yAxis({:title => {:text => "Consumption", :margin => 10} })
