@@ -1,54 +1,8 @@
 <div class="w-col w-col-5">
   <h1>Activity</h1>
+ 
+    <%= render partial: 'layouts/partials/grid' %>
 
-    <%= grid(@bills_grid, show_filters: :no) do |g|
-
-        g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
-
-        g.column name: 'Consumption', attribute: 'consumption' do |bill|
-            case bill.service
-            when 1
-              bill.consumption.to_s + " kWh"
-            when 2
-              bill.cosumption.to_s + " m3"
-            when 3
-              bill.consumption.to_s + " m3"
-            end
-        end
-
-        g.column  name: 'Payment', attribute: 'value' do |bill|
-           number_to_currency(bill.value, :precision => 0)
-        end
-
-        g.column name: 'Date', attribute: 'date' do |bill|
-            bill.date.strftime "%b %Y"
-        end
-
-        g.column name: 'Type of bill', attribute: 'service' do |bill|
-            case bill.service
-            when 1
-              "Energy"
-            when 2
-              "Water"
-            when 3
-              "Gas"
-            end
-        end
-
-      end -%>
-
-    <%# 
-	    @chart = LazyHighCharts::HighChart.new('graph') do |f|
-	      f.xAxis(:categories => @bills.map{|each| each.date.to_date.strftime "%b %Y"})
-	      f.series(name: "Your data", :yAxis => 0, :data => @bills.map(&:consumption))
-
-	      f.yAxis({:title => {:text => "Consumption (kWh)", :margin => 10} })
-
-	      f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :enabled => false, :layout => 'vertical',)
-	      
-	    end
-    %>
-
-    <%#= high_chart("my_id", @chart) %>
+    <%= high_stock("chart", @chart) %>
 
 </div>

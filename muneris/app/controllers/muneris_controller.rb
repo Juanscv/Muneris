@@ -45,16 +45,59 @@ class MunerisController < ApplicationController
     end
     @is_current_user = current_user == @user
 
+    notifications
+
     @bills_grid = initialize_grid(
       Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id),
       order:           'bills.date',
       order_direction: 'desc'
-
     )
 
-    @bills = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id)
-    
-    notifications
+    bills = @user.bills.sort_by(&:date)
+
+    @ebills, @wbills, @gbills = [], [], []
+
+    bills.each do |b|
+      case b.service
+      when 1
+        @ebills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      when 2
+        @wbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      when 3
+        @gbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      end
+    end
+
+    @your_ebills, @your_wbills, @your_gbills = [], [], []
+
+    your_bills = current_user.bills.sort_by(&:date)
+
+    your_bills.each do |b|
+      case b.service
+      when 1
+        @your_ebills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      when 2
+        @your_wbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      when 3
+        @your_gbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      end
+    end   
+
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.yAxis({:title => {:text => "Consumption", :margin => 10} })
+
+      f.series(name: "Water bills (kWh)", :yAxis => 0, :data => @wbills)
+      f.series(name: "Gas bills (m3)", :yAxis => 0, :data => @gbills)
+      f.series(name: "Energy bills (m3)", :yAxis => 0, :data => @ebills)
+
+      f.series(name: "Your water bills (kWh)", :yAxis => 0, :data => @your_wbills)
+      f.series(name: "Your gas bills (m3)", :yAxis => 0, :data => @your_gbills)
+      f.series(name: "Your energy bills (m3)", :yAxis => 0, :data => @your_ebills)
+
+      f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :enabled => false, :layout => 'vertical',)  
+      f.exporting(:enabled => false)
+      f.rangeSelector(:buttons => [])
+    end
 
   end
 

@@ -1,51 +1,6 @@
 <h1>Listing bills</h1>
 
-<%= define_grid(@bills_grid, hide_submit_button: true) do |g|
-
-  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' }
-
-  g.column name: 'Consumption', attribute: 'consumption', auto_reload:  true, detach_with_id: :consumption_filter do |bill|
-    case bill.service
-    when 1
-      bill.consumption.to_s + " kWh"
-    when 2
-      bill.cosumption.to_s + " m3"
-    when 3
-      bill.consumption.to_s + " m3"
-    end
-  end
-
-  g.column  name: 'Payment', attribute: 'value', auto_reload:  true, detach_with_id: :value_filter do |bill|
-    number_to_currency(bill.value, :precision => 0)
-  end
-
-  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard
-
-  g.column name: 'Type of bill', attribute: 'service', auto_reload: true, detach_with_id: :service_filter, custom_filter: [['Energy Bill',1],['Water Bill',2],['Gas Bill',3]] do |bill|
-    case bill.service
-    when 1
-      "Energy"
-    when 2
-      "Water"
-    when 3
-      "Gas"
-    end
-  end
-
-  g.column do |bill|
-    link_to 'Show', bill
-  end
-
-  g.column do |bill|
-    link_to'Edit', edit_bill_path(bill)
-  end
-
-  g.column do |bill|
-    link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }
-  end
-
-end -%>
-
+<% render partial: 'grid' %>
 
 <div class="w-container">
 
@@ -63,7 +18,6 @@ end -%>
         <div class="external-buttons w-container ">
           <button class="clickable w-button" data-grid-name="grid">Reset</button>
         </div>
-
       </div>
       <div class="w-row">
         <div class="w-col w-col-2">
@@ -73,38 +27,17 @@ end -%>
           <h4><%= link_to 'New Bill', new_bill_path, class: "profile-sections" %></h4>
         </div>        
       </div>
-
     </div>
-
     <div class="w-col w-col-8">
-
       <div class="wice-grid">
-
-      <%= render_grid(@bills_grid) %>
-
+        <%= render_grid(@bills_grid) %>
       </div>
-
-      <%#
-        @chart = LazyHighCharts::HighChart.new('graph') do |f|
-          f.title(:text => "Bill history")
-          f.xAxis(:categories =>  ["Jul 2013", "Aug 2013", "Oct 2013", "Jan 2014", "Feb 2014", "Mar 2014", "Apr 2014", "May 2014"])
-          f.yAxis({:title => {:text => "Consumption", :margin => 20} })
-
-          f.series(name: "Energy bills", :yAxis => 0, :data => @bills.map{|x| x.consumption if x.service == 1})
-          f.series(name: "Water bills", :yAxis => 0, :data => @bills.map{|x| x.consumption if x.service == 2})
-          f.series(name: "Gas bills", :yAxis => 0, :data => @bills.map{|x| x.consumption if x.service == 3})
-
-          f.legend(:align => 'center', :verticalAlign => 'top', :y => 30)         
-        end %>
-      
-      <%#=  high_stock("my_id", @chart) %>
-
+      <%=  high_stock("chart", @chart) %>
     </div>
   </div>
-
-  
-      
 </div>
+      
+
 
 
 

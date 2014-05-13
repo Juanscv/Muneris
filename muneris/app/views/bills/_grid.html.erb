@@ -1,0 +1,45 @@
+<% define_grid(@bills_grid, hide_submit_button: true) do |g|
+
+  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' }
+
+  g.column name: 'Consumption', attribute: 'consumption', auto_reload:  true, detach_with_id: :consumption_filter do |bill|
+    case bill.service
+    when 1
+      bill.consumption.to_s + " kWh"
+    when 2
+      bill.cosumption.to_s + " m3"
+    when 3
+      bill.consumption.to_s + " m3"
+    end
+  end
+
+  g.column  name: 'Payment', attribute: 'value', auto_reload:  true, detach_with_id: :value_filter do |bill|
+    number_to_currency(bill.value, :precision => 0)
+  end
+
+  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard
+
+  g.column name: 'Type of bill', attribute: 'service', auto_reload: true, detach_with_id: :service_filter, custom_filter: [['Energy Bill',1],['Water Bill',2],['Gas Bill',3]] do |bill|
+    case bill.service
+    when 1
+      "Energy"
+    when 2
+      "Water"
+    when 3
+      "Gas"
+    end
+  end
+
+  g.column do |bill|
+    link_to 'Show', bill
+  end
+
+  g.column do |bill|
+    link_to'Edit', edit_bill_path(bill)
+  end
+
+  g.column do |bill|
+    link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+
+end %>

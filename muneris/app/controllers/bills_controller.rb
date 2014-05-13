@@ -13,13 +13,32 @@ class BillsController < ApplicationController
       per_page: 20
     )
 
-    @all_records = []
+    bills = current_user.bills.sort_by(&:date)
 
-    @bills_grid.with_resultset do |records|
-      records.each{|rec| @all_records << rec}
+    @ebills, @wbills, @gbills = [], [], []
+
+    bills.each do |b|
+      case b.service
+      when 1
+        @ebills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      when 2
+        @wbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      when 3
+        @gbills << [b.date.strftime("%B %Y").to_date.strftime("%s%L").to_i,b.consumption]
+      end
     end
 
-    @bills = current_user.bills
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(:text => "Bill history")
+      f.yAxis({:title => {:text => "Consumption", :margin => 20} })
+
+      f.series(name: "Water bills (kWh)", :yAxis => 0, :data => @wbills)
+      f.series(name: "Gas bills (m3)", :yAxis => 0, :data => @gbills)
+      f.series(name: "Energy bills (m3)", :yAxis => 0, :data => @ebills)
+
+      f.legend(:align => 'center', :verticalAlign => 'top', :y => 30)    
+      f.exporting(:enabled => false)     
+    end
 
   end
 
