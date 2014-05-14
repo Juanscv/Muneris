@@ -1,0 +1,118 @@
+<div class="w-col w-col-3">
+
+  <div>
+    <div class="profle-banner profile-picture">
+      <%= image_tag @user.avatar.url(:profile) %>  
+    </div>
+    <h4><%= @user.familyname %></h4>
+    <div>
+      <p><strong><%= @user.name %></strong></p>
+        <% if !@user.bills.empty? then %>
+          <p>Latest consumption:
+            <br><strong><%= @user.bills.order("created_at").last.consumption %>
+                        <%= case @user.bills.order("created_at").last.service
+                            when 1
+                              "kWh"
+                            else
+                              "m3"
+                            end %></strong></p>
+          <p>Latest payment:
+            <br><strong><%= number_to_currency(@user.bills.order("created_at").last.value, :precision => 0) %> </strong></p>
+        <% end %>      
+          <p>Network: <strong><%= @user.friends.count(:id) %> Users </strong></p>
+    </div>
+  </div>
+
+  <% if @is_current_user then %>
+    <ul class="w-list-unstyled">
+      <li>
+        <div class="w-row">
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("add.png"), new_bill_path %>
+          </div>
+          <div class="w-col w-col-10">
+            <%= link_to 'Add new bill',new_bill_path, class: "profile-sections" %>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="w-row">
+
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("add.png"), new_network_path %>
+          </div>
+          <div class="w-col w-col-10">
+            <%= link_to 'Add to network', new_network_path, class: "profile-sections" %>
+          </div>        
+        </div>
+      </li>
+      <li>
+        <div class="w-row">
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("edit.png"), edit_user_registration_path %>
+          </div> 
+          <div class="w-col w-col-10">
+            <%= link_to 'Edit profile',edit_user_registration_path, class: "profile-sections" %>
+          </div>        
+        </div>
+      </li>
+      <li>
+        <div class="w-row">
+          <div class="w-col w-col-2">
+            <%= link_to image_tag("edit.png"), bills_path %>
+          </div> 
+          <div class="w-col w-col-10">
+            <%= link_to 'Edit bills',bills_path, class: "profile-sections" %>
+          </div>        
+        </div>
+      </li>
+    </ul>
+
+  <% else %>
+
+    <ul class="w-list-unstyled">
+      <li>
+        <div class="w-row">
+          <div class="w-col w-col-12">
+            <h5>
+              <% if current_user.friend_with? @user %>
+                    <br>
+                    You are friends
+                    <br>
+                    <%= link_to 'Remove', network_path(@user), :method => "delete", data: { confirm: 'Are you sure?' } %>
+                  <% elsif current_user.invited? @user %>
+                    <br>Pending request...
+                  <% elsif @user.invited? current_user %>
+                    <br> Waiting response
+                    <br><%= link_to "Confirm", network_path(@user), :method => "put" %>
+                    <br><%= link_to "Cancel", network_path(@user), :method => "delete" %>
+                  <% else  %>
+                    <br><%= link_to "Add", network_index_path(:user_id => @user), :method => "post" %>
+              <% end %>
+            </h5>
+          </div>        
+        </div>
+      </li>
+    </ul>
+
+  <% end %>
+
+  <% if !@is_current_user and @current_user.admin? %>
+
+     <ul class="w-list-unstyled">
+      <li>
+        <div class="w-row">
+          <div class="w-col w-col-12">
+            <h5>
+              <%= link_to "Delete this user", admin_destroy_user_path(@user), method: :delete, data: { confirm: "You sure?" } %>
+            </h5>
+          </div>        
+        </div>
+      </li>
+    </ul>
+
+  <% end %>
+
+
+</div>
+

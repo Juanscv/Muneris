@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html data-wf-site="52e85101141f8e087d000001">
+<head>
+  <meta charset="utf-8">
+  <title>Muneris</title>
+  <meta name="description" content="Muneris is a social network that helps households and local businesses administrate and share their consumption bills.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,400,600,700,800","Duru Sans:regular:latin-ext,latin","Carrois Gothic:regular","Dosis:200,regular"]
+      }
+    });
+  </script>
+
+  <script>
+    if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
+  </script>
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <link rel="apple-touch-icon" href="assets/images/thumbnail-icon.png">
+  
+</head>
+
+<body>
+    
+    <%= render partial: 'layouts/partials/navbar' %>
+
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+
+

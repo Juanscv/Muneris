@@ -1,0 +1,69 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+
+<div class="sign-up-block">
+    <div class="hero-bg">
+      <div class="w-container container-1">
+        <h1 id="page-nav-Section-1">Sign Up</h1>
+        <div class="w-row">
+          <div class="w-col w-col-6">
+            <div class="w-form">
+
+  				  <div ><%= f.label :name %>
+    				  <%= f.text_field :name, class: "w-input", :placeholder => "Enter your full name"  %></div>
+
+    				<div ><%= f.label :email %>
+    				  <%= f.email_field :email, :autofocus => true, class: "w-input", :placeholder => "Enter your email address" %></div>
+
+    				<div ><%= f.label :password %>
+    				  <%= f.password_field :password, class: "w-input", :placeholder => "Enter your password"  %></div>
+
+            <div><%= f.label :password_confirmation %>
+    				  <%= f.password_field :password_confirmation,  class: "w-input", :placeholder => "Enter your password" %></div>
+
+            <div><%= f.label :avatar %>
+              <%= f.file_field :avatar,  class: "w-input", :placeholder => "Upload your Avatar" %></div>
+
+  				  <div><%= f.submit "Sign up", class: "w-button" %></div>
+
+				 <%= render "devise/shared/links" %>				
+
+            </div>
+          </div>
+          <div class="w-col w-col-6">
+            <div class="w-form">
+  				  <div >
+              <%= f.label :familyname, "Domicile Identifier" %>
+				      <%= f.text_field :familyname, class: "w-input", :placeholder => "Enter a name to identify your domicile (example: Family name)"  %></div>
+
+  				  <div >
+              <%= f.label :address %>
+  				    <%= f.text_field :address, class: "w-input", :placeholder => "Example Calle/Carrera xx # xx-xx" %></div>
+
+				    <div>
+              <%= f.label :tariff, "Classification" %>
+              <!-- <%= f.text_field :tariff,  class: "w-input", :placeholder => "Example Residencial Estrato 4" %></div> -->
+              <%= select_tag("user[tariff]", options_for_select([
+                                                                  ["Residencial Estrato 1" , "Residencial Estrato 1"],
+                                                                  ["Residencial Estrato 2" , "Residencial Estrato 2"],
+                                                                  ["Residencial Estrato 3" , "Residencial Estrato 3"], 
+                                                                  ["Residencial Estrato 4" , "Residencial Estrato 4"],
+                                                                  ["Residencial Estrato 5" , "Residencial Estrato 5"],
+                                                                  ["Residencial Estrato 6" , "Residencial Estrato 6"],
+                                                                  ["Comercial Nivel 1" , "Comercial Nivel 1"],
+                                                                  ["Comercial Nivel 2" , "Comercial Nivel 2"]
+                                                                ]), class: 'w-input', prompt: "Select an option") %>
+              
+			      <div>
+              <%= f.label :locale %>
+				      <%= f.text_field :locale,  class: "w-input", :placeholder => "Enter by City, State, Country" %></div>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="pre-sign-up"></div>
+      </div>
+    </div>
+  </div>
+  <% end %>

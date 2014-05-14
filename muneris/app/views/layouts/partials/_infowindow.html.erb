@@ -1,0 +1,15 @@
+  <%= image_tag user.avatar.url, class: "activity-image" %>
+  <h4><%= link_to user.familyname, profile_path(user.id) %></h4>
+  <% if !user.bills.empty? then %>
+    <br>Latest consumption: <strong><%= user.bills.order("created_at").last.consumption %>
+                  <%= case user.bills.order("created_at").last.service
+                      when 1
+                        "kWh"
+                      else
+                        "m3"
+                      end %></strong>
+    <br>Latest payment:<strong><%= number_to_currency(user.bills.order("created_at").last.value, :precision => 0) %></strong>
+  <% end %>      
+    <br>Network: <strong><%= user.friends.count(:id) %> users</strong>
+
+  

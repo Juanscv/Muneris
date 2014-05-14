@@ -1,0 +1,18 @@
+<div class="w-container">
+  <div class="w-row">
+
+    <div class="user-grid-item">
+      <% for friendship in @friends %>
+      <div class="w-col">
+        <div class="usercircleprofile">
+          <%= link_to image_tag(friendship.avatar.url, class: "usercircleprofile"), profile_path(friendship.id) %>
+        </div>
+        <div class="user-grid-label">      
+          <%= h link_to friendship.familyname, profile_path(friendship.id) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

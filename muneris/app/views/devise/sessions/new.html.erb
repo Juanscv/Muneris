@@ -1,0 +1,24 @@
+<div class="hero-bg">
+  <div class="w-container container-1">
+    <h1 class="log-title" id="page-nav-Section-1">Sign in</h1>
+    <div class="pre-sign-up">
+      <div class="w-form">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div ><%= f.label :email %>
+		  <%= f.email_field :email, :autofocus => true, class: "w-input", :placeholder => "Enter your email address" %></div>
+
+		  <div ><%= f.label :password %>
+		  <%= f.password_field :password, class: "w-input" , :placeholder => "Enter your password" %></div>
+
+		  <% if devise_mapping.rememberable? -%>
+		    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+		  <% end -%>
+
+		  <div><%= f.submit "Sign in", class: "w-button" %></div>
+		<% end %>
+		<%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

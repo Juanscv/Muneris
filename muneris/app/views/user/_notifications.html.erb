@@ -1,0 +1,13 @@
+<% if !@current_user.admin? %>
+
+	<h1>Notifications</h1>
+
+	<% @notifications.each do |activity| %>
+		<div class="activity">
+			<%= render_activity activity %>
+		</div>
+	<% end %>
+
+<% else %>
+
+<% end %>
