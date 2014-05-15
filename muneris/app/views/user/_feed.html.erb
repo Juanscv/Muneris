@@ -32,6 +32,19 @@
 			</div>
 	<% end %>
 
+	<h5>By City</h5>
+
+	<% @userscity.each do |usercity| %>
+		<div class="admin-info">
+		<h6><%= usercity[:locale] %> </h6>
+			<% usercity[:averages].each do |average| %>
+				<div class="title">
+				<%= average[:service] %> <%= average[:average] %> 
+				</div>
+			<% end %>
+			</div>
+	<% end %>
+
 
 <% end %>
 

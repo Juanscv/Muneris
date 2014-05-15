@@ -63,6 +63,14 @@ class MunerisController < ApplicationController
     end
 
     cities.each do |city|
+      users = User.where(locale: city)
+      averages = []
+
+      ['Barranquilla, Atlantico, Colombia', 'Puerto colombia, Atlantico, Colombia', 'Soledad, Atlantico, Colombia'].each do |service|
+        average = users.map { |u| u.valor(service) }.inject(0, :+)
+        averages << { service: service , average: average / users.size }
+      end
+
       @userscity << { locale: city.split(",").first, value: User.where(locale: city).size }
     end
 
