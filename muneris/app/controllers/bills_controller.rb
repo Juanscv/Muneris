@@ -38,9 +38,9 @@ class BillsController < ApplicationController
       f.title(:text => "Bill history")
       f.yAxis({:title => {:text => "Consumption", :margin => 20} })
 
-      f.series(name: "Water bills (kWh)", :yAxis => 0, :data => @wbills)
+      f.series(name: "Water bills (m3)", :yAxis => 0, :data => @wbills)
       f.series(name: "Gas bills (m3)", :yAxis => 0, :data => @gbills)
-      f.series(name: "Energy bills (m3)", :yAxis => 0, :data => @ebills)
+      f.series(name: "Energy bills (kWh)", :yAxis => 0, :data => @ebills)
 
       f.legend(:align => 'center', :verticalAlign => 'top', :y => 30)    
       f.exporting(:enabled => false)     
