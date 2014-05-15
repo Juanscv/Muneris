@@ -31,9 +31,52 @@ class MunerisController < ApplicationController
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
-    @users = User.all(:conditions => ["id != ?", current_user.id])
+    @friends = current_user.friends
 
     notifications
+
+    @users = User.all(:conditions => ["id != ?", current_user.id])
+    @bills = Bill.all
+
+    #------------------------------------ADMIN--------------------------------------
+
+    tariffs = User.where("id != ?", current_user.id).pluck(:tariff).uniq
+    @userstariff = []
+
+    cities = User.where("id != ?", current_user.id).pluck(:locale).uniq
+    @userscity = []
+
+    services = Bill.pluck(:service).uniq
+    @billsservice = []
+
+    tariffs.each do |tariff|
+      users = User.where(tariff: tariff)
+      averages = []
+
+      # services
+      [1, 2, 3].each do |service|
+        average = users.map { |u| u.valor(service) }.inject(0, :+)
+        averages << { service: service , average: average / users.size }
+      end
+
+      @userstariff << { tariff: tariff, value: users.size, averages: averages }
+    end
+
+    cities.each do |city|
+      users = User.where(locale: city)
+      averages = []
+
+      ['Barranquilla, Atlantico, Colombia', 'Puerto colombia, Atlantico, Colombia', 'Soledad, Atlantico, Colombia'].each do |service|
+        average = users.map { |u| u.valor(service) }.inject(0, :+)
+        averages << { service: service , average: average / users.size }
+      end
+
+      @userscity << { locale: city.split(",").first, value: User.where(locale: city).size }
+    end
+
+    services.each do |service|
+      @billsservice << { service: service, value: Bill.where(service: service).size }
+    end   
 
   end
 
@@ -125,6 +168,12 @@ class MunerisController < ApplicationController
       end
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
+    end
+    
+    if params[:user_id].nil? then
+      @user = current_user
+    else
+      @user = User.find(params[:user_id])
     end
   end
 

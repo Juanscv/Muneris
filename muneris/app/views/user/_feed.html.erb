@@ -1,8 +1,46 @@
-<h1>Feed</h1>
-<% @activities.each do |activity| %>
-  <div class="activity">
-  	<%= render_activity activity if activity.key == "bill.create"%>
-  </div>
+<% if !@current_user.admin? %>
+
+	<h1>Feed</h1>
+	<% @activities.each do |activity| %>
+	  <div class="activity">
+	  	<%= render_activity activity if activity.key == "bill.create"%>
+	  </div>
+	<% end %>
+
+<% else %>
+
+	<h1>Measurements</h1>
+
+	<h4>Avarege consumption </h4>
+
+	<h5>By tariff</h5>
+
+	
+	<% @userstariff.each do |usertariff| %>
+		<div class="admin-info">
+		<h6><%= usertariff[:tariff] %> </h6>
+			<% usertariff[:averages].each do |average| %>
+				<div class="title">
+				<% if average[:service] == 1 %> Energy:
+				<% elsif average[:service] == 2 %> Water:
+				<% elsif average[:service] == 3 %> Gas:
+				<% else average[:service] %> Other: 
+				<% end %>   
+				<%= average[:average] %> 
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+
+	<h5>By City</h5>
+
+	<% @userscity.each do |usercity| %>
+		<div class="admin-info">
+		<h6><%= usercity[:locale] %> </h6>
+		</div>
+	<% end %>
+
+
 <% end %>
 
 

@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     ["#{address}","#{locale}"].compact.join(', ')
   end
 
+  def valor(service)
+    bills.where(service: service).pluck(:consumption).inject(0, :+)
+  end
+
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	      user.provider = auth.provider
