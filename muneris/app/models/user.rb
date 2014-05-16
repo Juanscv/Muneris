@@ -32,11 +32,11 @@ class User < ActiveRecord::Base
     bills.where(service: 'Water').pluck(:consumption).inject(0, :+)    
   end
 
-  def consumo_total_water
+  def consumo_total_gas
     bills.where(service: 'Gas').pluck(:consumption).inject(0, :+)    
   end
 
-  scope :extrato_um, -> { where(tariff: 'Residencial Estrato 1') }
+  # scope :extrato_um, -> { where(tariff: 'Residencial Estrato 1') }
 
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|

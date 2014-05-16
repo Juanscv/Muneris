@@ -77,8 +77,8 @@ class MunerisController < ApplicationController
       averages = []
 
       ['Barranquilla, Atlantico, Colombia', 'Puerto colombia, Atlantico, Colombia', 'Soledad, Atlantico, Colombia'].each do |service|
-        average = users.map { |u| u.valor(service) }.inject(0, :+)
-        averages << { service: service , average: average / users.size }
+        consumption = users.map { |u| u.valor(service) }.inject(0, :+)
+        averages << { service: service , average: consumption / users.size }
       end
 
       @userscity << { locale: city.split(",").first, value: User.where(locale: city).size }
@@ -96,12 +96,15 @@ class MunerisController < ApplicationController
 
     ['Residencial Estrato 5', 'Residencial Estrato 1', 'Residencial Estrato 2','Residencial Estrato 3', 'Residencial Estrato 4', 'Residencial Estrato 6'].each do |tariff|
       users = User.where(tariff: tariff)
-      consumo = users.map { |u| u.consumo_total}.inject(0, :+)
+      econsumo = users.map { |u| u.consumo_total_energy}.inject(0, :+)
+      wconsumo = users.map { |u| u.consumo_total_water}.inject(0, :+)
+      gconsumo = users.map { |u| u.consumo_total_gas}.inject(0, :+)
     end
 
     @wcharttariff = LazyHighCharts::HighChart.new('pie') do |f|
           f.chart({:defaultSeriesType=>"pie"})
-          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', ],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
+          # series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 100 / econsumo],['E. 4', 100 / econsumo],['E. 2', 100 / econsumo],['E. 3', 100 / econsumo],['E. 5', 100 / econsumo],['E. 6', 100 / econsumo]]}
+          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
           f.series(series)
           f.options[:title][:text] = "Water"
           f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
