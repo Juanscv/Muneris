@@ -21,6 +21,7 @@ Muneris::Application.routes.draw do
   get "/user/:id/network", to: 'user#network', as: :usernetwork
   get "/dashboard", to: 'muneris#dashboard', as: :dashboard
   get "/profile(/:user_id)", to: 'muneris#profile', as: :profile
+  get "/statistics", to: 'muneris#statistics', as: :statistics
   get "/map", to: 'muneris#map', as: :map
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

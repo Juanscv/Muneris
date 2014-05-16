@@ -9,26 +9,6 @@ class MunerisController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
-    if current_user.has_address?
-      users_nearby = current_user.nearbys(10)
-      @users = [current_user]
-      @users += users_nearby unless users_nearby.blank?
-
-      @markers = Gmaps4rails.build_markers(@users) do |user, marker|
-        if user.has_address?
-          marker.lat user.latitude
-          marker.lng user.longitude
-
-          # TODO mudar o width e o height para a largura e altura correspondentes
-          # a imagem que o icone final possui.
-          marker.picture url: user.consumption_picture, width: 32, height: 37
-
-        end
-      end
-    else
-      @markers = [ { lat: 10.96421, lng: -74.797043 } ]
-    end
-
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
     @friends = current_user.friends
@@ -158,10 +138,23 @@ class MunerisController < ApplicationController
 
     notifications
 
-    @bills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", @user.id),
+    @ebills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user.id),
       order:           'bills.date',
-      order_direction: 'desc'
+      order_direction: 'desc',
+      per_page: 5
+    )
+    @wbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    )
+    @gbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
     )
 
     bills = @user.bills.sort_by(&:date)
@@ -243,6 +236,18 @@ class MunerisController < ApplicationController
     else
       @user = User.find(params[:user_id])
     end
+  end
+
+  def statistics
+    @ebills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)").where("users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND bills.service = 1", current_user.id, current_user.id, current_user.id)
+    )
+    @wbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user.id)
+    )
+    @gbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user.id)
+    )
   end
 
   private

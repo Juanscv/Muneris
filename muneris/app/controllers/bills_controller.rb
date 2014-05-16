@@ -42,7 +42,7 @@ class BillsController < ApplicationController
       f.series(name: "Gas bills (m3)", :yAxis => 0, :data => @gbills)
       f.series(name: "Energy bills (kWh)", :yAxis => 0, :data => @ebills)
 
-      f.legend(:align => 'center', :verticalAlign => 'top', :y => 30)    
+      f.legend(:enabled => true, :align => 'center', :verticalAlign => 'top', :y => 30)    
       f.exporting(:enabled => false)     
     end
 
