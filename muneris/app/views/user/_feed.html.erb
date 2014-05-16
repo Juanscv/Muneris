@@ -64,6 +64,16 @@
 		<% @userscity.each do |usercity| %>
 			<div class="admin-info">
 			<h6><%= usercity[:locale] %> </h6>
+				<% usercity[:averages].each do |average| %>
+					<div class="title">
+					<% if average[:service] == 1 %> Energy:
+					<% elsif average[:service] == 2 %> Water:
+					<% elsif average[:service] == 3 %> Gas:
+					<% else average[:service] %> Other: 
+					<% end %>   
+					<%= average[:average] %> 
+					</div>
+				<% end %>
 			</div>
 		<% end %>
 	</div>

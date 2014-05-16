@@ -199,7 +199,7 @@ class BillsController < ApplicationController
     end
 
     def time
-      @bill.created_at.strftime("%b %Y")
+      @bill.date.strftime("%b %Y")
     end
 
 

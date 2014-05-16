@@ -24,16 +24,20 @@ class User < ActiveRecord::Base
     bills.where(service: service).pluck(:consumption).inject(0, :+)
   end
 
+  def valor_total(service)
+    bills.where(service: service).size
+  end
+
   def consumo_total_energy
-    bills.where(service: 'Energy').pluck(:consumption).inject(0, :+)    
+    bills.where(service:  1).pluck(:consumption).inject(0, :+)    
   end
 
   def consumo_total_water
-    bills.where(service: 'Water').pluck(:consumption).inject(0, :+)    
+    bills.where(service:  2).pluck(:consumption).inject(0, :+)    
   end
 
   def consumo_total_gas
-    bills.where(service: 'Gas').pluck(:consumption).inject(0, :+)    
+    bills.where(service:  3).pluck(:consumption).inject(0, :+)    
   end
 
   # scope :extrato_um, -> { where(tariff: 'Residencial Estrato 1') }
