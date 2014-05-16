@@ -70,7 +70,7 @@ class MunerisController < ApplicationController
         end
         consumption = users.map { |u| u.valor(service) }.inject(0, :+)
         @averagescity << { locale: locale, service: service , average: consumption / bills_total }
-        @averagescitylista << {service: service , average: consumption / users.size }
+        @averagescitylista << {service: service , average: consumption / bills_total }
       end
 
       @userscity << { locale: locale.split(",").first, value: User.where(locale: locale).size, averages: @averagescitylista }
