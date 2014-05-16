@@ -285,6 +285,11 @@ textarea.w-select {
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
   -webkit-border-radius: 3px;
 }
+
+.admin .w-col-5{
+  width: 70.66666666666667% !important;
+}
+
 .w-col-6 {
   width: 50%;
 }
@@ -2253,6 +2258,10 @@ tbody {
   width: 27%;
 }
 
+.admin .notifications{
+  display: none;
+}
+
 #network p {
   padding-left: 0px;
 }
@@ -2351,7 +2360,12 @@ button.btn:active{
 }
 
 .admin-info {
-  width: 40%;
+  width: 22%;
   float: left;
   margin: 3% 5%;
+}
+
+.piechart {
+  width: 50%;
+  float: left;
 }

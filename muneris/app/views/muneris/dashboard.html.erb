@@ -1,4 +1,3 @@
-
 <div class="w-container dashboard-map">
 <% if !@current_user.admin? %>
   	<div id="map" style="height: 300px;" data-widget-latlng="10.96421,-74.797043" data-widget-style="roadmap" data-widget-zoom="13"></div>
@@ -7,7 +6,12 @@
 <% end %>
 </div>
 
+
+<% if @user.admin? %> 
+<div class="admin">
+<% else %>
 <div>
+<% end %>
 	<div class="w-container">
   		<div class="w-row">
   			<div id="network" class="w-col w-col-3">

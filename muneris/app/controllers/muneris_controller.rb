@@ -55,11 +55,21 @@ class MunerisController < ApplicationController
 
       # services
       [1, 2, 3].each do |service|
-        average = users.map { |u| u.valor(service) }.inject(0, :+)
-        averages << { service: service , average: average / users.size }
+        consumption = users.map { |u| u.valor(service) }.inject(0, :+)
+        averages << { service: service , average: consumption / users.size }
       end
 
       @userstariff << { tariff: tariff, value: users.size, averages: averages }
+
+      @bartariff = LazyHighCharts::HighChart.new('column') do |f|
+        f.series(:name=>'Energy',:data=> [3, 20, 3, 5, 4, 10])
+        f.series(:name=>'Water',:data=>[1, 3, 4, 3, 3, 5])
+        f.series(:name=>'Gas',:data=> [3, 20, 3, 5, 4, 10])
+        f.xAxis({:categories => ['Estrato 1','Estrato 2','Estrato 3','Estrato 4','Estrato 5','Estrato 6']})   
+        f.title({ :text=>"Average by tariff"})
+        f.options[:chart][:defaultSeriesType] = "column"
+      end
+
     end
 
     cities.each do |city|
@@ -72,6 +82,48 @@ class MunerisController < ApplicationController
       end
 
       @userscity << { locale: city.split(",").first, value: User.where(locale: city).size }
+
+      @barcity = LazyHighCharts::HighChart.new('column') do |f|
+        f.series(:name=>'Energy',:data=> [3, 20, 3, 5, 4, 10])
+        f.series(:name=>'Water',:data=>[1, 3, 4, 3, 3, 5])
+        f.series(:name=>'Gas',:data=> [3, 20, 3, 5, 4, 10])
+        f.xAxis({:categories => ['Estrato 1','Estrato 2','Estrato 3','Estrato 4','Estrato 5','Estrato 6']})     
+        f.title({ :text=>"Average by city"})
+        f.options[:chart][:defaultSeriesType] = "column"
+      end
+    end
+
+
+    ['Residencial Estrato 5', 'Residencial Estrato 1', 'Residencial Estrato 2','Residencial Estrato 3', 'Residencial Estrato 4', 'Residencial Estrato 6'].each do |tariff|
+      users = User.where(tariff: tariff)
+      consumo = users.map { |u| u.consumo_total}.inject(0, :+)
+    end
+
+    @wcharttariff = LazyHighCharts::HighChart.new('pie') do |f|
+          f.chart({:defaultSeriesType=>"pie"})
+          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', ],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
+          f.series(series)
+          f.options[:title][:text] = "Water"
+          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+          f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+    end
+
+    @echarttariff = LazyHighCharts::HighChart.new('pie') do |f|
+          f.chart({:defaultSeriesType=>"pie"})
+          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
+          f.series(series)
+          f.options[:title][:text] = "Energy"
+          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+          f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+    end
+
+    @gcharttariff = LazyHighCharts::HighChart.new('pie') do |f|
+          f.chart({:defaultSeriesType=>"pie"})
+          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
+          f.series(series)
+          f.options[:title][:text] = "Gas"
+          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+          f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
     end
 
     services.each do |service|

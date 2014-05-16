@@ -24,6 +24,20 @@ class User < ActiveRecord::Base
     bills.where(service: service).pluck(:consumption).inject(0, :+)
   end
 
+  def consumo_total_energy
+    bills.where(service: 'Energy').pluck(:consumption).inject(0, :+)    
+  end
+
+  def consumo_total_water
+    bills.where(service: 'Water').pluck(:consumption).inject(0, :+)    
+  end
+
+  def consumo_total_water
+    bills.where(service: 'Gas').pluck(:consumption).inject(0, :+)    
+  end
+
+  scope :extrato_um, -> { where(tariff: 'Residencial Estrato 1') }
+
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	      user.provider = auth.provider
