@@ -125,9 +125,9 @@ class User < ActiveRecord::Base
   def consumption_picture
     # Array de imagens de consumo, usado para testes
     consumption_pics = [
-      ActionController::Base.helpers.asset_path('poweroutage-blue.png'),
-      ActionController::Base.helpers.asset_path('poweroutage-red.png'),
-      ActionController::Base.helpers.asset_path('poweroutage-green.png')
+      # ActionController::Base.helpers.asset_path('poweroutage-blue.png'),
+      # ActionController::Base.helpers.asset_path('poweroutage-green.png'),
+      ActionController::Base.helpers.asset_path('poweroutage-red.png')
     ]
 
     # TODO mudar a url para a imagem que corresponde ao consumo do usuário
