@@ -6,7 +6,7 @@
 		<div class="activity">
 			<%= render_activity activity %>
 		</div>
-	<% end %>
+	<% end unless @notifications.blank? %>
 
 <% else %>
 

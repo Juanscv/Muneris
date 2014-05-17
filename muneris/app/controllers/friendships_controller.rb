@@ -8,13 +8,6 @@ class FriendshipsController < ApplicationController
      order: 'users.id',
      per_page: 8
      )
-
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
-
   end
 
   def new
@@ -24,12 +17,7 @@ class FriendshipsController < ApplicationController
       order: 'users.id',
       per_page: 8
     )
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
-end
+  end
 
   def create
     invitee = User.find_by_id(params[:user_id])
@@ -37,11 +25,6 @@ end
       redirect_to new_network_path, :notice => "Successfully invited friend!"
     else
       redirect_to new_network_path, :notice => "Sorry! You can't invite that user!"
-    end
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
     end
   end
 
@@ -52,29 +35,14 @@ end
     else
       redirect_to new_network_path, :notice => "Sorry! Could not confirm friend!"
     end
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   def requests
     @pending_requests = current_user.pending_invited_by
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   def invites
     @pending_invites = current_user.pending_invited
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   def destroy
@@ -83,11 +51,6 @@ end
       redirect_to new_network_path, :notice => "Successfully removed friend!"
     else
       redirect_to new_etwork_path, :notice => "Sorry, couldn't remove friend!"
-    end
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
     end
   end
   

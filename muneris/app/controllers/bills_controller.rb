@@ -13,12 +13,6 @@ class BillsController < ApplicationController
       per_page: 20
     )
 
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
-
     bills = current_user.bills.sort_by(&:date)
 
     @ebills, @wbills, @gbills = [], [], []
@@ -51,42 +45,20 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   # GET /bills/new
   def new
-    @bill = Bill.new
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   # GET /bills/1/edit
   def edit
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   # POST /bills
   # POST /bills.json
   def create
     @bill = Bill.new(bill_params)
-
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
 
     respond_to do |format|
       if @bill.save
@@ -118,11 +90,6 @@ class BillsController < ApplicationController
         format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   # DELETE /bills/1
@@ -133,11 +100,6 @@ class BillsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }
-    end
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
     end
   end
 
@@ -201,6 +163,4 @@ class BillsController < ApplicationController
     def time
       @bill.date.strftime("%b %Y")
     end
-
-
 end

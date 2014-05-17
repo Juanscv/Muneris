@@ -3,11 +3,16 @@
     <div class="w-row">
       <div class="w-col w-col-4 company-column">
         <% if user_signed_in? %>
+        <div id="notifications" class="w-col w-col-3 notifications" style="display: none;">
+          <%= render partial: 'user/notifications' %>
+        </div>
         <%= link_to (image_tag 'logomuneris.png', class: "logo") , dashboard_path %>
+        <%= link_to_modal (image_tag 'NotificationIcon.png', class: "logo notification_icon") , "#notifications" %>        
         <% else %>
         <%= link_to (image_tag 'logomuneris.png', class: "logo") , root_path %>
-        <% end %>
+        <% end %>        
       </div>
+
       <div class="w-col w-col-8 nav-bar">
 
         <% if user_signed_in? and !@user.admin? %>        
