@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery_ujs
 //= require jquery.ui.all
 //= require jquery.modal
-//= require jquery_ujs
 
 //= require turbolinks
 //= require_tree .
@@ -26,19 +25,8 @@
 
 //= require highstock
 //= require highstock/highcharts-more
-
-//= require highstock/adapters/mootools-adapter
-//= require highstock/adapters/prototype-adapter
-//= require highstock/adapters/standalone-framework
-
-//= require highstock/modules/annotations
-//= require highstock/modules/canvas-tools
-//= require highstock/modules/data
-//= require highstock/modules/drilldown
-//= require highstock/modules/exporting
-//= require highstock/modules/funnel
-//= require highstock/modules/heatmap
 //= require highstock/modules/no-data-to-display
+//= require highstock/themes/grid-light
 
 
 $(function () {
