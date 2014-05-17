@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506012139) do
+ActiveRecord::Schema.define(version: 20140517020043) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140506012139) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "service",     null: false
+    t.integer  "service"
   end
 
   create_table "friendships", force: true do |t|
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20140506012139) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "permalink"
-    t.boolean  "admin"
+    t.integer  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

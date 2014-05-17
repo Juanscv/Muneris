@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     bills.where(service: service).size
   end
 
+  def pie_chart
+    
+  end
+
   def consumo_total_energy
     bills.where(service:  1).pluck(:consumption).inject(0, :+)    
   end

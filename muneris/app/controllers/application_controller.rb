@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
   before_filter :defining_user
 
   def notifications
-    @notifications = PublicActivity::Activity.order("created_at desc").where("activities.owner_id = ? AND activities.owner_type = 'User' AND (activities.key = 'bill.alert' OR activities.key = 'friendship.invite')", current_user.id)
+    if !current_user.nil? then
+      @notifications = PublicActivity::Activity.order("created_at desc").where("activities.owner_id = ? AND activities.owner_type = 'User' AND (activities.key = 'bill.alert' OR activities.key = 'friendship.invite')", current_user.id)
+    end
   end
 
   def defining_user
