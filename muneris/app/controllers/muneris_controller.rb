@@ -4,6 +4,8 @@ class MunerisController < ApplicationController
 
   def dashboard
 
+    @is_current_user = current_user == @user
+
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
     @friends = current_user.friends
@@ -49,7 +51,6 @@ class MunerisController < ApplicationController
         f.series(:name=>'Water',:data=> @averagestariff.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
       elsif @current_user.admin == 3 
         f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-      else
       end
       f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
       f.title({ :text=>"Average by tariff"})
@@ -82,45 +83,39 @@ class MunerisController < ApplicationController
         f.series(:name=>'Water',:data=> @averagescity.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
       elsif @current_user.admin == 3 
         f.series(:name=>'Gas',:data=> @averagescity.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-      else
       end
       f.xAxis({:categories => @userscity.collect { |e| e[:locale]} })    
       f.title({ :text=>"Average by city"})
       f.options[:chart][:defaultSeriesType] = "column"
     end
 
+    @bills_pie_total = []
+    [1, 2, 3].each do |service|
+      @averagestariff = []
+      ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6'].each do |tariff|
+        users = User.where(tariff: tariff)
 
-    ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6'].each do |tariff|
-      users = User.where(tariff: tariff)
-      @econsumo = users.map { |u| u.consumo_total_energy}.inject(0, :+)
-      @wconsumo = users.map { |u| u.consumo_total_water}.inject(0, :+)
-      @gconsumo = users.map { |u| u.consumo_total_gas}.inject(0, :+)
+        @consumption = users.map { |u| u.valor(service) }.inject(0, :+)
+        @averagestariff << { tariff: tariff, service: service , average: @consumption }
+      end
+
+      @bills_pie_total << {service: service, tariff: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:tariff] }, consumption_total: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.map {|x| x *100/@averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.inject(0, :+) } }
     end
-    
-    @echarttariff = LazyHighCharts::HighChart.new('pie') do |f|
+
+
+    @charttariff = LazyHighCharts::HighChart.new('pie') do |f|
           f.chart({:defaultSeriesType=>"pie"})
-          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
+          if @current_user.admin == 1
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:consumption_total]  }[0]}
+          elsif @current_user.admin == 2
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:consumption_total]  }[0]}
+          elsif @current_user.admin == 3
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:consumption_total]  }[0]}
+          else
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+          end
           f.series(series)
           f.options[:title][:text] = "Energy"
-          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-          f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
-    end
-
-    @wcharttariff = LazyHighCharts::HighChart.new('pie') do |f|
-          f.chart({:defaultSeriesType=>"pie"})
-          # series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 100 / @econsumo],['E. 4', 100 / @econsumo],['E. 2', 100 / @econsumo],['E. 3', 100 / @econsumo],['E. 5', 100 / @econsumo],['E. 6', 100 / @econsumo]]}
-          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
-          f.series(series)
-          f.options[:title][:text] = "Water"
-          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-          f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
-    end
-
-    @gcharttariff = LazyHighCharts::HighChart.new('pie') do |f|
-          f.chart({:defaultSeriesType=>"pie"})
-          series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
-          f.series(series)
-          f.options[:title][:text] = "Gas"
           f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
           f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
     end
@@ -223,20 +218,42 @@ class MunerisController < ApplicationController
         if user.has_address?
           marker.infowindow render_to_string(:partial => "/layouts/partials/infowindow", :locals => { :user => user} )
           marker.title user.familyname
+          marker.json({ :id => user.id})
 
           marker.lat user.latitude
           marker.lng user.longitude
-
-          # TODO mudar o width e o height para a largura e altura correspondentes
-          # a imagem que o icone final possui.
-          marker.picture url: user.consumption_picture, width: 32, height: 37
-
-          
+          marker.picture url: user.consumption_picture, width: 32, height: 37          
         end
       end
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
+
+    if params[:user_map_id].nil? then
+      @user_map = current_user
+    else
+      @user_map = User.find(params[:user_map_id])
+    end  
+
+    @ebills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user_map.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    )
+    @wbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user_map.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    )
+    @gbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user_map_id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    ) 
+
   end
 
   def statistics

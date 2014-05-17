@@ -1,14 +1,20 @@
 jQuery(document).ready(function () {
   if ($('.dashboard-map #map').length === 0)  return;
-
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: { id: 'map' } }, function () {
     var markers = handler.addMarkers(App.map.markers);
-
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     if (App.map.markers.length > 0) {
       handler.map.centerOn(App.map.markers[0]);
     }
+    _.each(App.map.markers, function(json, index){
+      var marker  = markers[index];
+      json.marker = marker;
+      google.maps.event.addListener(marker.getServiceObject(), 'click', function user_mapa(){
+        console.log(json.id);
+          $.get('/map/info/' + json.id, true)
+      });
+    });
   });
 });

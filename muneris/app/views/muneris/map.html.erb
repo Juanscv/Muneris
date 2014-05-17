@@ -1,11 +1,21 @@
 <div class="w-container dashboard-map">
+
   <div id="map" class="map-view" data-widget-latlng="10.96421,-74.797043" data-widget-style="roadmap" data-widget-zoom="13"></div>
+
+</div>
+
+<div id="data_map">
+<% if  @current_user.id == @user_map.id %>
+<%=  render 'layouts/partials/data' %>
+<%elsif !@user_map.id.nil?	%>
+<%=  render 'layouts/partials/data' %>
+<%end%>
 </div>
 
 <script type="text/javascript">
   var App = App || {};
-
   App.map = { markers: <%= raw @markers.to_json %> };
+ 
 </script>
 
 <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>

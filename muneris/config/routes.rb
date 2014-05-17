@@ -23,6 +23,7 @@ Muneris::Application.routes.draw do
   get "/profile(/:user_id)", to: 'muneris#profile', as: :profile
   get "/statistics", to: 'muneris#statistics', as: :statistics
   get "/map", to: 'muneris#map', as: :map
+  get "/map/info/:user_map_id", to: 'muneris#map'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   delete 'profile/:id' => 'user#destroy', :as => :admin_destroy_user  

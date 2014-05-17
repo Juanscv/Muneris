@@ -1,16 +1,20 @@
 <% if @user.admin? %> 
 <div class="admin">
 <% else %>
-<div>
+<div class="dashboard">
 <% end %>
 	<div class="w-container">
   		<div class="w-row">
-  			<div id="network" class="w-col w-col-3">
-				<%= render partial: 'user/network' %>
-			</div>
-			<div id="feed" class="w-col w-col-5">
-				<%= render partial: 'user/feed' %>
-			</div>
+  		<% if !@user.admin? %> 
+  			<%= render partial: 'layouts/partials/sidebar' %>
+  		<% else %>
+  		<% end %>
+		<div id="feed" class="w-col w-col-5">
+			<%= render partial: 'user/feed' %>
+		</div>
+			<div id="network" class="w-col w-col-3">
+			<%= render partial: 'user/network' %>
+		</div>
 		</div>
 	</div>
 </div>

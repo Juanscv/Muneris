@@ -11,31 +11,14 @@
 
 	<h1>Measurements</h1>
 
-	<h4>Avarege consumption </h4>
-
-	<% if @current_user.admin == 1 %>
-		<div class="piechart">
-		<%= high_chart("echarttariff", @echarttariff) do |c| %>
-	        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-	        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-	    <% end %>
-	    </div>
-	<% elsif @current_user.admin == 2 %>
-	    <div class="piechart">
-	    <%= high_chart("wcharttariff", @wcharttariff) do |c| %>
-	        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-	        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-	    <% end %>
-	    </div>
-	<% elsif @current_user.admin == 3 %>
-	    <div class="piechart">
-		<%= high_chart("gcharttariff", @gcharttariff) do |c| %>
-	        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-	        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-	    <% end %>
-	    </div>
-	<% else %>
-	<% end %>
+	<h4>Porcentual consumption of energy by tariff </h4>
+	
+	<div class="piechart">
+	<%= high_chart("charttariff", @charttariff) do |c| %>
+        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
+        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+    <% end %>
+    </div>
 
 	<div class="averageinfo">
 
@@ -46,9 +29,9 @@
 			<h6><%= usertariff[:tariff] %> </h6>
 				<% usertariff[:averages].each do |average| %>
 					<div class="title">
-					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= average[:average] %> 
-					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= average[:average] %> 
-					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= average[:average] %>
+					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= "%0.3f" % average[:average] %>
 					<% end %>
 					</div>
 				<% end %>
@@ -65,9 +48,9 @@
 			<h6><%= usercity[:locale] %> </h6>
 				<% usercity[:averages].each do |average| %>
 					<div class="title">
-					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= average[:average] %> 
-					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= average[:average] %> 
-					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= average[:average] %>
+					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= "%0.3f" % average[:average] %>
 					<% end %>
 					</div>
 				<% end %>
