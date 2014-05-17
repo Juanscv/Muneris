@@ -179,29 +179,24 @@ class MunerisController < ApplicationController
     @echart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
       f.yAxis({:title => {:text => "Consumption", :margin => 10} })
-      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills)
-      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills) if !@is_current_user 
-      f.tooltip(valueSuffix: ' kWh')
+      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills) if !@is_current_user
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
       f.yAxis({:title => {:text => "Consumption", :margin => 10} })
-      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills)
+      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wbills) if !@is_current_user
-      f.tooltip(valueSuffix: ' m3')
-      f.exporting(enabled: false)
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @gchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
       f.yAxis({:title => {:text => "Consumption", :margin => 10} })
-      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills)
+      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gbills) if !@is_current_user
-      f.tooltip(valueSuffix: ' m3')
-      f.exporting(enabled: false)
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
