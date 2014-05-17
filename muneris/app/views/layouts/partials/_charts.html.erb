@@ -1,0 +1,27 @@
+<div class="w-box">
+<p><strong>Energy bills' stats</strong></p>
+<%=	if !@ebills.empty? then
+		high_stock('echart', @echart)
+	else
+		render partial: 'layouts/partials/blank', locals: { section: 'bill' } 
+	end %>
+</div>
+<div class="w-box">
+<p><strong>Water bills' stats</strong></p>
+<%=	if !@wbills.empty? then
+		high_stock('wchart', @wchart)
+	else
+		render partial: 'layouts/partials/blank', locals: { section: 'bill' } 
+	end %>
+</div>
+<div class="w-box">
+<p><strong>Gas bills' stats</strong></p>
+<%=	if !@gbills.empty? then
+		high_stock('gchart', @gchart)
+	else
+		render partial: 'layouts/partials/blank', locals: { section: 'bill' } 
+	end %>
+</div>
+
+
+

@@ -1,6 +1,6 @@
 <% define_grid(@bills_grid, hide_submit_button: true) do |g|
 
-  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' }
+  g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'bill' }
 
   g.column name: 'Consumption', attribute: 'consumption', auto_reload:  true, detach_with_id: :consumption_filter do |bill|
     case bill.service

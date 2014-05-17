@@ -32,12 +32,11 @@ class BillsController < ApplicationController
       f.title(:text => "Bill history")
       f.yAxis({:title => {:text => "Consumption", :margin => 20} })
 
-      f.series(name: "Water bills (m3)", :yAxis => 0, :data => @wbills)
-      f.series(name: "Gas bills (m3)", :yAxis => 0, :data => @gbills)
-      f.series(name: "Energy bills (kWh)", :yAxis => 0, :data => @ebills)
-
-      f.legend(:enabled => true, :align => 'center', :verticalAlign => 'top', :y => 30)    
-      f.exporting(:enabled => false)     
+      f.series(id: 1, name: "Water bills", :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.series(id: 2, name: "Gas bills", :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
+      f.series(id: 3, name: "Energy bills", :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.legend(:enabled => true, :align => 'center', :verticalAlign => 'top', :y => 30)
+      f.rangeSelector(enabled: true, inputDateFormat: '%b %Y', inputEditDateFormat: '%b %Y')    
     end
 
   end
@@ -49,6 +48,7 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
+    @bill = Bill.new
   end
 
   # GET /bills/1/edit

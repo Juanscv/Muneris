@@ -2,7 +2,7 @@
 
 <% define_grid(@bills_grid, hide_submit_button: true) do |g|
 
-  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' }
+  g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'bill' }
 
   g.action_column
 

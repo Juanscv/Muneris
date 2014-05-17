@@ -4,7 +4,7 @@
       <%= render 'layouts/partials/sidebar' %>
 
       <% if @is_current_user or @current_user.friend_with? @user or @current_user.admin? %>
-      <%=  render 'layouts/partials/data' %>
+      <%=  render 'layouts/partials/activity' %>
       <%end%>
       
       <% if @is_current_user or  @current_user.admin? %>

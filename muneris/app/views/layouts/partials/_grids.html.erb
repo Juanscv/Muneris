@@ -1,7 +1,8 @@
+<div class="w-box">
 <p><strong>Energy bills</strong></p>
 <%= grid(@ebills_grid, show_filters: :no) do |g|
 
-  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
+  g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'bill' } 
 
   g.column name: 'Consumption', attribute: 'consumption' do |bill|
     bill.consumption.to_s + " kWh"
@@ -16,11 +17,12 @@
   end
 
 end %>
-
+</div>
+<div class="w-box">
 <p><strong>Water bills</strong></p>
 <%= grid(@wbills_grid, show_filters: :no) do |g|
 
-  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
+  g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'bill' } 
 
   g.column name: 'Consumption', attribute: 'consumption' do |bill|
     bill.consumption.to_s + " m3"
@@ -35,12 +37,13 @@ end %>
   end
 
 end %>
-
+</div>
+<div class="w-box">
 <p><strong>Gas bills</strong></p>
 
 <%= grid(@gbills_grid, show_filters: :no) do |g|
 
-  g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
+  g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'bill' } 
 
   g.column name: 'Consumption', attribute: 'consumption' do |bill|
     bill.consumption.to_s + " m3"
@@ -55,3 +58,4 @@ end %>
   end
 
 end %>
+</div>

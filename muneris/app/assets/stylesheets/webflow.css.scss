@@ -1518,6 +1518,7 @@ h3 {
   font-size: 24px;
   line-height: 30px;
   font-weight: 700;
+  text-align: center;
 }
 h4 {
   margin-right: 0px;
@@ -1602,6 +1603,7 @@ p {
   -webkit-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
+  text-decoration: none;
 }
 .nav-link.sign-up {
   background-color: #008cff;
@@ -1804,7 +1806,7 @@ p {
   display: inline-table;
 }
 .activity-image {
-  width: 35px;
+  width: 50px;
   float: right;
 }
 .user-grid-item {
@@ -2164,6 +2166,7 @@ abbr.timeago {
   padding: 0 0 .25em 0;
   font-weight: bold;
   font-size: 14px;
+  text-align: center;
 }
 
 .activity .body .details .avatar {
@@ -2374,4 +2377,10 @@ button.btn:active{
   margin: 0 10px;
   border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
+}
+
+.w-box {
+  width: 100%;
+  height: 305px;
+  paddingTop: 5px;
 }

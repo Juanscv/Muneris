@@ -153,10 +153,8 @@ class MunerisController < ApplicationController
       per_page: 5
     )
 
-    bills = @user.bills.sort_by(&:date)
-
     @ebills, @wbills, @gbills = [], [], []
-
+    bills = @user.bills.sort_by(&:date)
     bills.each do |b|
       case b.service
       when 1
@@ -168,36 +166,49 @@ class MunerisController < ApplicationController
       end
     end
 
-    @your_ebills, @your_wbills, @your_gbills = [], [], []
-
     if !@is_current_user then
-      your_bills = current_user.bills.sort_by(&:date)
-      your_bills.each do |b|
+      cu_ebills, cu_wbills, cu_gbills = [], [], []
+      cu_bills = current_user.bills.sort_by(&:date)
+      cu_bills.each do |b|
         case b.service
         when 1
-          @your_ebills << [b.date.strftime("%s%L").to_i,b.consumption]
+          cu_ebills << [b.date.strftime("%s%L").to_i,b.consumption]
         when 2
-          @your_wbills << [b.date.strftime("%s%L").to_i,b.consumption]
+          cu_wbills << [b.date.strftime("%s%L").to_i,b.consumption]
         when 3
-          @your_gbills << [b.date.strftime("%s%L").to_i,b.consumption]
+          cu_gbills << [b.date.strftime("%s%L").to_i,b.consumption]
         end
       end   
     end
 
-    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+    @echart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(height: 280, marginTop: 2)
       f.yAxis({:title => {:text => "Consumption", :margin => 10} })
-
-      f.series(name: "Water bills (m3)", :yAxis => 0, :data => @wbills)
-      f.series(name: "Gas bills (m3)", :yAxis => 0, :data => @gbills)
-      f.series(name: "Energy bills (kWh)", :yAxis => 0, :data => @ebills)
-
-      f.series(name: "Your water bills (m3)", :yAxis => 0, :data => @your_wbills)
-      f.series(name: "Your gas bills (m3)", :yAxis => 0, :data => @your_gbills)
-      f.series(name: "Your energy bills (kWh)", :yAxis => 0, :data => @your_ebills)
-
-      f.legend(:align => 'center', :verticalAlign => 'top', :y => 30, :enabled => false, :layout => 'vertical',)  
-      f.exporting(:enabled => false)
-      f.rangeSelector(:buttons => [])
+      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills)
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills) if !@is_current_user 
+      f.tooltip(valueSuffix: ' kWh')
+      f.rangeSelector(enabled: false)
+      f.scrollbar(enabled: false)
+    end
+    @wchart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(height: 280, marginTop: 2)
+      f.yAxis({:title => {:text => "Consumption", :margin => 10} })
+      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills)
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wbills) if !@is_current_user
+      f.tooltip(valueSuffix: ' m3')
+      f.exporting(enabled: false)
+      f.rangeSelector(enabled: false)
+      f.scrollbar(enabled: false)
+    end
+    @gchart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(height: 280, marginTop: 2)
+      f.yAxis({:title => {:text => "Consumption", :margin => 10} })
+      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills)
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gbills) if !@is_current_user
+      f.tooltip(valueSuffix: ' m3')
+      f.exporting(enabled: false)
+      f.rangeSelector(enabled: false)
+      f.scrollbar(enabled: false)
     end
 
   end

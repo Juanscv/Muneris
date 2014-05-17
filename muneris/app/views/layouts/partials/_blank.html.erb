@@ -1,7 +1,8 @@
 <div class="w-col">
 <p>
 No records found.
-<%	case what
+<br>
+<%	case section
 		when 'bill' then %>	 Go <%= link_to 'here', new_bill_path %> to add a bill.
 	<% 	when 'net' then %>   Go <%= link_to 'here', new_network_path %> to add some users.
 <% end %>

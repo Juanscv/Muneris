@@ -1,45 +1,13 @@
 <h1>Your Network</h1>
 
-<%= define_grid(@friends_grid, hide_submit_button: true) do |g|
-
-	g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'net' }
-
-	g.action_column
-
-	g.column do |user|
-		link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
-	end
-
-	g.column name: 'Family Name', attribute: 'familyname', auto_reload:  true, detach_with_id: :familyname_filter
-
-	g.column  name: 'Classification', attribute: 'tariff', auto_reload:  true, custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Oficial Nivel 1", "Oficial Nivel 2", "Comercial Nivel 1", "Comercial Nivel 2"], detach_with_id: :tariff_filter
-
-	g.column name: 'Address', attribute: 'address', auto_reload:  true, detach_with_id: :address_filter
-
-	g.column name: 'Location', attribute: 'locale', auto_reload:  true, detach_with_id: :locale_filter
-
-	g.column do |user|
-		link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
-	end
-
-end %>
-
 <div class="w-container">
 	<div class="w-row">
-		<div class="w-col w-col-3new">
-			<div class ="wg-detached-filter">
-				<div>Family Name:	<%= grid_filter @friends_grid, :familyname_filter %></div>
-				
-				<div>Classification:	<%= grid_filter @friends_grid, :tariff_filter %></div>
-
-				<div>Address:	<%= grid_filter @friends_grid, :address_filter %></div>
-				
-				<div>Locale:	<%= grid_filter @friends_grid, :locale_filter %></div>
-
+		<div class="w-col w-col-3new">				
+				<%= dump_filter_parameters_as_hidden_fields(@users_grid) %>
+				<%= form_for '#', method: :get do %>
 				<div class="external-buttons w-container ">
-					<button class="clickable btn w-button" data-grid-name="grid">Reset</button>
+					<button class="clickable btn w-button wg-external-submit-button" data-grid-name="grid" type="submit">Submit</button>
 				</div>
-			</div>
 			<div class="w-row">
 				<div class="w-col w-col-2">
 					<%= link_to image_tag("add.png"), new_network_path %>
@@ -52,14 +20,51 @@ end %>
 
 		<div class="w-col w-col-9">
 			<div class="wice-grid">
-				<%= render_grid(@friends_grid) %>
+				<%= grid(@users_grid) do |g|
+
+					g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'net' }
+
+					g.action_column param_name: 'selected'
+
+					g.column do |user|
+						link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
+					end
+
+					g.column name: 'Family Name', attribute: 'familyname'
+
+					g.column  name: 'Classification', attribute: 'tariff', custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Oficial Nivel 1", "Oficial Nivel 2", "Comercial Nivel 1", "Comercial Nivel 2"]
+
+					g.column name: 'Address', attribute: 'address'
+
+					g.column name: 'Location', attribute: 'locale'
+
+					g.column do |user|
+						link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
+					end
+
+				end %>
+
 			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
 
+<%=	render partial: 'charts' %>
+
 <div class="w-container">
 	<div class="w-row">
-
+		<div class="w-col w-col-4">
+			<%= high_stock('echart',@echart) %>
+		</div>
+		<div class="w-col w-col-4">
+			<%= high_stock('wchart',@wchart) %>
+		</div>
+		<div class="w-col w-col-4">
+			<%= high_stock('gchart',@gchart) %>
+		</div>
 	</div>
 </div>
+
+<%= debug @selected %>
+<%= debug @results %>
