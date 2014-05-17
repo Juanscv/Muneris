@@ -1,8 +1,11 @@
 <div class="w-col">
-<br>
+<p>
+No records found.
 <%	case what
-		when 'bill' then %>	<p>No records found. Go <%= link_to 'here', new_bill_path %> to add a bill.</p>
-	<% 	when 'net' then %> 	<p>No records found. Go <%= link_to 'here', new_network_path %> to add some users.</p>
+		when 'bill' then %>	 Go <%= link_to 'here', new_bill_path %> to add a bill.
+	<% 	when 'net' then %>   Go <%= link_to 'here', new_network_path %> to add some users.
 <% end %>
+</p>
+<br>
 
 </div>
