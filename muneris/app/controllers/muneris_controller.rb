@@ -3,17 +3,10 @@ class MunerisController < ApplicationController
   before_filter :authenticate_user!
 
   def dashboard
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
     @friends = current_user.friends
-
-    notifications
 
     @users = User.all(:conditions => ["id != ?", current_user.id])
     @bills = Bill.all
@@ -50,9 +43,14 @@ class MunerisController < ApplicationController
     end
 
     @bartariff = LazyHighCharts::HighChart.new('column') do |f|
-      f.series(:name=>'Energy',:data => @averagestariff.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } ) 
-      f.series(:name=>'Water',:data=> @averagestariff.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
-      f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
+      if @current_user.admin == 1 
+        f.series(:name=>'Energy',:data => @averagestariff.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
+      elsif @current_user.admin == 2    
+        f.series(:name=>'Water',:data=> @averagestariff.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
+      elsif @current_user.admin == 3 
+        f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
+      else
+      end
       f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
       f.title({ :text=>"Average by tariff"})
       f.options[:chart][:defaultSeriesType] = "column"
@@ -78,9 +76,14 @@ class MunerisController < ApplicationController
     end
 
     @barcity = LazyHighCharts::HighChart.new('column') do |f|
-      f.series(:name=>'Energy',:data=> @averagescity.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
-      f.series(:name=>'Water',:data=> @averagescity.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
-      f.series(:name=>'Gas',:data=> @averagescity.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
+      if @current_user.admin == 1 
+        f.series(:name=>'Energy',:data=> @averagescity.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
+      elsif @current_user.admin == 2        
+        f.series(:name=>'Water',:data=> @averagescity.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
+      elsif @current_user.admin == 3 
+        f.series(:name=>'Gas',:data=> @averagescity.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
+      else
+      end
       f.xAxis({:categories => @userscity.collect { |e| e[:locale]} })    
       f.title({ :text=>"Average by city"})
       f.options[:chart][:defaultSeriesType] = "column"
@@ -93,7 +96,7 @@ class MunerisController < ApplicationController
       @wconsumo = users.map { |u| u.consumo_total_water}.inject(0, :+)
       @gconsumo = users.map { |u| u.consumo_total_gas}.inject(0, :+)
     end
-
+    
     @echarttariff = LazyHighCharts::HighChart.new('pie') do |f|
           f.chart({:defaultSeriesType=>"pie"})
           series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['E. 1', 30.0],['E. 4', 22.4],['E. 2', 14.2],['E. 3', 10.2],['E. 5', 17],['E. 6', 6.2]]}
@@ -129,14 +132,7 @@ class MunerisController < ApplicationController
   end
 
   def profile
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
     @is_current_user = current_user == @user
-
-    notifications
 
     @ebills_grid = initialize_grid(
       Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user.id),
@@ -230,12 +226,6 @@ class MunerisController < ApplicationController
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
-    
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
   end
 
   def statistics
@@ -262,9 +252,6 @@ class MunerisController < ApplicationController
 
   private
 
-  def notifications
-    @notifications = PublicActivity::Activity.order("created_at desc").where("activities.owner_id = ? AND activities.owner_type = 'User' AND (activities.key = 'bill.alert' OR activities.key = 'friendship.invite')", current_user.id)
-  end
 
   protected
 

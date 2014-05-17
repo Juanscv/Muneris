@@ -8,9 +8,6 @@
       <%end%>
       
       <% if @is_current_user or  @current_user.admin? %>
-        <div id="#notifications" class="notifications w-col-3 w-col">        
-          <%= render partial: 'user/notifications' %>        
-        </div>
       <% end %>   
     </div>
 

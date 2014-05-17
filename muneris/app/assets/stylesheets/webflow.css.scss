@@ -276,7 +276,7 @@ textarea.w-select {
   width: 33.33333333333333%;
 }
 .w-col-5 {
-  width: 41.66666666666667%;
+  width: 70.66666666666667%;
   border-width: thin;
   margin: 10px;
   border-radius: 5px;
@@ -2366,6 +2366,12 @@ button.btn:active{
 }
 
 .piechart {
-  width: 50%;
-  float: left;
+  margin: 50px 0;
+}
+
+.logo.notification_icon {
+  padding: 2px 5px;
+  margin: 0 10px;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
 }

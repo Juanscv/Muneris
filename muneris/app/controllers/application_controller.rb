@@ -9,6 +9,25 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  before_filter :notifications
+
+  before_filter :defining_user
+
+  def notifications
+    if !current_user.nil? then
+      @notifications = PublicActivity::Activity.order("created_at desc").where("activities.owner_id = ? AND activities.owner_type = 'User' AND (activities.key = 'bill.alert' OR activities.key = 'friendship.invite')", current_user.id)
+    end
+  end
+
+  def defining_user
+    if params[:user_id].nil? then
+      @user = current_user
+    else
+      @user = User.find(params[:user_id])
+    end  
+  end
+
+
   protected
 
   def configure_permitted_parameters
