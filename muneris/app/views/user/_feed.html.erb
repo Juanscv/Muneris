@@ -11,31 +11,14 @@
 
 	<h1>Measurements</h1>
 
-	<h4>Avarege consumption </h4>
-
-	<% if @current_user.admin == 1 %>
-		<div class="piechart">
-		<%= high_chart("echarttariff", @echarttariff) do |c| %>
-	        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-	        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-	    <% end %>
-	    </div>
-	<% elsif @current_user.admin == 2 %>
-	    <div class="piechart">
-	    <%= high_chart("wcharttariff", @wcharttariff) do |c| %>
-	        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-	        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-	    <% end %>
-	    </div>
-	<% elsif @current_user.admin == 3 %>
-	    <div class="piechart">
-		<%= high_chart("gcharttariff", @gcharttariff) do |c| %>
-	        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-	        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-	    <% end %>
-	    </div>
-	<% else %>
-	<% end %>
+	<h4>Porcentual consumption of energy by tariff </h4>
+	
+	<div class="piechart">
+	<%= high_chart("charttariff", @charttariff) do |c| %>
+        <%= raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"  %>
+        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+    <% end %>
+    </div>
 
 	<div class="averageinfo">
 
