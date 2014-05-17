@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140517020043) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "service"
+    t.integer  "service",     null: false
   end
 
   create_table "friendships", force: true do |t|
