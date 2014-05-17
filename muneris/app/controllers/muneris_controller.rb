@@ -239,15 +239,25 @@ class MunerisController < ApplicationController
   end
 
   def statistics
-    @ebills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)").where("users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND bills.service = 1", current_user.id, current_user.id, current_user.id)
+    if params[:user_id].nil? then
+      @user = current_user
+    else
+      @user = User.find(params[:user_id])
+    end
+
+    @bills_grid = initialize_grid(
+      Userbill.unscoped.select("userbills.bill_id, userbills.user_id, bills.date, bills.value, bills.consumption, bills.service, users.tariff, users.locale, users.address").joins("INNER JOIN bills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)").where("users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL", current_user.id, current_user.id, current_user.id),
+      with_resultset: :process_records,
+      per_page: 8,
+      name: 'bills'
     )
-    @wbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user.id)
-    )
-    @gbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user.id)
-    )
+
+    if params[:g] && params[:g][:selected]
+      @selected = params[:g][:selected]
+    end
+
+    @ebills, @wbills, @gbills = [], [], []
+
   end
 
   private
@@ -255,5 +265,22 @@ class MunerisController < ApplicationController
   def notifications
     @notifications = PublicActivity::Activity.order("created_at desc").where("activities.owner_id = ? AND activities.owner_type = 'User' AND (activities.key = 'bill.alert' OR activities.key = 'friendship.invite')", current_user.id)
   end
+
+  protected
+
+  def process_records(records)
+    records.each do |rec|
+     case rec.service
+      when 1
+        @ebills << [rec.date.strftime("%s%L").to_i,rec.consumption]
+      when 2
+        @wbills << [rec.date.strftime("%s%L").to_i,rec.consumption]
+      when 3
+        @gbills << [rec.date.strftime("%s%L").to_i,rec.consumption]
+      end
+    end
+  end
+
+
 
 end
