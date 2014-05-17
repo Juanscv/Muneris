@@ -17,7 +17,9 @@
     number_to_currency(bill.value, :precision => 0)
   end
 
-  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard
+  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard do |bill|
+    bill.date.strftime "%b %Y"
+  end
 
   g.column name: 'Type of bill', attribute: 'service', auto_reload: true, detach_with_id: :service_filter, custom_filter: [['Energy Bill',1],['Water Bill',2],['Gas Bill',3]] do |bill|
     case bill.service

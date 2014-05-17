@@ -4,15 +4,15 @@
   g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
 
   g.column name: 'Consumption', attribute: 'consumption' do |bill|
-       bill.consumption.to_s + " kWh"
+    bill.consumption.to_s + " kWh"
   end
 
   g.column  name: 'Payment', attribute: 'value' do |bill|
-     number_to_currency(bill.value, :precision => 0)
+    number_to_currency(bill.value, :precision => 0)
   end
 
   g.column name: 'Date', attribute: 'date' do |bill|
-      bill.date.strftime "%b %Y"
+    bill.date.strftime "%b %Y"
   end
 
 end %>
@@ -23,15 +23,15 @@ end %>
   g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
 
   g.column name: 'Consumption', attribute: 'consumption' do |bill|
-       bill.consumption.to_s + " m3"
+    bill.consumption.to_s + " m3"
   end
 
   g.column  name: 'Payment', attribute: 'value' do |bill|
-     number_to_currency(bill.value, :precision => 0)
+    number_to_currency(bill.value, :precision => 0)
   end
 
   g.column name: 'Date', attribute: 'date' do |bill|
-      bill.date.strftime "%b %Y"
+    bill.date.strftime "%b %Y"
   end
 
 end %>
@@ -43,15 +43,15 @@ end %>
   g.blank_slate  partial: 'layouts/partials/blank', locals: { what: 'bill' } 
 
   g.column name: 'Consumption', attribute: 'consumption' do |bill|
-       bill.consumption.to_s + " m3"
+    bill.consumption.to_s + " m3"
   end
 
   g.column  name: 'Payment', attribute: 'value' do |bill|
-     number_to_currency(bill.value, :precision => 0)
+    number_to_currency(bill.value, :precision => 0)
   end
 
   g.column name: 'Date', attribute: 'date' do |bill|
-      bill.date.strftime "%b %Y"
+    bill.date.strftime "%b %Y"
   end
 
 end %>

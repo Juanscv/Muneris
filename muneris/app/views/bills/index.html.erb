@@ -5,7 +5,7 @@
 <div class="w-container">
 
   <div class="w-row">
-    <div class="w-col w-col-3">
+    <div class="w-col w-col-3new">
       <div class ="wg-detached-filter">
         <div>Consumption: <%= grid_filter @bills_grid, :consumption_filter %></div>
         
@@ -16,7 +16,7 @@
         <div>Date:	<%= grid_filter @bills_grid, :date_added %></div>
 
         <div class="external-buttons w-container">
-          <button class="clickable w-button" data-grid-name="grid">Reset</button>
+          <button class="clickable btn w-button" data-grid-name="grid">Reset</button>
         </div>
       </div>
       <div class="w-row">
@@ -28,7 +28,7 @@
         </div>        
       </div>
     </div>
-    <div class="w-col w-col-8">
+    <div class="w-col w-col-9">
       <div class="wice-grid">
       <br>
         <%= render_grid(@bills_grid) %>
