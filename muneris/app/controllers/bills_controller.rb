@@ -49,6 +49,7 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
+    @bill = Bill.new
   end
 
   # GET /bills/1/edit

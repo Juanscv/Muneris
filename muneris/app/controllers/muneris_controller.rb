@@ -108,9 +108,9 @@ class MunerisController < ApplicationController
           if @current_user.admin == 1
             series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:consumption_total]  }[0]}
           elsif @current_user.admin == 2
-            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:consumption_total]  }[0]}
           elsif @current_user.admin == 3
-            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:consumption_total]  }[0]}
           else
             series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
           end
@@ -217,6 +217,32 @@ class MunerisController < ApplicationController
     else
       @markers = [ { lat: 10.96421, lng: -74.797043 } ]
     end
+
+    if params[:user_map_id].nil? then
+      @user_map = current_user
+    else
+      @user_map = User.find(params[:user_map_id])
+    end  
+
+    @ebills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user_map.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    )
+    @wbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user_map.id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    )
+    @gbills_grid = initialize_grid(
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user_map_id),
+      order:           'bills.date',
+      order_direction: 'desc',
+      per_page: 5
+    ) 
+
   end
 
   def statistics

@@ -5,7 +5,9 @@
 </div>
 
 <div id="data_map">
-<% if @is_current_user or @current_user.friend_with? @user or @current_user.admin? %>
+<% if  @current_user.id == @user_map.id %>
+<%=  render 'layouts/partials/data' %>
+<%elsif !@user_map.id.nil?	%>
 <%=  render 'layouts/partials/data' %>
 <%end%>
 </div>
@@ -13,14 +15,6 @@
 <script type="text/javascript">
   var App = App || {};
   App.map = { markers: <%= raw @markers.to_json %> };
-  console.log(App.map);
-
-	_.each(App.map.markers, function(marker, index){
-	  google.maps.event.addListener(marker.getServiceObject(), 'click', function(){
-	    console.log(json);
-	    //whatever you need here
-	  });
-	});
  
 </script>
 
