@@ -29,9 +29,9 @@
 			<h6><%= usertariff[:tariff] %> </h6>
 				<% usertariff[:averages].each do |average| %>
 					<div class="title">
-					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= average[:average] %> 
-					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= average[:average] %> 
-					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= average[:average] %>
+					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= "%0.3f" % average[:average] %>
 					<% end %>
 					</div>
 				<% end %>
@@ -48,9 +48,9 @@
 			<h6><%= usercity[:locale] %> </h6>
 				<% usercity[:averages].each do |average| %>
 					<div class="title">
-					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= average[:average] %> 
-					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= average[:average] %> 
-					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= average[:average] %>
+					<% if average[:service] == 1 and @current_user.admin == 1 %> Energy: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 2 and @current_user.admin == 2 %> Water: <%= "%0.3f" % average[:average] %> 
+					<% elsif average[:service] == 3 and @current_user.admin == 3 %> Gas: <%= "%0.3f" % average[:average] %>
 					<% end %>
 					</div>
 				<% end %>

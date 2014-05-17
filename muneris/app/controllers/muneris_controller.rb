@@ -4,6 +4,8 @@ class MunerisController < ApplicationController
 
   def dashboard
 
+    @is_current_user = current_user == @user
+
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
     @friends = current_user.friends
@@ -49,7 +51,6 @@ class MunerisController < ApplicationController
         f.series(:name=>'Water',:data=> @averagestariff.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
       elsif @current_user.admin == 3 
         f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-      else
       end
       f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
       f.title({ :text=>"Average by tariff"})
@@ -109,6 +110,8 @@ class MunerisController < ApplicationController
           elsif @current_user.admin == 2
             series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
           elsif @current_user.admin == 3
+            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+          else
             series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
           end
           f.series(series)
