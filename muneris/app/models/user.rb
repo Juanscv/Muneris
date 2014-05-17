@@ -28,16 +28,6 @@ class User < ActiveRecord::Base
     bills.where(service: service).size
   end
 
-  # def consumo(service)
-  #   bills.where(service:  service).pluck(:consumption).inject(0, :+)    
-  # end
-
-  # def consumo_total
-  #   bills.where(service: service).size   
-  # end
-
-  # scope :extrato_um, -> { where(tariff: 'Residencial Estrato 1') }
-
 	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	      user.provider = auth.provider

@@ -1,11 +1,27 @@
 <div class="w-container dashboard-map">
+
   <div id="map" class="map-view" data-widget-latlng="10.96421,-74.797043" data-widget-style="roadmap" data-widget-zoom="13"></div>
+
+</div>
+
+<div id="data_map">
+<% if @is_current_user or @current_user.friend_with? @user or @current_user.admin? %>
+<%=  render 'layouts/partials/data' %>
+<%end%>
 </div>
 
 <script type="text/javascript">
   var App = App || {};
-
   App.map = { markers: <%= raw @markers.to_json %> };
+  console.log(App.map);
+
+	_.each(App.map.markers, function(marker, index){
+	  google.maps.event.addListener(marker.getServiceObject(), 'click', function(){
+	    console.log(json);
+	    //whatever you need here
+	  });
+	});
+ 
 </script>
 
 <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>

@@ -5,6 +5,15 @@ jQuery(document).ready(function () {
   handler.buildMap({ internal: { id: 'map' } }, function () {
     var markers = handler.addMarkers(App.map.markers);
 
+    _.each(App.map, function(json, index){
+      var marker  = markers[index];
+      json.marker = marker;
+      google.maps.event.addListener(marker.getServiceObject(), 'click', function(){
+        console.log(json);
+        //whatever you need here
+      });
+    }); 
+
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     if (App.map.markers.length > 0) {

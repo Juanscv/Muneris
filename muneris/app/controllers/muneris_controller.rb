@@ -207,15 +207,11 @@ class MunerisController < ApplicationController
         if user.has_address?
           marker.infowindow render_to_string(:partial => "/layouts/partials/infowindow", :locals => { :user => user} )
           marker.title user.familyname
+          marker.json({ :id => user.id})
 
           marker.lat user.latitude
           marker.lng user.longitude
-
-          # TODO mudar o width e o height para a largura e altura correspondentes
-          # a imagem que o icone final possui.
-          marker.picture url: user.consumption_picture, width: 32, height: 37
-
-          
+          marker.picture url: user.consumption_picture, width: 32, height: 37          
         end
       end
     else

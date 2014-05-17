@@ -7,7 +7,6 @@
           <%= render partial: 'user/notifications' %>
         </div>
         <%= link_to (image_tag 'logomuneris.png', class: "logo") , dashboard_path %>
-        <% elsif !@user.admin? %>
         <%= link_to_modal (image_tag 'NotificationIcon.png', class: "logo notification_icon ") , "#notifications" %>        
         <% else %>
         <%= link_to (image_tag 'logomuneris.png', class: "logo") , root_path %>
