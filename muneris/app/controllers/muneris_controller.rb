@@ -242,7 +242,55 @@ class MunerisController < ApplicationController
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
-    ) 
+    )
+
+    @ebills, @wbills, @gbills = [], [], []
+    bills = @user_map.bills.sort_by(&:date)
+    bills.each do |b|
+      case b.service
+      when 1
+        @ebills << [b.date.strftime("%s%L").to_i,b.consumption]
+      when 2
+        @wbills << [b.date.strftime("%s%L").to_i,b.consumption]
+      when 3
+        @gbills << [b.date.strftime("%s%L").to_i,b.consumption]
+      end
+    end
+
+    if !@is_current_user then
+      cu_ebills, cu_wbills, cu_gbills = [], [], []
+      cu_bills = current_user.bills.sort_by(&:date)
+      cu_bills.each do |b|
+        case b.service
+        when 1
+          cu_ebills << [b.date.strftime("%s%L").to_i,b.consumption]
+        when 2
+          cu_wbills << [b.date.strftime("%s%L").to_i,b.consumption]
+        when 3
+          cu_gbills << [b.date.strftime("%s%L").to_i,b.consumption]
+        end
+      end   
+    end
+
+    @echart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(height: 280, marginTop: 2)
+      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills, tooltip: {valueSuffix: ' kWh'}) if !@is_current_user
+      f.plotOptions(series:{compare:'value'})
+      f.rangeSelector(enabled: false)
+    end
+    @wchart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(height: 280, marginTop: 2)
+      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
+      f.rangeSelector(enabled: false)
+    end
+    @gchart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(height: 280, marginTop: 2)
+      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
+      f.rangeSelector(enabled: false)
+    end 
 
   end
 
