@@ -6,6 +6,33 @@
 
 	<div class="w-row">
 		<div class="w-col w-col-3new">
+			<div class="w-row">
+				<div class="w-col w-col-2">
+					<%= link_to image_tag("add.png"), new_network_path %>
+				</div>
+				<div class="w-col w-col-10">
+					<h4><%= link_to 'Add to network', new_network_path, class: "profile-sections" %></h4>
+				</div>        
+			</div>
+		</div>
+		<% if !@results.empty? then %>
+		<div class="w-col w-col-2">
+			<div class="external-buttons">
+		        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">View filtered</button>
+		    </div>
+		</div>
+		<div class="w-col w-col-2">
+			<div>
+				<%= dump_filter_parameters_as_hidden_fields(@users_grid) %>
+				<%= form_for '#', method: :get do %>
+						<button class="clickable btn" type="submit">View selected</button>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="w-row">
+		<div class="w-col w-col-3new">
 			<div class ="wg-detached-filter">
 				<div>Family Name:	<%= grid_filter @users_grid, :familyname_filter %></div>
 				
@@ -14,23 +41,6 @@
 				<div>Address:	<%= grid_filter @users_grid, :address_filter %></div>
 				
 				<div>Locale:	<%= grid_filter @users_grid, :locale_filter %></div>
-			</div>
-			<div class="external-buttons">
-		        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">View filtered</button>
-		    </div>
-			<div>
-				<%= dump_filter_parameters_as_hidden_fields(@users_grid) %>
-				<%= form_for '#', method: :get do %>
-						<button class="clickable btn" type="submit">View selected</button>
-				<% end %>
-			</div>
-			<div class="w-row">
-				<div class="w-col w-col-2">
-					<%= link_to image_tag("add.png"), new_network_path %>
-				</div>
-				<div class="w-col w-col-10">
-					<h4><%= link_to 'Add to network', new_network_path, class: "profile-sections" %></h4>
-				</div>        
 			</div>
 		</div>
 		<div class="w-col w-col-10">
@@ -59,6 +69,6 @@
 			<h5>Highest bill: <%= @gtop %> m3</h5>
 		</div>
 	</div>
+	
+	<% end %>
 </div>
-
-<%= debug @emax.is_a?(Object) %>

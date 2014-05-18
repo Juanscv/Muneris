@@ -8,10 +8,6 @@ class UserController < ApplicationController
 		render partial: 'notifications'
 	end
 
-	def friends
-		render partial: 'friends'  	
-	end
-
 	def destroy
 	  User.find(params[:id]).destroy
 	  flash[:success] = "User destroyed with success."

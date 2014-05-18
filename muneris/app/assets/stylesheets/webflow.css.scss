@@ -203,7 +203,7 @@ textarea.w-select {
 }
 .w-button {
   display: inline-block;
-  padding: 10px;
+  padding: 5px;
   background-color: black;
   color: white;
   border: 0;
@@ -279,6 +279,7 @@ textarea.w-select {
   width: 70.66666666666667%;
   border-width: thin;
   margin: 10px;
+  padding-Top: 5px;
   border-radius: 5px;
   background: #fff;
   border: 1px solid;
@@ -1587,7 +1588,7 @@ p {
 .nav-link {
   margin-right: 5px;
   margin-left: 5px;
-  padding: 10px 14px;
+  padding: 10px;
   border-radius: 5px;
   background-color: #0a0909;
   -webkit-transition: all 200ms ease;
@@ -2370,13 +2371,6 @@ button.btn:active{
 
 .piechart {
   margin: 50px 0;
-}
-
-.logo.notification_icon {
-  padding: 2px 5px;
-  margin: 0 10px;
-  border-left: 1px solid #e5e5e5;
-  border-right: 1px solid #e5e5e5;
 }
 
 .w-box {

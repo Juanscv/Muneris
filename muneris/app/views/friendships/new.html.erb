@@ -2,6 +2,8 @@
 
 <%= define_grid(@users_grid, hide_submit_button: true, hide_reset_button: true) do |g|
 
+	g.blank_slate 'There are no more users'
+
 	g.column do |user|
 		link_to image_tag(user.avatar.url, class: 'user-image'), profile_path(user.id)
 	end
@@ -38,23 +40,20 @@
 
 end -%>
 
-<div style= "margin-left: auto ; margin-right: auto">
-	<div class="w-container">
-		<div class="w-row">
-			<div class="w-col w-col-3new">
+<div class="w-container">
+	<div class="w-row">
+			<div class="w-col w-col-2">
 				<div>Family Name:	<%= grid_filter @users_grid, :familyname_filter %></div>
 			</div>
-			<div class="external-buttons">
-			<div class="w-col w-col-8">
-				<div class="wice-grid">
-
+			<div class="w-col w-col-6">
 					<%= render_grid(@users_grid) %>
-
-				</div>
 			</div>
+		
+		<div class="w-col w-col-3" style="margin-Top: 0px">
+			<%= render partial: 'layouts/partials/suggestions' %></div>
 		</div>
-
 		<div><%= link_to 'Back', :back, class: "clickable btn" %></div>
-
 	</div>
+
 </div>
+
