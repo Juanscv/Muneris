@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 1.2'
 
 #--------------------------- MY GEMS ---------------------------
 
+gem 'thin'
+
 gem 'devise'
 
 gem 'amistad'
