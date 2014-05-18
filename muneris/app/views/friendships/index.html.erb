@@ -1,4 +1,8 @@
+<% if !@user.admin.nil? then %>
+<h1>Admin Network</h1>
+<% else %>
 <h1>Network</h1>
+<% end %>
 
 <div class="w-container">
 
@@ -43,6 +47,7 @@
 	<%=	render partial: 'charts' %>
 
 	<div class="w-row">
+	<% if @user.admin.nil? then %>
 		<div class="w-col w-col-4">
 			<%= high_stock('echart',@echart) %>
 			<h5>Biggest consumer: <%= link_to @emax.familyname, profile_path(@emax.id) %></h5>
@@ -58,6 +63,19 @@
 			<h5>Biggest consumer: <%= link_to @gmax.familyname, profile_path(@gmax.id)%></h5>
 			<h5>Highest bill: <%= @gtop %> m3</h5>
 		</div>
+	<% elsif @user.admin == 1 %>
+		<%= high_stock('echart',@echart) %>
+		<h5>Biggest consumer: <%= link_to @emax.familyname, profile_path(@emax.id) %></h5>
+		<h5>Highest bill: <%= @etop %> kWh</h5>
+	<% elsif @user.admin == 2 %>
+		<%= high_stock('wchart',@wchart) %>
+		<h5>Biggest consumer: <%= link_to @wmax.familyname, profile_path(@wmax.id) %></h5>
+		<h5>Highest bill: <%= @wtop %> m3</h5>		
+	<% elsif @user.admin == 3 %>
+		<%= high_stock('gchart',@gchart) %>
+		<h5>Biggest consumer: <%= link_to @gmax.familyname, profile_path(@gmax.id)%></h5>
+		<h5>Highest bill: <%= @gtop %> m3</h5>		
+	<% end %>
 	</div>
 </div>
 

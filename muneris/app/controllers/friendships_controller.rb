@@ -3,8 +3,14 @@ class FriendshipsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    if !@user.admin.nil? then
+      @user_list = User.all.where(:admin == nil)
+    else
+      @user_list = User.unscoped.joins('INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)').where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', current_user.id, current_user.id, current_user.id)
+    end
+
     @users_grid = initialize_grid(
-      User.unscoped.joins('INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)').where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', current_user.id, current_user.id, current_user.id),
+      @user_list,
       order: 'users.id',
       with_resultset: :process_records,
       per_page: 8,
