@@ -10,7 +10,7 @@ class BillsController < ApplicationController
       Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id),
       order:           'bills.date',
       order_direction: 'desc',
-      per_page: 20
+      per_page: 16
     )
 
     bills = current_user.bills.sort_by(&:date)
@@ -29,13 +29,11 @@ class BillsController < ApplicationController
     end
 
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(:text => "Bill history")
       f.yAxis({:title => {:text => "Consumption", :margin => 20} })
-
+      f.series(id: 3, name: "Energy bills", :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
       f.series(id: 1, name: "Water bills", :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
       f.series(id: 2, name: "Gas bills", :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
-      f.series(id: 3, name: "Energy bills", :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
-      f.legend(:enabled => true, :align => 'center', :verticalAlign => 'top', :y => 30)
+      f.legend(:enabled => true, :align => 'center', :verticalAlign => 'top')
       f.rangeSelector(enabled: true, inputDateFormat: '%b %Y', inputEditDateFormat: '%b %Y')    
     end
 

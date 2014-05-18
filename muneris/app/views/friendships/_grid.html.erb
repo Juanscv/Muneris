@@ -1,0 +1,23 @@
+<%= define_grid(@users_grid, hide_submit_button: true, hide_reset_button: true) do |g|
+
+	g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'net' }
+
+	g.action_column param_name: 'selected'
+
+	g.column do |user|
+		link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
+	end
+
+	g.column name: 'Family Name', attribute: 'familyname', auto_reload:  true, detach_with_id: :familyname_filter
+
+	g.column  name: 'Classification', attribute: 'tariff', auto_reload:  true, detach_with_id: :tariff_filter, custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Oficial Nivel 1", "Oficial Nivel 2", "Comercial Nivel 1", "Comercial Nivel 2"]
+
+	g.column name: 'Address', attribute: 'address', auto_reload:  true, detach_with_id: :address_filter
+
+	g.column name: 'Location', attribute: 'locale', auto_reload:  true, detach_with_id: :locale_filter
+
+	g.column do |user|
+		link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
+	end
+
+end %>

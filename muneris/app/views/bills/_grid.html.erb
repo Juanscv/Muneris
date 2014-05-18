@@ -17,7 +17,7 @@
     number_to_currency(bill.value, :precision => 0)
   end
 
-  g.column name: 'Date', attribute: 'date', auto_reload:  true, detach_with_id: :date_added, helper_style: :standard do |bill|
+  g.column name: 'Date', attribute: 'date', auto_reload: true, detach_with_id: :date_added, helper_style: :standard do |bill|
     bill.date.strftime "%b %Y"
   end
 

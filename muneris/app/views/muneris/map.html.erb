@@ -6,9 +6,9 @@
 
 <div id="data_map">
 <% if  @current_user.id == @user_map.id %>
-<%=  render 'layouts/partials/data' %>
+<%=  render 'layouts/partials/activity' %>
 <%elsif !@user_map.id.nil?	%>
-<%=  render 'layouts/partials/data' %>
+<%=  render 'layouts/partials/activity' %>
 <%end%>
 </div>
 

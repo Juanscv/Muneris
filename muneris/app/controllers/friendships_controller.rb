@@ -13,8 +13,6 @@ class FriendshipsController < ApplicationController
 
     @results = []
 
-    users = current_user.friends
-
     if params[:g] && params[:g][:selected]
       @selected = params[:g][:selected]
     end

@@ -26,7 +26,6 @@
 //= require highstock
 //= require highstock/highcharts-more
 //= require highstock/modules/no-data-to-display
-//= require highstock/themes/grid-light
 
 
 $(function () {

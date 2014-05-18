@@ -1,4 +1,4 @@
-<% if @selected then
+<%  if @selected then
       @echart = LazyHighCharts::HighChart.new('graph') do |f|
         f.title(:text => "Consumption in energy bills")
         @selected.each do |s|
@@ -7,9 +7,21 @@
           u.bills.sort_by(&:date).each do |b|
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
           end
+
           f.series(name: u.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' kWh'})
+
+          arr1 = @emax.bills.map(&:consumption)
+          arr2 = u.bills.map(&:consumption)
+          if arr1.inject{ |sum, el| sum + el }.to_f / arr1.size > arr2.inject{ |sum, el| sum + el }.to_f / arr2.size
+            @emax = u;
+          end
+          if arr1.max > arr2.max
+            @etop = arr1.max
+          else
+            @etop = arr2max
+          end
         end
-        f.tooltip(valueSuffix: ' kWh')
+        f.plotOptions(series:{compare:'value'})
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)
       end
@@ -21,9 +33,20 @@
           u.bills.sort_by(&:date).each do |b|
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
           end
+
           f.series(name: u.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+
+          arr1 = @wmax.bills.map(&:consumption)
+          arr2 = u.bills.map(&:consumption)
+          if arr1.inject{ |sum, el| sum + el }.to_f / arr1.size > arr2.inject{ |sum, el| sum + el }.to_f / arr2.size
+            @wmax = u;
+          end
+          if arr1.max > arr2.max
+            @wtop = arr1.max
+          else
+            @wtop = arr2max
+          end
         end
-        f.tooltip(valueSuffix: ' m3')
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)
       end
@@ -35,21 +58,56 @@
           u.bills.sort_by(&:date).each do |b|
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
           end
+
           f.series(name: u.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+
+          arr1 = @gmax.bills.map(&:consumption)
+          arr2 = u.bills.map(&:consumption)
+          if arr1.inject{ |sum, el| sum + el }.to_f / arr1.size > arr2.inject{ |sum, el| sum + el }.to_f / arr2.size
+            @gmax = u;
+          end
+          if arr1.max > arr2.max
+            @gtop = arr1.max
+          else
+            @gtop = arr2max
+          end
         end
-        f.tooltip(valueSuffix: ' m3')
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)
       end
     else
       @echart = LazyHighCharts::HighChart.new('graph') do |f|
         f.title(:text => "Consumption in energy bills")
+        i = 1
         @results.each do |r|
           bills = []
           r.bills.sort_by(&:date).each do |b|
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
           end
+
           f.series(name: r.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' kWh'})
+
+          if i == 1
+            arr1 = []
+            arr2 = bills.map{|b| b[1]}
+            @emax = r
+            @etop = arr2.max.to_f
+          else
+            arr1 = @emax.bills.map{|m| m.consumption if m.service == 1}.compact
+            arr2 = bills.map{|b| b[1]}
+            if !arr1.empty? and !arr2.empty?
+              if arr1.sum / arr1.size < arr2.sum / arr2.size and
+                @emax = r
+              end
+            end
+            if arr1.max.to_f > arr2.max.to_f
+              @etop = arr1.max.to_f
+            else
+              @etop = arr2.max.to_f
+            end
+          end
+          
+          i += 1
         end
         f.tooltip(valueSuffix: ' kWh')
         f.rangeSelector(enabled: false)
@@ -57,29 +115,76 @@
       end
       @wchart = LazyHighCharts::HighChart.new('graph') do |f|
         f.title(:text => "Consumption in water bills")
+        i = 1
         @results.each do |r|
           bills = []
           r.bills.sort_by(&:date).each do |b|
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
           end
+
           f.series(name: r.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
-        end   
+
+          if i == 1
+            arr1 = []
+            arr2 = bills.map{|b| b[1]}
+            @wmax = r
+            @wtop = arr2.max.to_f
+          else
+            arr1 = @wmax.bills.map{|m| m.consumption if m.service == 2}.compact
+            arr2 = bills.map{|b| b[1]}
+            if !arr1.empty? and !arr2.empty?
+              if arr1.sum / arr1.size < arr2.sum / arr2.size and
+                @wmax = r
+              end
+            end
+            if arr1.max.to_f > arr2.max.to_f
+              @wtop = arr1.max.to_f
+            else
+              @wtop = arr2.max.to_f
+            end
+          end
+          
+          i += 1
+        end
         f.tooltip(valueSuffix: ' m3')
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)       
       end
       @gchart = LazyHighCharts::HighChart.new('graph') do |f|
         f.title(:text => "Consumption in gas bills")
+        i = 1
         @results.each do |r|
           bills = []
           r.bills.sort_by(&:date).each do |b|
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
           end
+
           f.series(name: r.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+
+          if i == 1
+            arr1 = []
+            arr2 = bills.map{|b| b[1]}
+            @gmax = r
+            @gtop = arr2.max.to_f
+          else
+            arr1 = @gmax.bills.map{|m| m.consumption if m.service == 3}.compact
+            arr2 = bills.map{|b| b[1]}
+            if !arr1.empty? and !arr2.empty?
+              if arr1.sum / arr1.size < arr2.sum / arr2.size and
+                @gmax = r
+              end
+            end
+            if arr1.max.to_f > arr2.max.to_f
+              @gtop = arr1.max.to_f
+            else
+              @gtop = arr2.max.to_f
+            end
+          end
+          
+          i += 1
         end
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)     
       end
     end
-
 %>

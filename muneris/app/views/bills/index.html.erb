@@ -1,11 +1,10 @@
-<h1>Listing bills</h1>
+<h1>Bills</h1>
 
 <% render partial: 'grid' %>
 
 <div class="w-container">
-
   <div class="w-row">
-    <div class="w-col w-col-3new">
+    <div class="w-col w-col-2">
       <div class ="wg-detached-filter">
         <div>Consumption: <%= grid_filter @bills_grid, :consumption_filter %></div>
         
@@ -14,30 +13,31 @@
         <div>Type of bill:  <%= grid_filter @bills_grid, :service_filter %></div>
 
         <div>Date:	<%= grid_filter @bills_grid, :date_added %></div>
-
-        <div class="external-buttons w-container">
-          <button class="clickable btn w-button" data-grid-name="grid">Reset</button>
-        </div>
+      </div>
+      <div class="external-buttons">
+        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">View filtered</button>
       </div>
       <div class="w-row">
         <div class="w-col w-col-2">
           <%= link_to image_tag("add.png"), new_bill_path %>
         </div>
         <div class="w-col w-col-10">
-          <h4><%= link_to 'New Bill', new_bill_path, class: "profile-sections" %></h4>
+          <h4><%= link_to 'Add a biill', new_bill_path, class: "profile-sections" %></h4>
         </div>        
       </div>
     </div>
-    <div class="w-col w-col-9">
+    <div class="w-col w-col-10">
       <div class="wice-grid">
-      <br>
         <%= render_grid(@bills_grid) %>
       </div>
+    </div>
+  </div>
+  <div class="w-row">
+    <div class="w-col w-col-11">
       <%= high_stock("chart", @chart) %>
     </div>
   </div>
 </div>
-      
 
 
 

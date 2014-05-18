@@ -1,5 +1,5 @@
 <div class="w-box">
-<p><strong>Energy bills' stats</strong></p>
+<p><strong>Energy consumption vs. time</strong></p>
 <%=	if !@ebills.empty? then
 		high_stock('echart', @echart)
 	else
@@ -7,7 +7,7 @@
 	end %>
 </div>
 <div class="w-box">
-<p><strong>Water bills' stats</strong></p>
+<p><strong>Water consumption vs. time</strong></p>
 <%=	if !@wbills.empty? then
 		high_stock('wchart', @wchart)
 	else
@@ -15,7 +15,7 @@
 	end %>
 </div>
 <div class="w-box">
-<p><strong>Gas bills' stats</strong></p>
+<p><strong>Gas consumption vs. time</strong></p>
 <%=	if !@gbills.empty? then
 		high_stock('gchart', @gchart)
 	else
