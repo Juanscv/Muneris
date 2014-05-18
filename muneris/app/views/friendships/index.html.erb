@@ -5,8 +5,8 @@
 <% end %>
 
 <div class="w-container">
-
-	<%=	render partial: 'grid' %>
+	<%=	render partial: 'average' %>
+	<%=	render partial: 'grid' %>	
 
 	<div class="w-row">
 		<div class="w-col w-col-3new">
@@ -40,6 +40,7 @@
 		<div class="w-col w-col-10">
 			<div class="wice-grid">
 				<%= render_grid(@users_grid) %>
+				<%= render_grid(@users_grid_average) %>
 			</div>
 		</div>
 	</div>

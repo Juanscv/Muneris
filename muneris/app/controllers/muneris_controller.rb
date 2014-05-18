@@ -98,8 +98,11 @@ class MunerisController < ApplicationController
         @consumption = users.map { |u| u.valor(service) }.inject(0, :+)
         @averagestariff << { tariff: tariff, service: service , average: @consumption }
       end
-
-      @bills_pie_total << {service: service, tariff: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:tariff] }, consumption_total: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.map {|x| x *100/@averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.inject(0, :+) } }
+      @tariffdivisor = @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.inject(0, :+)
+      if @tariffdivisor == 0 
+        @tariffdivisor == 1
+      end
+      @bills_pie_total << {service: service, tariff: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:tariff] }, consumption_total: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.map {|x| x *100/@tariffdivisor } }
     end
 
 

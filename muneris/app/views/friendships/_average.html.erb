@@ -1,0 +1,25 @@
+<%= define_grid(@users_grid_average, hide_submit_button: true, hide_reset_button: true) do |g|
+
+	g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'net' }
+
+	g.action_column param_name: 'selected'
+
+	g.column do |user|
+		link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
+	end
+
+	g.column name: 'Family Name', attribute: 'familyname', auto_reload:  true, detach_with_id: :familyname_filter
+	
+	g.column name: 'Energy', attribute: 'familyname', auto_reload:  true
+
+	g.column name: 'Water', attribute: 'familyname', auto_reload:  true
+
+	g.column name: 'Gas', attribute: 'familyname', auto_reload:  true
+
+	# g.column name: 'Energy', attribute: @averageslist.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  }, auto_reload:  true
+
+	# g.column name: 'Water', attribute: @averageslist.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  }, auto_reload:  true
+
+	# g.column name: 'Gas', attribute: @averageslist.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  }, auto_reload:  true
+
+end %>
