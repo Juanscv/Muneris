@@ -16,6 +16,7 @@
 							</div>
 							<div class="w-col w-col-9 w-small-6">    
 								<%= link_to user.familyname, profile_path(user.id) %>
+								<br><%= link_to "Add", network_index_path(:user_id => user), :method => "post" %>
 							</div>
 						</div>
 					</li>
@@ -26,38 +27,5 @@
 			<% end %>
 		<% end %>
 	</ul>
-
-<% else %>
-
-	<h1>General</h1>
-
-	<h4>Number of users <%= @users.count %></h4>
-
-	<h5>By tariff</h5>
-
-	<% @userstariff.each do |usertariff| %>
-		<h6><%= usertariff[:tariff] %> : <%= usertariff[:value] %> </h6>
-	<% end %>
-
-	<h5>By city</h5>
-
-	<% @userscity.each do |usercity| %>
-		<h6><%= usercity[:locale] %> : <%= usercity[:value] %> </h6>
-	<% end %>
-
-	<h4>Number of Bills <%= @bills.count %></h4>
-
-	<!-- <h6>in the application: <%= @bills.count %> </h6> -->
-
-	<% @billsservice.each do |billservice| %>
-		<h6>
-			<% if billservice[:service] == 1 %> Energy:
-			<% elsif billservice[:service] == 2 %> Water:
-			<% elsif billservice[:service] == 3 %> Gas:
-			<% else billservice[:service] %> Other:
-			<% end %>
-			<%= billservice[:value] %> 
-		</h6>
-	<% end %>
 
 <% end %>
