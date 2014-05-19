@@ -112,7 +112,7 @@
         avgs = []
         @results.each do |u|
           avg = 0
-          bills = u.bills.map{|m| m.consumption if m.service == 1}.compact
+          bills = u.bills.map{|m| m.consumption if m.service == 2}.compact
           avg = bills.sum / bills.size unless bills.size == 0
           avgs << [u.familyname, avg]
 
@@ -136,7 +136,7 @@
         avgs = []
         @results.each do |u|
           avg = 0
-          bills = u.bills.map{|m| m.consumption if m.service == 1}.compact
+          bills = u.bills.map{|m| m.consumption if m.service == 3}.compact
           avg = bills.sum / bills.size unless bills.size == 0
           avgs << [u.familyname, avg]
 

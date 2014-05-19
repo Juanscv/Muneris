@@ -1,16 +1,13 @@
 <% if !@user.admin.nil? then %>
-<h1>Admin Network</h1>
+<h1>Users</h1>
 <% else %>
 <h1>Network</h1>
 <% end %>
 
 <div class="w-container">
-	<% if !@user.admin.nil? then %>
-	<%=		render partial: 'average' %>
-	<% else %>
-	<%=		render partial: 'grid' %>
-	<% end %>
-
+	
+	<%=	render partial: 'grid' %>
+	
 	<div class="w-row">
 		<div class="w-col w-col-3new">
 			<div class="w-row">
@@ -58,7 +55,7 @@
 
 
 	<%#=	render partial: 'average' %>
-	
+
 	<%=	render partial: 'charts' %>
 
 	<%=	render partial: 'charts2' %>
@@ -83,7 +80,7 @@
 			<div class="w-col w-col-6">
 				<%= high_chart('chart4',@wavgchart) %>
 			</div>
-				<h5>Biggest consumer: <%= link_to @maxw.familyname, profile_path(@maxw.id) unless @maxe.nil?  %></h5>
+				<h5>Biggest consumer: <%= link_to @maxw.familyname, profile_path(@maxw.id) unless @maxw.nil?  %></h5>
 		</div>
 		<% end %>
 		<% if @user.admin.nil? or @user.admin == 3 then %>
@@ -94,7 +91,7 @@
 			<div class="w-col w-col-6" >
 				<%= high_chart('chart6',@gavgchart) %>
 			</div>
-				<h5>Biggest consumer: <%= link_to @maxg.familyname, profile_path(@maxg.id) unless @maxe.nil?  %></h5>
+				<h5>Biggest consumer: <%= link_to @maxg.familyname, profile_path(@maxg.id) unless @maxg.nil?  %></h5>
 		</div>
 		<% end %>
 	</div>
