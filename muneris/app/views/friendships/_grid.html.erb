@@ -2,7 +2,7 @@
 
 	g.blank_slate  partial: 'layouts/partials/blank', locals: { section: 'net' }
 
-	g.action_column param_name: 'selected'
+	g.action_column
 
 	g.column do |user|
 		link_to image_tag(user.avatar.url, class: 'activity-image'), profile_path(user.id)
