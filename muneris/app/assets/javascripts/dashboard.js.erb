@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
       json.marker = marker;
       google.maps.event.addListener(marker.getServiceObject(), 'click', function user_mapa(){
         $.get('/map/info/' + json.id, function(data){
-          $('#map_statics').html(data);
+          $('#map_statics').append(data);
         });
         $('#map_statics').fadeOut('slow', function() {
             $(this).load('/echo/json/', function() {
