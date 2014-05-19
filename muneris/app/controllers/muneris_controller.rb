@@ -242,7 +242,7 @@ class MunerisController < ApplicationController
       per_page: 5
     )
     @gbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user_map_id),
+      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user_map.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
@@ -278,20 +278,20 @@ class MunerisController < ApplicationController
 
     @echart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills, tooltip: {valueSuffix: ' kWh'}) if !@is_current_user
       f.plotOptions(series:{compare:'value'})
       f.rangeSelector(enabled: false)
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
       f.rangeSelector(enabled: false)
     end
     @gchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
       f.rangeSelector(enabled: false)
     end 
