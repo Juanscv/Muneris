@@ -23,23 +23,11 @@ class FriendshipsController < ApplicationController
       @averageslist << {service: service , average: resultado }
     end
 
-    @users_grid_average = initialize_grid(
-      @user_list,
-      order: 'users.id',
-      with_resultset: :process_records,
-      per_page: 8,
-      name: 'g'
-     )
-
     @results = []
 
     if params[:g] && params[:g][:selected]
       @selected = params[:g][:selected]
     end
-
-
-
-
 
     # @averageservices = []  
 

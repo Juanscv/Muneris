@@ -6,7 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'csv'    
+require 'csv'
+
+User.create!({:email => "eadmin@gmail.com", :admin => 1, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "E_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
+User.create!({:email => "wadmin@gmail.com", :admin => 2, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "W_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
+User.create!({:email => "gadmin@gmail.com", :admin => 3, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "G_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
 
 csv_users = File.read('db/data/Clientes.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
 data_users = CSV.parse(csv_users, :headers => false)
@@ -29,8 +33,7 @@ data_users.each do |user|
 				:tariff => user[1],
 				:address => user[0],
 				:locale => [locale[2].capitalize,locale[3].capitalize,"Colombia"].join(', '),
-				:familyname => ["User",i.to_s].join,
-				:admin => 0
+				:familyname => ["User",i.to_s].join
 				})
 
 			i += 1
@@ -49,9 +52,4 @@ data_users.each do |user|
 		end
 	end
 end
-
-User.create!({:email => "eadmin@gmail.com", :admin => 1, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "E_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
-User.create!({:email => "wadmin@gmail.com", :admin => 2, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "W_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
-User.create!({:email => "gadmin@gmail.com", :admin => 3, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "G_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
-
 

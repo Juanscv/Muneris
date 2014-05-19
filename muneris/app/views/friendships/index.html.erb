@@ -5,8 +5,11 @@
 <% end %>
 
 <div class="w-container">
-	<%=	render partial: 'average' %>
-	<%=	render partial: 'grid' %>	
+	<% if !@user.admin.nil? then %>
+	<%=		render partial: 'average' %>
+	<% else %>
+	<%=		render partial: 'grid' %>
+	<% end %>
 
 	<div class="w-row">
 		<div class="w-col w-col-3new">
@@ -19,19 +22,17 @@
 				</div>        
 			</div>
 		</div>
-		<% if !@results.empty? then %>
-		<div class="w-col w-col-2">
-			<div class="external-buttons">
-		        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">View filtered</button>
-		    </div>
-		</div>
 		<div class="w-col w-col-2">
 			<div>
 				<%= dump_filter_parameters_as_hidden_fields(@users_grid) %>
 				<%= form_for '#', method: :get do %>
 						<button class="clickable btn" type="submit">View selected</button>
-				<% end %>
 			</div>
+		</div>
+		<div class="w-col w-col-2">
+			<div class="external-buttons">
+		        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">View filtered</button>
+		    </div>
 		</div>
 	</div>
 
@@ -50,44 +51,62 @@
 		<div class="w-col w-col-10">
 			<div class="wice-grid">
 				<%= render_grid(@users_grid) %>
-				<%= render_grid(@users_grid_average) %>
+				<% end %>
 			</div>
 		</div>
 	</div>
 
 	<%=	render partial: 'charts' %>
 
+	<%=	render partial: 'charts2' %>
+
 	<div class="w-row">
-	<% if @user.admin.nil? then %>
-		<div class="w-col w-col-4">
-			<%= high_stock('echart',@echart) %>
-			<h5>Biggest consumer: <%= link_to @emax.familyname, profile_path(@emax.id) %></h5>
-			<h5>Highest bill: <%= @etop %> kWh</h5>
+		<% if @user.admin.nil? or @user.admin == 1 then %>
+		<div class="w-row">
+			<div class="w-col w-col-6">
+				<%= high_stock('chart1', @echart) %>
+			<div class="w-col w-col-6">
+				<div class="piechart">
+				<%= high_chart('chart2',@eavgchart) do |c|
+					raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"
+	        		raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name;"
+	        	end %>
+	        	</div>
+			</div>
+				<h5>Biggest consumer: <%= link_to @maxe.familyname, profile_path(@maxe.id) unless @maxe.nil? %></h5>
 		</div>
-		<div class="w-col w-col-4">
-			<%= high_stock('wchart',@wchart) %>
-			<h5>Biggest consumer: <%= link_to @wmax.familyname, profile_path(@wmax.id) %></h5>
-			<h5>Highest bill: <%= @wtop %> m3</h5>
+		<% end %>
+		<% if @user.admin.nil? or @user.admin == 2 then %>
+		<div class="w-row">
+			<div class="w-col w-col-6">
+				<%= high_stock('chart3', @wchart) %>
+			</div>
+			<div class="w-col w-col-6"	
+				<div class="piechart">
+				<%= high_chart('chart4',@wavgchart) do |c|
+					raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"
+	        		raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name;"
+	        	end %>
+	        	</div>
+			</div>
+				<h5>Biggest consumer: <%= link_to @maxw.familyname, profile_path(@maxw.id) unless @maxe.nil?  %></h5>
 		</div>
-		<div class="w-col w-col-4">
-			<%= high_stock('gchart',@gchart) %>
-			<h5>Biggest consumer: <%= link_to @gmax.familyname, profile_path(@gmax.id)%></h5>
-			<h5>Highest bill: <%= @gtop %> m3</h5>
+		<% end %>
+		<% if @user.admin.nil? or @user.admin == 3 then %>
+		<div class="w-row">
+			<div class="w-col w-col-6">
+				<%= high_stock('chart5', @gchart) %>
+			</div>
+			<div class="w-col w-col-6"
+				<div class="piechart">
+				<%= high_chart('chart6',@gavgchart) do |c|
+					raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"
+	        		raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name;"
+	        	end %>
+	        	</div>
+			</div>
+				<h5>Biggest consumer: <%= link_to @maxg.familyname, profile_path(@maxg.id) unless @maxe.nil?  %></h5>
 		</div>
-	<% elsif @user.admin == 1 %>
-		<%= high_stock('echart',@echart) %>
-		<h5>Biggest consumer: <%= link_to @emax.familyname, profile_path(@emax.id) %></h5>
-		<h5>Highest bill: <%= @etop %> kWh</h5>
-	<% elsif @user.admin == 2 %>
-		<%= high_stock('wchart',@wchart) %>
-		<h5>Biggest consumer: <%= link_to @wmax.familyname, profile_path(@wmax.id) %></h5>
-		<h5>Highest bill: <%= @wtop %> m3</h5>		
-	<% elsif @user.admin == 3 %>
-		<%= high_stock('gchart',@gchart) %>
-		<h5>Biggest consumer: <%= link_to @gmax.familyname, profile_path(@gmax.id)%></h5>
-		<h5>Highest bill: <%= @gtop %> m3</h5>		
-	<% end %>
+		<% end %>
 	</div>
-	
-	<% end %>
 </div>
