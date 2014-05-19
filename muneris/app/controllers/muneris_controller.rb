@@ -296,6 +296,8 @@ class MunerisController < ApplicationController
       f.rangeSelector(enabled: false)
     end 
 
+
+
   end
 
   def statistics
