@@ -17,56 +17,49 @@ class FriendshipsController < ApplicationController
       name: 'g'
      )
 
-    @averageslist = []
-    [1, 2, 3].each do |service|
-      resultado = @user_list.map { |u| u.calculo(service) }
-      @averageslist << {service: service , average: resultado }
-    end
-
-    @users_grid_average = initialize_grid(
-      @user_list,
-      order: 'users.id',
-      with_resultset: :process_records,
-      per_page: 8,
-      name: 'g'
-     )
-
     @results = []
 
     if params[:g] && params[:g][:selected]
       @selected = params[:g][:selected]
     end
 
+    @averageslist = []
+    @family_list_cut = @user_list.limit(5).pluck(:familyname).uniq
 
+    @family_list_cut.each do |family|
+      families = User.where(familyname: family)
+      [1, 2, 3].each do |service|
+        resultado = families.map { |u| u.calculo(service) }
+        @averageslist << {family: family, service: service , average: resultado }
+      end
+    end
 
+    @ebaraverage = LazyHighCharts::HighChart.new('column') do |f|
+      if !@family_list_cut.nil? then
+        f.series(:name=> "Energy" ,:data => @averageslist.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } ) 
+      end
+      f.xAxis({:categories => @averageslist.select{ |k,v| k[:service] == 1 }.collect { |e| e[:family]  } }) 
+      f.title({ :text=>"Average consumption by Energy"})
+      f.options[:chart][:defaultSeriesType] = "column"
+    end
 
+    @wbaraverage = LazyHighCharts::HighChart.new('column') do |f|
+      if !@family_list_cut.nil? then
+        f.series(:name=> "Water" ,:data => @averageslist.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } ) 
+      end
+      f.xAxis({:categories => @averageslist.select{ |k,v| k[:service] == 2 }.collect { |e| e[:family]  } }) 
+      f.title({ :text=>"Average consumption by Water"})
+      f.options[:chart][:defaultSeriesType] = "column"
+    end
 
-    # @averageservices = []  
-
-    # [1, 2, 3].each do |service|
-    #   bills_total = @user_list.map { |u| u.valor_total(service) }.inject(0, :+)
-    #   if bills_total == 0
-    #     bills_total =1
-    #   end
-    #   consumption = @user_list.map { |u| u.valor(service) }.inject(0, :+)
-    #   @averageservices << {service: service , average: consumption / bills_total }
-    # end
-
-    # @barservice = LazyHighCharts::HighChart.new('column') do |f|
-    #   if @current_user.admin == 1 
-    #     f.series(:name=>'Energy',:data=> @averageservices.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
-    #   elsif @current_user.admin == 2        
-    #     f.series(:name=>'Water',:data=> @averageservices.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
-    #   elsif @current_user.admin == 3 
-    #     f.series(:name=>'Gas',:data=> @averageservices.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-    #   else
-    #     f.series(:name=>'Energy',:data=> @averageservices.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
-    #     f.series(:name=>'Water',:data=> @averageservices.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
-    #     f.series(:name=>'Gas',:data=> @averageservices.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-    #   end  
-    #   f.title({ :text=>"Average consume of my friends by service"})
-    #   f.options[:chart][:defaultSeriesType] = "column"
-    # end
+    @gbaraverage = LazyHighCharts::HighChart.new('column') do |f|
+      if !@family_list_cut.nil? then
+        f.series(:name=> "Gas" ,:data => @averageslist.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } ) 
+      end
+      f.xAxis({:categories => @averageslist.select{ |k,v| k[:service] == 3 }.collect { |e| e[:family]  } }) 
+      f.title({ :text=>"Average consumption by Gas"})
+      f.options[:chart][:defaultSeriesType] = "column"
+    end
 
   end
 
