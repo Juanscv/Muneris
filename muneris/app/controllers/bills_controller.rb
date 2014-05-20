@@ -122,7 +122,7 @@ class BillsController < ApplicationController
 
       avg_bill_neighbors = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('bills.service = ? AND users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.address = ?', @bill.service, current_user.id, current_user.id, current_user.id, current_user.address).average("consumption").to_f
 
-      if    @bill.consumption > 2.05*avg_bill_friends   and !avg_bill_friends.zero?
+      if    @bill.consumption > 1.95*avg_bill_friends   and !avg_bill_friends.zero?
         create_alert
       elsif @bill.consumption > 1.8*avg_bill_tariff     and !avg_bill_tariff.zero?
         create_alert

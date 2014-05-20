@@ -296,30 +296,6 @@ class MunerisController < ApplicationController
       f.rangeSelector(enabled: false)
     end 
 
-
-
-  end
-
-  def statistics
-    if params[:user_id].nil? then
-      @user = current_user
-    else
-      @user = User.find(params[:user_id])
-    end
-
-    @bills_grid = initialize_grid(
-      Userbill.unscoped.select("userbills.bill_id, userbills.user_id, bills.date, bills.value, bills.consumption, bills.service, users.tariff, users.locale, users.address").joins("INNER JOIN bills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)").where("users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL", current_user.id, current_user.id, current_user.id),
-      with_resultset: :process_records,
-      per_page: 8,
-      name: 'bills'
-    )
-
-    if params[:g] && params[:g][:selected]
-      @selected = params[:g][:selected]
-    end
-
-    @ebills, @wbills, @gbills = [], [], []
-
   end
 
   private

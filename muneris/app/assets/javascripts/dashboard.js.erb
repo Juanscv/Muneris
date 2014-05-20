@@ -21,9 +21,9 @@ jQuery(document).ready(function () {
           $('#map_statics').html(data);
         });
         $('#map_statics').fadeOut('slow', function() {
-            $(this).load('/echo/json/', function() {
-                $(this).fadeIn('slow');
-            });
+          $(this).load('/echo/json/', function() {
+              $(this).fadeIn('slow');
+          });
         });          
       });
     });

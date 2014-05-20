@@ -1,16 +1,13 @@
 <% if !@user.admin.nil? then %>
-<h1>Admin Network</h1>
+<h1>Users</h1>
 <% else %>
 <h1>Network</h1>
 <% end %>
 
 <div class="w-container">
-	<% if !@user.admin.nil? then %>
-	<%=		render partial: 'average' %>
-	<% else %>
-	<%=		render partial: 'grid' %>
-	<% end %>
-
+	
+	<%=	render partial: 'grid' %>
+	
 	<div class="w-row">
 		<div class="w-col w-col-3new">
 			<div class="w-row">
@@ -65,13 +62,9 @@
 		<div class="w-row">
 			<div class="w-col w-col-6">
 				<%= high_stock('chart1', @echart) %>
+			</div>
 			<div class="w-col w-col-6">
-				<div class="piechart">
-				<%= high_chart('chart2',@eavgchart) do |c|
-					raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"
-	        		raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name;"
-	        	end %>
-	        	</div>
+				<%= high_chart('chart2',@eavgchart) %>
 			</div>
 				<h5>Biggest consumer: <%= link_to @maxe.familyname, profile_path(@maxe.id) unless @maxe.nil? %></h5>
 		</div>
@@ -81,15 +74,10 @@
 			<div class="w-col w-col-6">
 				<%= high_stock('chart3', @wchart) %>
 			</div>
-			<div class="w-col w-col-6"	
-				<div class="piechart">
-				<%= high_chart('chart4',@wavgchart) do |c|
-					raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"
-	        		raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name;"
-	        	end %>
-	        	</div>
+			<div class="w-col w-col-6">
+				<%= high_chart('chart4',@wavgchart) %>
 			</div>
-				<h5>Biggest consumer: <%= link_to @maxw.familyname, profile_path(@maxw.id) unless @maxe.nil?  %></h5>
+				<h5>Biggest consumer: <%= link_to @maxw.familyname, profile_path(@maxw.id) unless @maxw.nil?  %></h5>
 		</div>
 		<% end %>
 		<% if @user.admin.nil? or @user.admin == 3 then %>
@@ -97,15 +85,10 @@
 			<div class="w-col w-col-6">
 				<%= high_stock('chart5', @gchart) %>
 			</div>
-			<div class="w-col w-col-6"
-				<div class="piechart">
-				<%= high_chart('chart6',@gavgchart) do |c|
-					raw "options.tooltip.formatter = function() {return '<b>'+ this.point.name +'</b>: '+ this.y +' %';}"
-	        		raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name;"
-	        	end %>
-	        	</div>
+			<div class="w-col w-col-6" >
+				<%= high_chart('chart6',@gavgchart) %>
 			</div>
-				<h5>Biggest consumer: <%= link_to @maxg.familyname, profile_path(@maxg.id) unless @maxe.nil?  %></h5>
+				<h5>Biggest consumer: <%= link_to @maxg.familyname, profile_path(@maxg.id) unless @maxg.nil?  %></h5>
 		</div>
 		<% end %>
 	</div>
