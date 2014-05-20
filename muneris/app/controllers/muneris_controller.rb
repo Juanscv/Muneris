@@ -268,52 +268,66 @@ class MunerisController < ApplicationController
     )
 
     @ebills, @wbills, @gbills = [], [], []
+    @evbills, @wvbills, @gvbills = [], [], []
     bills = @user_map.bills.sort_by(&:date)
     bills.each do |b|
       case b.service
       when 1
         @ebills << [b.date.strftime("%s%L").to_i,b.consumption]
+        @evbills << [b.date.strftime("%s%L").to_i,b.value / 1000]
       when 2
         @wbills << [b.date.strftime("%s%L").to_i,b.consumption]
+        @wvbills << [b.date.strftime("%s%L").to_i,b.value / 1000]
       when 3
         @gbills << [b.date.strftime("%s%L").to_i,b.consumption]
+        @gvbills << [b.date.strftime("%s%L").to_i,b.value / 1000]
       end
     end
 
     if !@is_current_user then
       cu_ebills, cu_wbills, cu_gbills = [], [], []
+      cu_evbills, cu_wvbills, cu_gvbills = [], [], []
       cu_bills = current_user.bills.sort_by(&:date)
       cu_bills.each do |b|
         case b.service
         when 1
           cu_ebills << [b.date.strftime("%s%L").to_i,b.consumption]
+          cu_evbills << [b.date.strftime("%s%L").to_i,b.value / 1000]
         when 2
           cu_wbills << [b.date.strftime("%s%L").to_i,b.consumption]
+          cu_wvbills << [b.date.strftime("%s%L").to_i,b.value / 1000]
         when 3
           cu_gbills << [b.date.strftime("%s%L").to_i,b.consumption]
+          cu_gvbills << [b.date.strftime("%s%L").to_i,b.value / 1000]
         end
       end   
     end
 
     @echart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user_map.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: @user.familyname, :yAxis => 0, :data => @evbills, tooltip: {valuePreffix: ' $'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills, tooltip: {valueSuffix: ' kWh'}) if !@is_current_user
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_evbills, tooltip: {valuePreffix: ' $'}) if !@is_current_user
       f.plotOptions(series:{compare:'value'})
       f.rangeSelector(enabled: false)
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user_map.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user.familyname, :yAxis => 0, :data => @wvbills, tooltip: {valuePreffix: ' $'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wvbills, tooltip: {valuePreffix: ' $'}) if !@is_current_user
       f.rangeSelector(enabled: false)
     end
     @gchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user_map.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user.familyname, :yAxis => 0, :data => @gvbills, tooltip: {valuePreffix: ' $'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
+      f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gvbills, tooltip: {valuePreffix: ' $'}) if !@is_current_user
       f.rangeSelector(enabled: false)
-    end 
+    end
 
   end
 
