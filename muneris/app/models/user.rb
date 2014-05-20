@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :profile => "254x254>", :friend => "80x80>", :list => "35x35>" }, :default_url => "usercircle.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  validates :address, :presence => true
+  validates :tariff, :presence => true
+  validates :locale, :presence => true
+
   geocoded_by :get_location
   after_validation :geocode, :if => :address_changed?
 
@@ -50,8 +54,8 @@ class User < ActiveRecord::Base
            image = auth.info.image
            avatar_url = process_uri(image)
            user.update_attribute(:avatar, URI.parse(avatar_url))
-        end
-  end
+        end        
+    end
 	end
 
   def self.new_with_session(params, session)
