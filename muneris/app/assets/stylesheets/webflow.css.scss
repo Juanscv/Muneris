@@ -2085,6 +2085,10 @@ body > div:nth-child(2) > div > div > div > form > div.w-row.search-box {
   background: url('close.png') no-repeat 0 0 !important;
 }
 
+.modal{
+  width: 330px !important;
+}
+
 .people-image {
   width: 45px;
   float: right;
@@ -2161,13 +2165,26 @@ abbr.timeago {
   color: #BBB;
   font-weight: normal;
   font-size: 12px;
+  text-align: left;
+  float: left;
+  width: 275px;
+}
+
+#network .timeago {
+  width: 163px !important;
 }
 
 .activity .body .title {
   padding: 0 0 .25em 0;
   font-weight: bold;
   font-size: 14px;
-  text-align: center;
+  text-align: left;
+  color: #333;
+}
+
+.activity .body .details {
+  color: #333;
+  text-align: left;
 }
 
 .activity .body .details .avatar {
