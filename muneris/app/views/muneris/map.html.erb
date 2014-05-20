@@ -9,6 +9,7 @@
 <script type="text/javascript">
   var App = App || {};
   App.map = { markers: <%= raw @markers.to_json %> };
+  App.map.on('page:load', App)
  
 </script>
 

@@ -1,6 +1,7 @@
 <%= render 'layouts/partials/header' %> 
 
         <%= yield %>
+        <%= yield :scripts %>
 
         <input id="user_id" type="hidden" value="<%= current_user %>" />
 

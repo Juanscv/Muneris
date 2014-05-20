@@ -1,4 +1,6 @@
-jQuery(document).ready(function () {
+var ready;
+
+ready = function() {
   if ($('.dashboard-map #map').length === 0)  return;
 
   var handler = Gmaps.build('Google');
@@ -28,4 +30,8 @@ jQuery(document).ready(function () {
       });
     });
   });
-});
+};
+
+$(document).ready(ready);
+
+$(document).on('page:load', ready);

@@ -204,7 +204,12 @@ class MunerisController < ApplicationController
 
   def map
     if current_user.has_address?
-      users_nearby = current_user.nearbys(10)
+      users_nearby = current_user.friends
+
+      if current_user.has_address? and current_user.admin?
+        users_nearby = current_user.nearbys(10)
+      end
+
       users = [current_user]
       users += users_nearby unless users_nearby.blank?
 
