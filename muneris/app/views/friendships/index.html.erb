@@ -4,6 +4,9 @@
 <h1>Network</h1>
 <% end %>
 
+<%= dump_filter_parameters_as_hidden_fields(@users_grid) %>
+<%= form_for '#', method: :get do %>
+
 <div class="w-container">
 	
 	<%=	render partial: 'grid' %>
@@ -21,15 +24,8 @@
 		</div>
 		<div class="w-col w-col-2">
 			<div>
-				<%= dump_filter_parameters_as_hidden_fields(@users_grid) %>
-				<%= form_for '#', method: :get do %>
-						<button class="clickable btn" type="submit">View selected</button>
+				<button class="clickable btn" type="submit">View selected</button>
 			</div>
-		</div>
-		<div class="w-col w-col-2">
-			<div class="external-buttons">
-		        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">View filtered</button>
-		    </div>
 		</div>
 	</div>
 
@@ -48,7 +44,6 @@
 		<div class="w-col w-col-10">
 			<div class="wice-grid">
 				<%= render_grid(@users_grid) %>
-				<% end %>
 			</div>
 		</div>
 	</div>
@@ -57,6 +52,7 @@
 
 	<%=	render partial: 'charts2' %>
 
+<%if !@selected.blank? then %>
 	<div class="w-row">
 		<% if @user.admin.nil? or @user.admin == 1 then %>
 		<div class="w-row">
@@ -92,4 +88,13 @@
 		</div>
 		<% end %>
 	</div>
+<% else %>
+	<div class="w-box">
+		<h5>Select some users above to view statistics from your network</h5>
+		<h5><button class="btn" type="submit">View selected</button><h5>
+	</div>
+<% end %>
+				
 </div>
+
+<% end %>
