@@ -1,94 +1,47 @@
-<%  if @selected then
-      @echart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Consumption in energy bills")
-        @selected.each do |id|
-          u = User.find_by_id(id)
-          bills = []
-          u.bills.sort_by(&:date).each do |b|
-            bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
-          end
-
-          f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' kWh'})
-
-        end
-        f.plotOptions(series:{compare:'value'})
-        f.rangeSelector(enabled: false)
-        f.scrollbar(enabled: false)
-      end
-      @wchart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Consumption in water bills")
-        @selected.each do |id|
-          u = User.find_by_id(id)
-          bills = []
-          u.bills.sort_by(&:date).each do |b|
-            bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
-          end
-
-          f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
-
-        end
-        f.rangeSelector(enabled: false)
-        f.scrollbar(enabled: false)
-      end
-      @gchart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Consumption in gas bills")
-        @selected.each do |id|
-          u = User.find_by_id(id)
-          bills = []
-          u.bills.sort_by(&:date).each do |b|
-            bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
-          end
-
-          f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
-        end
-        f.rangeSelector(enabled: false)
-        f.scrollbar(enabled: false)
+<%
+  @echart = LazyHighCharts::HighChart.new('graph') do |f|
+    f.title(:text => "Consumption in energy bills")
+    @selected.each do |id|
+      u = User.find_by_id(id)
+      bills = []
+      u.bills.sort_by(&:date).each do |b|
+        bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
       end
 
+      f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' kWh'})
 
-    else
-      @echart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Consumption in energy bills")
-        @results.each do |r|
-          bills = []
-          r.bills.sort_by(&:date).each do |b|
-            bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
-          end
-
-          f.series(name: r.familyname, :data => bills, tooltip: {valueSuffix: ' kWh'})
-
-        end
-        f.tooltip(valueSuffix: ' kWh')
-        f.rangeSelector(enabled: false)
-        f.scrollbar(enabled: false)    
-      end
-      @wchart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Consumption in water bills")
-        @results.each do |r|
-          bills = []
-          r.bills.sort_by(&:date).each do |b|
-            bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
-          end
-
-          f.series(name: r.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
-
-        end
-        f.tooltip(valueSuffix: ' m3')
-        f.rangeSelector(enabled: false)
-        f.scrollbar(enabled: false)       
-      end
-      @gchart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(:text => "Consumption in gas bills")
-        @results.each do |r|
-          bills = []
-          r.bills.sort_by(&:date).each do |b|
-            bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
-          end
-
-          f.series(name: r.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
-        end
-        f.rangeSelector(enabled: false)
-        f.scrollbar(enabled: false)     
-      end
     end
+    f.plotOptions(series:{compare:'value'})
+    f.rangeSelector(enabled: false)
+    f.scrollbar(enabled: false)
+  end
+  @wchart = LazyHighCharts::HighChart.new('graph') do |f|
+    f.title(:text => "Consumption in water bills")
+    @selected.each do |id|
+      u = User.find_by_id(id)
+      bills = []
+      u.bills.sort_by(&:date).each do |b|
+        bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
+      end
+
+      f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
+
+    end
+    f.rangeSelector(enabled: false)
+    f.scrollbar(enabled: false)
+  end
+  @gchart = LazyHighCharts::HighChart.new('graph') do |f|
+    f.title(:text => "Consumption in gas bills")
+    @selected.each do |id|
+      u = User.find_by_id(id)
+      bills = []
+      u.bills.sort_by(&:date).each do |b|
+        bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
+      end
+
+      f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
+    end
+    f.rangeSelector(enabled: false)
+    f.scrollbar(enabled: false)
+  end
 %>

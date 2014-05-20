@@ -1,156 +1,81 @@
-<%  if @selected then
-      @eavgchart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.title(:text => "Energy consumption average per user")
-        
-        pre = 0
-        @maxe = nil
-        avgs = []
-        @selected.each do |id|
-          avg = 0
+<%
+  @eavgchart = LazyHighCharts::HighChart.new('pie') do |f|
+      f.title(:text => "Energy consumption average per user")
+      
+      pre = 0
+      @maxe = nil
+      avgs = []
+      @selected.each do |id|
+        avg = 0
 
-          u = User.find_by_id(id)
-          bills = u.bills.map{|m| m.consumption if m.service == 1}.compact
-          avg = bills.sum / bills.size unless bills.size == 0
-          avgs << [u.familyname, avg]
+        u = User.find_by_id(id)
+        bills = u.bills.map{|m| m.consumption if m.service == 1}.compact
+        avg = bills.sum / bills.size unless bills.size == 0
+        avgs << [u.familyname, avg]
 
-          if avg > pre
-            @maxe = u
-          end
-
-          pre = avg
+        if avg > pre
+          @maxe = u
         end
 
-        f.series(type: 'pie', name: 'Averages', data: avgs)
-
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-        f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
-      end
-      @wavgchart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.title(:text => "Water consumption average per user")
-        
-        pre = 0
-        @maxe = nil
-        avgs = []
-        @selected.each do |id|
-          avg = 0
-
-          u = User.find_by_id(id)
-          bills = u.bills.map{|m| m.consumption if m.service == 2}.compact
-          avg = bills.sum / bills.size unless bills.size == 0
-          avgs << [u.familyname, avg]
-
-          if avg > pre
-            @maxe = u
-          end
-
-          pre = avg
-        end
-
-        f.series(type: 'pie', name: 'Averages', data: avgs)
-
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-        f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
-      end
-      @gavgchart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.title(:text => "Gas consumption in gas bills")
-
-        pre = 0
-        @maxe = nil
-        avgs = []
-        @selected.each do |id|
-          avg = 0
-
-          u = User.find_by_id(id)
-          bills = u.bills.map{|m| m.consumption if m.service == 3}.compact
-          avg = bills.sum / bills.size unless bills.size == 0
-          avgs << [u.familyname, avg]
-
-          if avg > pre
-            @maxe = u
-          end
-
-          pre = avg
-        end
-
-        f.series(type: 'pie', name: 'Averages', data: avgs)
-
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-        f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+        pre = avg
       end
 
+      f.series(type: 'pie', name: 'Averages', data: avgs)
 
-    else
-      @eavgchart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.title(:text => "Energy average per user")
-        
-        pre = 0
-        @maxe = nil
-        avgs = []
-        @results.each do |u|
-          avg = 0
-          bills = u.bills.map{|m| m.consumption if m.service == 1}.compact
-          avg = bills.sum / bills.size unless bills.size == 0
-          avgs << [u.familyname, avg]
-
-          if avg > pre
-            @maxe = u
-          end
-
-          pre = avg
-        end
-
-        f.series(type: 'pie', name: 'Averages', data: avgs)
-
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-        f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
-      end
-      @wavgchart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.title(:text => "Water average per user")
-
-        pre = 0
-        @maxw = nil
-        avgs = []
-        @results.each do |u|
-          avg = 0
-          bills = u.bills.map{|m| m.consumption if m.service == 2}.compact
-          avg = bills.sum / bills.size unless bills.size == 0
-          avgs << [u.familyname, avg]
-
-          if avg > pre
-            @maxw = u
-          end
-
-          pre = avg
-        end
-
-        f.series(type: 'pie', name: 'Averages', data: avgs)
-        
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-        f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})    
-      end
-      @gavgchart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.title(:text => "Gas average per user")
-
-        pre = 0
-        @maxg = nil
-        avgs = []
-        @results.each do |u|
-          avg = 0
-          bills = u.bills.map{|m| m.consumption if m.service == 3}.compact
-          avg = bills.sum / bills.size unless bills.size == 0
-          avgs << [u.familyname, avg]
-
-          if avg > pre
-            @maxg = u
-          end
-
-          pre = avg
-        end
-
-        f.series(type: 'pie', name: 'Averages', data: avgs)
-        
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-        f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})    
-      end
+      f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+      f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
     end
+    @wavgchart = LazyHighCharts::HighChart.new('pie') do |f|
+      f.title(:text => "Water consumption average per user")
+      
+      pre = 0
+      @maxe = nil
+      avgs = []
+      @selected.each do |id|
+        avg = 0
+
+        u = User.find_by_id(id)
+        bills = u.bills.map{|m| m.consumption if m.service == 2}.compact
+        avg = bills.sum / bills.size unless bills.size == 0
+        avgs << [u.familyname, avg]
+
+        if avg > pre
+          @maxe = u
+        end
+
+        pre = avg
+      end
+
+      f.series(type: 'pie', name: 'Averages', data: avgs)
+
+      f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+      f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+    end
+    @gavgchart = LazyHighCharts::HighChart.new('pie') do |f|
+      f.title(:text => "Gas consumption in gas bills")
+
+      pre = 0
+      @maxe = nil
+      avgs = []
+      @selected.each do |id|
+        avg = 0
+
+        u = User.find_by_id(id)
+        bills = u.bills.map{|m| m.consumption if m.service == 3}.compact
+        avg = bills.sum / bills.size unless bills.size == 0
+        avgs << [u.familyname, avg]
+
+        if avg > pre
+          @maxe = u
+        end
+
+        pre = avg
+      end
+
+      f.series(type: 'pie', name: 'Averages', data: avgs)
+
+      f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+      f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+  end
+
 %>

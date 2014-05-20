@@ -12,12 +12,11 @@ class FriendshipsController < ApplicationController
     @users_grid = initialize_grid(
       @user_list,
       order: 'users.id',
-      with_resultset: :process_records,
       per_page: 8,
       name: 'g'
      )
 
-    @results = []
+    @selected = []
 
     if params[:g] && params[:g][:selected]
       @selected = params[:g][:selected]
@@ -28,7 +27,7 @@ class FriendshipsController < ApplicationController
   def new
     @users_grid = initialize_grid(
       User,
-      conditions: ["id != ?", current_user.id],
+      conditions: ["id != ? AND admin = NULL", current_user.id],
       order: 'users.id',
       per_page: 8
     )
@@ -66,12 +65,6 @@ class FriendshipsController < ApplicationController
       redirect_to new_network_path, :notice => "Successfully removed friend!"
     else
       redirect_to new_etwork_path, :notice => "Sorry, couldn't remove friend!"
-    end
-  end
-
-  def process_records(records)
-    records.each do |rec|
-      @results << rec
     end
   end
   
