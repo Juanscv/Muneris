@@ -80,7 +80,7 @@
 
 
     else
-      @eavgchart = LazyHighCharts::HighChart.new('column') do |f|
+      @eavgchart = LazyHighCharts::HighChart.new('pie') do |f|
         f.title(:text => "Energy average per user")
         
         pre = 0
@@ -92,8 +92,6 @@
           avg = bills.sum / bills.size unless bills.size == 0
           avgs << [u.familyname, avg]
 
-          f.series(name: u.familyname, data: avg)
-
           if avg > pre
             @maxe = u
           end
@@ -101,10 +99,12 @@
           pre = avg
         end
 
+        f.series(type: 'pie', name: 'Averages', data: avgs)
+
         f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
         f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
       end
-      @wavgchart = LazyHighCharts::HighChart.new('column') do |f|
+      @wavgchart = LazyHighCharts::HighChart.new('pie') do |f|
         f.title(:text => "Water average per user")
 
         pre = 0
@@ -123,12 +123,12 @@
           pre = avg
         end
 
-        f.series(name: 'Averages', data: avgs)
+        f.series(type: 'pie', name: 'Averages', data: avgs)
         
         f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
         f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})    
       end
-      @gavgchart = LazyHighCharts::HighChart.new('column') do |f|
+      @gavgchart = LazyHighCharts::HighChart.new('pie') do |f|
         f.title(:text => "Gas average per user")
 
         pre = 0
@@ -147,7 +147,7 @@
           pre = avg
         end
 
-        f.series(name: 'Averages', data: avgs)
+        f.series(type: 'pie', name: 'Averages', data: avgs)
         
         f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
         f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})    

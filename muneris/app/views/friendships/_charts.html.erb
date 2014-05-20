@@ -8,7 +8,7 @@
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
           end
 
-          f.series(name: u.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' kWh'})
+          f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' kWh'})
 
         end
         f.plotOptions(series:{compare:'value'})
@@ -24,7 +24,7 @@
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
           end
 
-          f.series(name: u.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+          f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
 
         end
         f.rangeSelector(enabled: false)
@@ -39,7 +39,7 @@
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
           end
 
-          f.series(name: u.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+          f.series(name: u.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
         end
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)
@@ -55,7 +55,7 @@
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 1
           end
 
-          f.series(name: r.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' kWh'})
+          f.series(name: r.familyname, :data => bills, tooltip: {valueSuffix: ' kWh'})
 
         end
         f.tooltip(valueSuffix: ' kWh')
@@ -70,7 +70,7 @@
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 2
           end
 
-          f.series(name: r.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+          f.series(name: r.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
 
         end
         f.tooltip(valueSuffix: ' m3')
@@ -85,7 +85,7 @@
             bills << [b.date.strftime("%s%L").to_i,b.consumption] if b.service == 3
           end
 
-          f.series(name: r.familyname, :yAxis => 0, :data => bills, tooltip: {valueSuffix: ' m3'})
+          f.series(name: r.familyname, :data => bills, tooltip: {valueSuffix: ' m3'})
         end
         f.rangeSelector(enabled: false)
         f.scrollbar(enabled: false)     
