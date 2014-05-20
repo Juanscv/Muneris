@@ -305,8 +305,8 @@ class MunerisController < ApplicationController
 
     @echart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
-      f.series(name: @user.familyname, :yAxis => 0, :data => @evbills, tooltip: {valuePreffix: ' $'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @evbills, tooltip: {valuePreffix: ' $'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_ebills, tooltip: {valueSuffix: ' kWh'}) if !@is_current_user
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_evbills, tooltip: {valuePreffix: ' $'}) if !@is_current_user
       f.plotOptions(series:{compare:'value'})
@@ -314,16 +314,16 @@ class MunerisController < ApplicationController
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
-      f.series(name: @user.familyname, :yAxis => 0, :data => @wvbills, tooltip: {valuePreffix: ' $'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @wvbills, tooltip: {valuePreffix: ' $'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_wvbills, tooltip: {valuePreffix: ' $'}) if !@is_current_user
       f.rangeSelector(enabled: false)
     end
     @gchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2)
-      f.series(name: @user.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
-      f.series(name: @user.familyname, :yAxis => 0, :data => @gvbills, tooltip: {valuePreffix: ' $'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
+      f.series(name: @user_map.familyname, :yAxis => 0, :data => @gvbills, tooltip: {valuePreffix: ' $'})
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
       f.series(name: current_user.familyname, :yAxis => 0, :data => cu_gvbills, tooltip: {valuePreffix: ' $'}) if !@is_current_user
       f.rangeSelector(enabled: false)
