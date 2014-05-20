@@ -3,21 +3,28 @@
 <div class="w-container container-1">
 	<p>
 	  <strong>Consumption:</strong>
-	  <%= @bill.consumption %>
+	  <%= case @bill.service
+    when 1
+      @bill.consumption.to_s + " kWh"
+    when 2
+      @bill.consumption.to_s + " m3"
+    when 3
+      @bill.consumption.to_s + " m3"
+    end %>
 	</p>
 
 	<p>
 	  <strong>Value:</strong>
-	  <%= @bill.value %>
+	  <%= number_to_currency(@bill.value, :precision => 0) %>
 	</p>
 
 	<p>
 	  <strong>Date:</strong>
-	  <%= @bill.date %>
+	  <%= @bill.date.strftime "%b %Y" %>
 	</p>
 	<p>
 	  <%= link_to 'Edit', edit_bill_path(@bill) %>
 	  |
-	  <%= link_to 'Back', :back %>
+	  <%= link_to 'Back', bills_path %>
 	</p>
 </div>
