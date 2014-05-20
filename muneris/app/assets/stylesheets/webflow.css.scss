@@ -2379,10 +2379,21 @@ button.btn:active{
   padding: 5px;
   margin: 5px 0px;
   border-width: thin;
-  border-radius: 3px;
   border: 1px dotted;
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
   -webkit-border-radius: 2px;
+}
+
+.emptybox {
+  width: 100%;
+  height: 150px; 
+  padding: 60px 5px;
+  margin: 5px 0px;
+  color: #B8B8B8;
+  float: center;
+  border: 1px;
+  font-size: 10px;
+
 }
 
 .dashboard #feed {
