@@ -8,17 +8,21 @@
 
 require 'csv'
 
+=begin
 User.create!({:email => "eadmin@gmail.com", :admin => 1, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "E_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
 User.create!({:email => "wadmin@gmail.com", :admin => 2, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "W_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
 User.create!({:email => "gadmin@gmail.com", :admin => 3, :password => "12345678", :password_confirmation => "12345678", :address => "Calle 93 # 46", :name => "G_Admin", :locale => "Barranquilla, Atlantico, Colombia"})
+=end
 
 csv_users = File.read('db/data/Clientes.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
 data_users = CSV.parse(csv_users, :headers => false)
 csv_locales = File.read('db/data/Localidades.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
 data_locales = CSV.parse(csv_locales, :headers => false)
 csv_bills = File.read('db/data/Consumos.csv').force_encoding("ISO-8859-1").encode("utf-8", replace: nil)
-data_bills= CSV.parse(csv_bills, :headers => true)
-data_bills.to_a!
+data_bills = CSV.parse(csv_bills, :headers => true)
+puts "loaded all"
+data_bills = data_bills.to_a
+put "bills to a"
 
 i = 0
 

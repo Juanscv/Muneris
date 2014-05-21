@@ -16,8 +16,10 @@
 
 	g.column name: 'Location', attribute: 'locale', auto_reload:  true, detach_with_id: :locale_filter
 
-	g.column do |user|
-		link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
+	if @user.admin.nil?
+		g.column do |user|
+			link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
+		end
 	end
 
 end %>
