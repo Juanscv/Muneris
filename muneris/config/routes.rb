@@ -16,10 +16,11 @@ Muneris::Application.routes.draw do
     get "invites", :on => :collection
   end
   
-  get "/user/:id/feed", to: 'user#feed', as: :feed
-  get "/user/:id/notifications", to: 'user#notifications', as: :notifications
-  get "/user/:id/network", to: 'user#network', as: :usernetwork
+  # get "/user/:id/feed", to: 'user#feed', as: :feed
+  # get "/user/:id/notifications", to: 'user#notifications', as: :notifications
+  # get "/user/:id/network", to: 'user#network', as: :usernetwork
   get "/dashboard", to: 'muneris#dashboard', as: :dashboard
+  get "/dashboardadmin", to: 'muneris#dashboardadmin', as: :dashboardadmin
   get "/profile(/:user_id)", to: 'muneris#profile', as: :profile
   get "/statistics", to: 'muneris#statistics', as: :statistics
   get "/map", to: 'muneris#map', as: :map

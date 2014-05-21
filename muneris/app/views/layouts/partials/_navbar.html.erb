@@ -3,7 +3,9 @@
     <div class="w-row">
       <div class="w-col w-col-4 company-column">
         <% if user_signed_in? %>
-        <%= link_to (image_tag 'logomuneris.png', class: "logo") , dashboard_path %>       
+        <%= link_to (image_tag 'logomuneris.png', class: "logo") , dashboard_path %> 
+        <% elsif user_signed_in? and @user.admin? %>
+        <%= link_to (image_tag 'logomuneris.png', class: "logo") , dashboardadmin_path %>       
         <% else %>
         <%= link_to (image_tag 'logomuneris.png', class: "logo") , root_path %>
         <% end %>        

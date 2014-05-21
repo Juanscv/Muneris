@@ -10,10 +10,14 @@ class MunerisController < ApplicationController
 
     @friends = current_user.friends
 
-    @users = User.all(:conditions => ["id != ?", current_user.id])
-    @bills = Bill.all
+  end
 
+  def dashboardadmin
     #------------------------------------ADMIN--------------------------------------
+
+    @users = User.all(:conditions => ["id != ?", current_user.id])
+
+    @bills = Bill.all
 
     tariffs = User.where("id != ?", current_user.id).pluck(:tariff).uniq
     @userstariff = []
@@ -127,7 +131,6 @@ class MunerisController < ApplicationController
     services.each do |service|
       @billsservice << { service: service, value: Bill.where(service: service).size }
     end   
-
   end
 
   def profile
