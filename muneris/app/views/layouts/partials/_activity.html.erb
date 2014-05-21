@@ -2,20 +2,53 @@
   <h1>Activity</h1>
  	
  	<div class="w-row">
+<!-- 		<div id="radio_buttons">
+			<%#= radio_button_tag(:option, "consumption", :id => 'yesCheck', :onclick => "javascript:yesnoCheck();") %>
+			<%#= label_tag(:option_consumption, "I want to see my consumption") %>
+			<%#= radio_button_tag(:option, "payment", :id => 'noCheck', :onclick => "javascript:yesnoCheck();") %>
+			<%#= label_tag(:option_payment, "I want to see my payment") %>
+		</div> -->
 		<div id="radio_buttons">
-			<%= radio_button_tag(:option, "consumption", :checked => true) %>
-			<%= label_tag(:option_consumption, "I want to see my consumption") %>
-			<%= radio_button_tag(:option, "payment") %>
-			<%= label_tag(:option_payment, "I want to see my payment") %>
-		</div>
-		<%#= link_to_remote 'Submit selected', :url => {:action=>"profile"}, :submit => 'radio_buttons' %>
+		    <form class="type">
+		        <input type="radio" name="type" checked="checked" value="consumption">I want to see my consumption</input>
+		        <input type="radio" name="type" value="payment">I want to see my payment</input>
+		    </form>
+		</div>   
 	 	<div class="w-col w-col-6">
 		 	<h3><strong>Records</strong></h3>
 		 	<%= render partial: 'layouts/partials/grids' %>
 	 	</div>
 	 	<div class="w-col w-col-6">
 		 	<h3><strong>Statistics</strong></h3>
-		 	<%= render partial: 'layouts/partials/charts' %>
+		 	<div id="consumption-table">
+		 		<%= render partial: 'layouts/partials/charts' %>
+		 	</div>
+		 	<div id="payment-table">
+		 		<%= render partial: 'layouts/partials/charts2' %>
+		 	</div>
 	 	</div>
 	</div>
 </div>
+
+<script>
+    $( document ).ready(function() {
+
+    	$('#consumption-table').show();
+    	$('#payment-table').hide();
+
+		$("#radio_buttons input[name='type']").click(function(){
+		    if($('input:radio[name=type]:checked').val() == "consumption"){
+		    	$('#consumption-table').show();
+		    	$('#payment-table').hide();
+		        //$('#select-table > .roomNumber').attr('enabled',false);
+		    }
+		    if($('input:radio[name=type]:checked').val() == "payment"){
+		    	$('#consumption-table').hide();
+		    	$('#payment-table').show();
+		        //$('#select-table > .roomNumber').attr('enabled',false);
+		    }
+		});
+    });
+
+
+</script>

@@ -1,0 +1,24 @@
+<div class="w-box">
+<p><strong>Energy vs. time</strong></p>
+<%=	if !@ebills.empty? then
+		high_stock('evchart', @evchart)
+	else
+		render partial: 'layouts/partials/blank', locals: { section: 'bill' } 
+	end %>
+</div>
+<div class="w-box">
+<p><strong>Water vs. time</strong></p>
+<%=	if !@wbills.empty? then
+		high_stock('wvchart', @wvchart)
+	else
+		render partial: 'layouts/partials/blank', locals: { section: 'bill' } 
+	end %>
+</div>
+<div class="w-box">
+<p><strong>Gas vs. time</strong></p>
+<%=	if !@gbills.empty? then
+		high_stock('gvchart', @gvchart)
+	else
+		render partial: 'layouts/partials/blank', locals: { section: 'bill' } 
+	end %>
+</div>
