@@ -10,7 +10,7 @@ class BillsController < ApplicationController
       Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id),
       order:           'bills.date',
       order_direction: 'desc',
-      per_page: 16
+      per_page: 12
     )
 
     bills = current_user.bills.sort_by(&:date)
