@@ -203,7 +203,7 @@ textarea.w-select {
 }
 .w-button {
   display: inline-block;
-  padding: 5px;
+  padding: 10px;
   background-color: black;
   color: white;
   border: 0;
@@ -2428,6 +2428,13 @@ button.btn:active{
 .asterisk {
   font-size: 9px;
   text-align: right;
+}
+
+.flash {
+  color: #B8B8B8;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
 }
 
 #radio_buttons {
