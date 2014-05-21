@@ -2429,3 +2429,16 @@ button.btn:active{
   font-size: 9px;
   text-align: right;
 }
+
+#radio_buttons {
+  margin: 0 auto;
+  display: table;
+}
+
+#radio_buttons input {
+  margin: 5px 5px 30px 40px;
+}
+
+#radio_buttons label {
+  display: initial;
+}

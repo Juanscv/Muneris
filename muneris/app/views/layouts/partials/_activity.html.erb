@@ -2,6 +2,13 @@
   <h1>Activity</h1>
  	
  	<div class="w-row">
+		<div id="radio_buttons">
+			<%= radio_button_tag(:option, "consumption", :checked => true) %>
+			<%= label_tag(:option_consumption, "I want to see my consumption") %>
+			<%= radio_button_tag(:option, "payment") %>
+			<%= label_tag(:option_payment, "I want to see my payment") %>
+		</div>
+		<%#= link_to_remote 'Submit selected', :url => {:action=>"profile"}, :submit => 'radio_buttons' %>
 	 	<div class="w-col w-col-6">
 		 	<h3><strong>Records</strong></h3>
 		 	<%= render partial: 'layouts/partials/grids' %>
