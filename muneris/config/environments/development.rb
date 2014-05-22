@@ -30,5 +30,8 @@ Muneris::Application.configure do
   #Use Dalli/Memcached
   config.cache_store = :dalli_store
 
+  # Global enable/disable all memcached usage
+  config.perform_caching = true
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

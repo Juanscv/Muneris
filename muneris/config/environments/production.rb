@@ -78,6 +78,9 @@ Muneris::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Global enable/disable all memcached usage
+  config.perform_caching = true
+
   #Use Dalli/Memcached
   config.cache_store = :dalli_store
 end

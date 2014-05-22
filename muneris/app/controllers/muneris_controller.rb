@@ -57,6 +57,7 @@ class MunerisController < ApplicationController
         end
         f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
         f.title({ :text=>"Average by tariff"})
+        f.legend(enabled: false)
         f.options[:chart][:defaultSeriesType] = "column"
       end
 
@@ -89,6 +90,7 @@ class MunerisController < ApplicationController
         end
         f.xAxis({:categories => @userscity.collect { |e| e[:locale]} })    
         f.title({ :text=>"Average by city"})
+        f.legend(enabled: false)
         f.options[:chart][:defaultSeriesType] = "column"
       end
 
