@@ -10,127 +10,132 @@ class MunerisController < ApplicationController
 
     @friends = current_user.friends
 
-  end
+    
+    
 
-  def dashboardadmin
     #------------------------------------ADMIN--------------------------------------
 
-    @users = User.all(:conditions => ["id != ?", current_user.id])
+    if @current_user.admin?
 
-    @bills = Bill.all
+      @users = User.all(:conditions => ["id != ?", current_user.id])
 
-    tariffs = User.where("id != ?", current_user.id).pluck(:tariff).uniq
-    @userstariff = []
+      @bills = Bill.all
 
-    locales = User.where("id != ?", current_user.id).pluck(:locale).uniq
-    @userscity = []
+      tariffs = User.where("id != ?", current_user.id).pluck(:tariff).uniq
+      @userstariff = []
 
-    services = Bill.pluck(:service).uniq
-    @billsservice = []
+      locales = User.where("id != ?", current_user.id).pluck(:locale).uniq
+      @userscity = []
 
-    @averagestariff = []
-    tariffs.each do |tariff|
-      users = User.where(tariff: tariff)
-      @averagestarifflista = []
+      services = Bill.pluck(:service).uniq
+      @billsservice = []
 
-      # services
-      [1, 2, 3].each do |service|
-        bills_total = users.map { |u| u.valor_total(service) }.inject(0, :+)
-        if bills_total == 0
-          bills_total =1
-        end
-        consumption = users.map { |u| u.valor(service) }.inject(0, :+)
-        @averagestariff << { tariff: tariff, service: service , average: consumption / bills_total }
-        @averagestarifflista << { service: service , average: consumption / bills_total }
-      end
-
-      @userstariff << { tariff: tariff, value: users.size, averages: @averagestarifflista }
-
-    end
-
-    @bartariff = LazyHighCharts::HighChart.new('column') do |f|
-      if @current_user.admin == 1 
-        f.series(:name=>'Energy',:data => @averagestariff.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
-      elsif @current_user.admin == 2    
-        f.series(:name=>'Water',:data=> @averagestariff.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
-      elsif @current_user.admin == 3 
-        f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-      end
-      f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
-      f.title({ :text=>"Average by tariff"})
-      f.options[:chart][:defaultSeriesType] = "column"
-    end
-
-    @averagescity = []
-    locales.each do |locale|
-      users = User.where(locale: locale) 
-      @averagescitylista = []     
-
-      [1, 2, 3].each do |service|
-        bills_total = users.map { |u| u.valor_total(service) }.inject(0, :+)
-        if bills_total == 0
-          bills_total =1
-        end
-        consumption = users.map { |u| u.valor(service) }.inject(0, :+)
-        @averagescity << { locale: locale, service: service , average: consumption / bills_total }
-        @averagescitylista << {service: service , average: consumption / bills_total }
-      end
-
-      @userscity << { locale: locale.split(",").first, value: User.where(locale: locale).size, averages: @averagescitylista }
-
-    end
-
-    @barcity = LazyHighCharts::HighChart.new('column') do |f|
-      if @current_user.admin == 1 
-        f.series(:name=>'Energy',:data=> @averagescity.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
-      elsif @current_user.admin == 2        
-        f.series(:name=>'Water',:data=> @averagescity.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
-      elsif @current_user.admin == 3 
-        f.series(:name=>'Gas',:data=> @averagescity.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
-      end
-      f.xAxis({:categories => @userscity.collect { |e| e[:locale]} })    
-      f.title({ :text=>"Average by city"})
-      f.options[:chart][:defaultSeriesType] = "column"
-    end
-
-    @bills_pie_total = []
-    [1, 2, 3].each do |service|
       @averagestariff = []
-      ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6'].each do |tariff|
+      tariffs.each do |tariff|
         users = User.where(tariff: tariff)
+        @averagestarifflista = []
 
-        @consumption = users.map { |u| u.valor(service) }.inject(0, :+)
-        @averagestariff << { tariff: tariff, service: service , average: @consumption }
-      end
-
-      @tariffdivisor = @averagestariff.select{ |k,v| k[:service] == service }.collect{ |e| e[:average]  }.inject(0, :+)
-      if @tariffdivisor == 0
-       @tariffdivisor = 1
-      end
-      @bills_pie_total << {service: service, tariff: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:tariff] }, consumption_total: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.map {|x| x *100/@tariffdivisor } }
-    
-    end
-
-    @charttariff = LazyHighCharts::HighChart.new('pie') do |f|
-          f.chart({:defaultSeriesType=>"pie"})
-          if @current_user.admin == 1
-            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:consumption_total]  }[0]}
-          elsif @current_user.admin == 2
-            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:consumption_total]  }[0]}
-          elsif @current_user.admin == 3
-            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:consumption_total]  }[0]}
-          else
-            series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+        # services
+        [1, 2, 3].each do |service|
+          bills_total = users.map { |u| u.valor_total(service) }.inject(0, :+)
+          if bills_total == 0
+            bills_total =1
           end
-          f.series(series)
-          f.options[:title][:text] = "Energy"
-          f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-          f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+          consumption = users.map { |u| u.valor(service) }.inject(0, :+)
+          @averagestariff << { tariff: tariff, service: service , average: consumption / bills_total }
+          @averagestarifflista << { service: service , average: consumption / bills_total }
+        end
+
+        @userstariff << { tariff: tariff, value: users.size, averages: @averagestarifflista }
+
+      end
+
+      @bartariff = LazyHighCharts::HighChart.new('column') do |f|
+        if @current_user.admin == 1 
+          f.series(:name=>'Energy',:data => @averagestariff.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
+        elsif @current_user.admin == 2    
+          f.series(:name=>'Water',:data=> @averagestariff.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
+        elsif @current_user.admin == 3 
+          f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
+        end
+        f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
+        f.title({ :text=>"Average by tariff"})
+        f.options[:chart][:defaultSeriesType] = "column"
+      end
+
+      @averagescity = []
+      locales.each do |locale|
+        users = User.where(locale: locale) 
+        @averagescitylista = []     
+
+        [1, 2, 3].each do |service|
+          bills_total = users.map { |u| u.valor_total(service) }.inject(0, :+)
+          if bills_total == 0
+            bills_total =1
+          end
+          consumption = users.map { |u| u.valor(service) }.inject(0, :+)
+          @averagescity << { locale: locale, service: service , average: consumption / bills_total }
+          @averagescitylista << {service: service , average: consumption / bills_total }
+        end
+
+        @userscity << { locale: locale.split(",").first, value: User.where(locale: locale).size, averages: @averagescitylista }
+
+      end
+
+      @barcity = LazyHighCharts::HighChart.new('column') do |f|
+        if @current_user.admin == 1 
+          f.series(:name=>'Energy',:data=> @averagescity.select{ |k,v| k[:service] == 1 }.collect { |e| e[:average]  } )
+        elsif @current_user.admin == 2        
+          f.series(:name=>'Water',:data=> @averagescity.select{ |k,v| k[:service] == 2 }.collect { |e| e[:average]  } )
+        elsif @current_user.admin == 3 
+          f.series(:name=>'Gas',:data=> @averagescity.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
+        end
+        f.xAxis({:categories => @userscity.collect { |e| e[:locale]} })    
+        f.title({ :text=>"Average by city"})
+        f.options[:chart][:defaultSeriesType] = "column"
+      end
+
+      @bills_pie_total = []
+      [1, 2, 3].each do |service|
+        @averagestariff = []
+        ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6'].each do |tariff|
+          users = User.where(tariff: tariff)
+
+          @consumption = users.map { |u| u.valor(service) }.inject(0, :+)
+          @averagestariff << { tariff: tariff, service: service , average: @consumption }
+        end
+
+        @tariffdivisor = @averagestariff.select{ |k,v| k[:service] == service }.collect{ |e| e[:average]  }.inject(0, :+)
+        if @tariffdivisor == 0
+         @tariffdivisor = 1
+        end
+        @bills_pie_total << {service: service, tariff: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:tariff] }, consumption_total: @averagestariff.select{ |k,v| k[:service] == service }.collect { |e| e[:average]  }.map {|x| x *100/@tariffdivisor } }
+      
+      end
+
+      @charttariff = LazyHighCharts::HighChart.new('pie') do |f|
+            f.chart({:defaultSeriesType=>"pie"})
+            if @current_user.admin == 1
+              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:consumption_total]  }[0]}
+            elsif @current_user.admin == 2
+              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:consumption_total]  }[0]}
+            elsif @current_user.admin == 3
+              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:consumption_total]  }[0]}
+            else
+              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+            end
+            f.series(series)
+            f.options[:title][:text] = "Energy"
+            f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+            f.plot_options(:pie=>{:allowPointSelect=>true, :cursor=>"pointer" , :dataLabels=>{:enabled=>true,:color=>"black",:style=>{:font=>"13px Trebuchet MS, Verdana, sans-serif"}}})
+      end
+
+      services.each do |service|
+        @billsservice << { service: service, value: Bill.where(service: service).size }
+      end   
+
     end
 
-    services.each do |service|
-      @billsservice << { service: service, value: Bill.where(service: service).size }
-    end   
   end
 
   def profile
