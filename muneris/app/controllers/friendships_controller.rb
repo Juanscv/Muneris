@@ -4,9 +4,13 @@ class FriendshipsController < ApplicationController
 
   def index
     if !@user.admin.nil? then
-      @user_list = User.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name').where('admin IS NULL')
+      @user_list = Rails.cache.fetch('#{@users_list}') do
+        User.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name').where('admin IS NULL')
+      end
     else
-      @user_list = User.unscoped.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name').joins('INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)').where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.admin IS NULL', current_user.id, current_user.id, current_user.id)
+      @user_list = Rails.cache.fetch('#{@users_list}') do
+        User.unscoped.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name').joins('INNER JOIN friendships ON (friendships.friend_id = users.id OR friendships.friendable_id = users.id)').where('users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.admin IS NULL', current_user.id, current_user.id, current_user.id)
+      end
     end
 
     @users_grid = initialize_grid(
@@ -25,8 +29,11 @@ class FriendshipsController < ApplicationController
   end
 
   def new
+    @user_list = Rails.cache.fetch('#{@users_list}') do
+      User.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name')
+    end
     @users_grid = initialize_grid(
-      User.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name'),
+      @user_list,
       conditions: ["id != ? AND admin IS NULL", current_user.id],
       order: 'users.id',
       per_page: 8
