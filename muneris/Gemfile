@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'thin'
 
+gem 'dalli'
+
 gem 'devise'
 
 gem 'amistad'
