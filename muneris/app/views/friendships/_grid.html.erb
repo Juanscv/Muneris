@@ -18,7 +18,7 @@
 
 	if @user.admin.nil?
 		g.column do |user|
-			link_to 'Remove', network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
+			link_to image_tag('cancel.png'), network_path(user), :method => "delete", data: { confirm: 'Are you sure?'}
 		end
 	end
 

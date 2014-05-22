@@ -6,7 +6,7 @@
     </div>
     <h4><%= @user.familyname %></h4>
     <div>
-      <p><strong><%= @user.name %></strong></p>
+
         <% if !@user.bills.empty? then %>
           <p>Latest consumption:
             <br><strong><%= @user.bills.order("created_at").last.consumption %>
@@ -20,6 +20,11 @@
             <br><strong><%= number_to_currency(@user.bills.order("created_at").last.value, :precision => 0) %> </strong></p>
         <% end %>      
           <p>Network: <strong><%= @user.friends.count(:id) %> Users </strong></p>
+          <p><strong><%= @user.name %></strong></p>
+      
+    <strong><p><%= @user.address %></strong></p>
+    <strong><p><%= @user.tariff %></strong></p>
+    <strong><p><%= @user.locale %></strong></p>
     </div>
   </div>
 
