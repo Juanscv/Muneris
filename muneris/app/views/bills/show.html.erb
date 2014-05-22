@@ -24,6 +24,8 @@
 	<p>
 	  <%= link_to 'Edit', edit_bill_path(@bill) %>
 	  |
+	  <%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  1
 	  <%= link_to 'Back', bills_path %>
 	</p>
 </div>
