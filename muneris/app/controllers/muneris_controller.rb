@@ -8,18 +8,15 @@ class MunerisController < ApplicationController
 
     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.friends, owner_type: "User")
 
-    @friends = current_user.friends
-
-    
-    
+    @friends = current_user.friends 
 
     #------------------------------------ADMIN--------------------------------------
 
     if @current_user.admin?
 
-      @users = User.where(:admin => nil)
+      @users = User.select('id,familyname,address,locale,tariff,avatar_file_name').where(:admin => nil)
 
-      @bills = Bill.all
+      @bills = Bill.select('id, consumption, value, date, service')
 
       tariffs = @users.map(&:tariff).uniq
       @userstariff = []
@@ -142,19 +139,19 @@ class MunerisController < ApplicationController
     @is_current_user = current_user == @user
 
     @ebills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
     )
     @wbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
     )
     @gbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
@@ -197,52 +194,50 @@ class MunerisController < ApplicationController
     end
 
     @evchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
-      f.series(name: [@user.familyname,"'s expense"].join, :yAxis => 0, :data => @evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
-      f.series(name: 'Your expense', :yAxis => 0, :data => cu_evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
-      f.plotOptions(series:{compare:'value'})
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
+      f.series(name: [@user.familyname,"'s payment"].join, :yAxis => 0, :data => @evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
+      f.series(name: 'Your payment', :yAxis => 0, :data => cu_evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
+      
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @wvchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
-      f.series(name: [@user.familyname,"'s expense"].join, :yAxis => 0, :data => @wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
-      f.series(name: 'Your expense', :yAxis => 0, :data => cu_wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
+      f.series(name: [@user.familyname,"'s payment"].join, :yAxis => 0, :data => @wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
+      f.series(name: 'Your payment', :yAxis => 0, :data => cu_wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
+      
       f.rangeSelector(enabled: false)
     end
     @gvchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
-      f.series(name: [@user.familyname,"'s expense"].join, :yAxis => 0, :data => @gvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
-      f.series(name: 'Your expense', :yAxis => 0, :data => cu_gvbills, tooltip: {valuePrefix: ' $'}) if !@is_current_user
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
+      f.series(name: [@user.familyname,"'s payment"].join, :yAxis => 0, :data => @gvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
+      f.series(name: 'Your payment', :yAxis => 0, :data => cu_gvbills, tooltip: {valuePrefix: ' $'}) if !@is_current_user
+      
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
 
     @echart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
       f.series(name: [@user.familyname,"'s consumption"].join, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_ebills, tooltip: {valueSuffix: ' kWh'}) if !@is_current_user
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
-      f.plotOptions(series:{compare:'value'})
+      
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
       f.series(name: [@user.familyname,"'s consumption"].join, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
+      
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @gchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
       f.series(name: [@user.familyname,"'s consumption"].join, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_gbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
+      
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
@@ -282,19 +277,19 @@ class MunerisController < ApplicationController
     end  
 
     @ebills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user_map.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 1", @user_map.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
     )
     @wbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user_map.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 2", @user_map.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
     )
     @gbills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user_map.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ? AND bills.service = 3", @user_map.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 5
@@ -337,89 +332,61 @@ class MunerisController < ApplicationController
     end
 
     @evchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
 
-      f.series(name: [@user_map.familyname,"'s expense"].join, :yAxis => 0, :data => @evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
-      f.series(name: 'Your expense', :yAxis => 0, :data => cu_evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
+      f.series(name: [@user_map.familyname,"'s payment"].join, :yAxis => 0, :data => @evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
+      f.series(name: 'Your payment', :yAxis => 0, :data => cu_evbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
       
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
-      f.plotOptions(series:{compare:'value'})
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @wvchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
 
-      f.series(name: [@user_map.familyname,"'s expense"].join, :yAxis => 0, :data => @wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
-      f.series(name: 'Your expense', :yAxis => 0, :data => cu_wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
+      f.series(name: [@user_map.familyname,"'s payment"].join, :yAxis => 0, :data => @wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
+      f.series(name: 'Your payment', :yAxis => 0, :data => cu_wvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
       
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @gvchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
 
-      f.series(name: [@user_map.familyname,"'s expense"].join, :yAxis => 0, :data => @gvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
-      f.series(name: 'Your expense', :yAxis => 0, :data => cu_gvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
+      f.series(name: [@user_map.familyname,"'s payment"].join, :yAxis => 0, :data => @gvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'})
+      f.series(name: 'Your payment', :yAxis => 0, :data => cu_gvbills, tooltip: {valuePrefix: ' $', valueSuffix: ',000'}) if !@is_current_user
       
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
 
     @echart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
 
       f.series(name: [@user_map.familyname,"'s consumption"].join, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_ebills, tooltip: {valueSuffix: ' kWh'}) if !@is_current_user
       
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
-      f.plotOptions(series:{compare:'value'})
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
 
       f.series(name: [@user_map.familyname,"'s consumption"].join, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
-      
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
+            
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
     @gchart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(height: 280, marginTop: 2)
+      f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
 
       f.series(name: [@user_map.familyname,"'s consumption"].join, :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_gbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
-      
-      f.legend(enabled: true, itemStyle: {fontSize: '10px', fontWeight: 'normal'})
+            
       f.rangeSelector(enabled: false)
       f.scrollbar(enabled: false)
     end
 
   end
-
-  private
-
-
-  protected
-
-  def process_records(records)
-    records.each do |rec|
-     case rec.service
-      when 1
-        @ebills << [rec.date.strftime("%s%L").to_i,rec.consumption]
-      when 2
-        @wbills << [rec.date.strftime("%s%L").to_i,rec.consumption]
-      when 3
-        @gbills << [rec.date.strftime("%s%L").to_i,rec.consumption]
-      end
-    end
-  end
-
-
 
 end
