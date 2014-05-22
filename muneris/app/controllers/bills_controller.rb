@@ -7,7 +7,7 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills_grid = initialize_grid(
-      Bill.unscoped.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id),
+      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id),
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 12
