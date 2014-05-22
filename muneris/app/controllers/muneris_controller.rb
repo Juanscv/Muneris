@@ -17,22 +17,22 @@ class MunerisController < ApplicationController
 
     if @current_user.admin?
 
-      @users = User.all(:conditions => ["id != ?", current_user.id])
+      @users = User.where(:admin => nil)
 
       @bills = Bill.all
 
-      tariffs = User.where("id != ?", current_user.id).pluck(:tariff).uniq
+      tariffs = @users.map(&:tariff).uniq
       @userstariff = []
 
-      locales = User.where("id != ?", current_user.id).pluck(:locale).uniq
+      locales = @users.map(&:locale).uniq
       @userscity = []
 
-      services = Bill.pluck(:service).uniq
+      services = @bills.map(&:service).uniq
       @billsservice = []
 
       @averagestariff = []
       tariffs.each do |tariff|
-        users = User.where(tariff: tariff)
+        users = @users.select{ |k,v| k[:tariff] == tariff}
         @averagestarifflista = []
 
         # services
@@ -65,7 +65,7 @@ class MunerisController < ApplicationController
 
       @averagescity = []
       locales.each do |locale|
-        users = User.where(locale: locale) 
+        users = @users.select{ |k,v| k[:locale] == locale}
         @averagescitylista = []     
 
         [1, 2, 3].each do |service|
@@ -78,7 +78,7 @@ class MunerisController < ApplicationController
           @averagescitylista << {service: service , average: consumption / bills_total }
         end
 
-        @userscity << { locale: locale.split(",").first, value: User.where(locale: locale).size, averages: @averagescitylista }
+        @userscity << { locale: locale.split(",").first, value: @users.select{ |k,v| k[:locale] == locale}.size, averages: @averagescitylista }
 
       end
 
@@ -99,7 +99,7 @@ class MunerisController < ApplicationController
       [1, 2, 3].each do |service|
         @averagestariff = []
         ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6'].each do |tariff|
-          users = User.where(tariff: tariff)
+          users = @users.select{ |k,v| k[:tariff] == tariff}
 
           @consumption = users.map { |u| u.valor(service) }.inject(0, :+)
           @averagestariff << { tariff: tariff, service: service , average: @consumption }
@@ -131,7 +131,7 @@ class MunerisController < ApplicationController
       end
 
       services.each do |service|
-        @billsservice << { service: service, value: Bill.where(service: service).size }
+        @billsservice << { service: service, value: @bills.select{ |k,v| k[:service] == service}.size }
       end   
 
     end
