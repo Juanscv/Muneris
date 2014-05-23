@@ -14,13 +14,9 @@ class MunerisController < ApplicationController
 
     if @current_user.admin?
 
-      @users = Rails.cache.fetch('#{@users}') do
-        User.select('id,familyname,address,locale,tariff,avatar_file_name').where(:admin => nil)
-      end
+      @users = User.select('id,familyname,address,locale,tariff,avatar_file_name').where(:admin => nil)
 
-      @bills = Rails.cache.fetch('#{@bills}') do
-        Bill.select('id, consumption, value, date, service')
-      end
+      @bills = Bill.select('id, consumption, value, date, service')
 
       tariffs = @users.map(&:tariff).uniq
       @userstariff = []
