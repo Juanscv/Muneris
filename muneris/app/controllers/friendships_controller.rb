@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
 
   def index
     if !@user.admin.nil? then
-      @user_list = User.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name').where('admin IS NULL')
+      @user_list = User.unscoped.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name').where('admin IS NULL')
     else
       @user_list = current_user.friends
     end
@@ -25,7 +25,7 @@ class FriendshipsController < ApplicationController
   end
 
   def new
-    @user_list = User.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name')
+    @user_list = User.unscoped.select('users.id, users.familyname, users.address, users.locale, users.tariff, users.avatar_file_name')
     @users_grid = initialize_grid(
       @user_list,
       conditions: ["id != ? AND admin IS NULL", current_user.id],
