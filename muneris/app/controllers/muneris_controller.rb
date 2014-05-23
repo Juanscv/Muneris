@@ -14,13 +14,9 @@ class MunerisController < ApplicationController
 
     if @current_user.admin?
 
-      @users = Rails.cache.fetch('#{@users}') do
-        User.select('id,familyname,address,locale,tariff,avatar_file_name').where(:admin => nil)
-      end
+      @users = User.select('id,familyname,address,locale,tariff,avatar_file_name').where(:admin => nil)
 
-      @bills = Rails.cache.fetch('#{@bills}') do
-        Bill.select('id, consumption, value, date, service')
-      end
+      @bills = Bill.select('id, consumption, value, date, service')
 
       tariffs = @users.map(&:tariff).uniq
       @userstariff = []
@@ -233,7 +229,7 @@ class MunerisController < ApplicationController
     end
     @wchart = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(height: 280, marginTop: 2, style: {width: 'inherit'})
-      f.series(name: [@user.familyname,"'s consumption"].join, :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.series(name: [@user.familyname,"'s consumption"].join, :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' kWh'})
       f.series(name: 'Your consumption', :yAxis => 0, :data => cu_wbills, tooltip: {valueSuffix: ' m3'}) if !@is_current_user
       
       f.rangeSelector(enabled: false)

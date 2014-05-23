@@ -26,6 +26,10 @@
 
         <div>Date:	<%= grid_filter @bills_grid, :date_added %></div>
       </div>
+      <div class="external-buttons">
+        <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">Filter grid</button>
+        <button class="btn wg-external-reset-button" data-grid-name="grid">Reset grid</button>
+      </div>
     </div>
     <div class="w-col w-col-10">
       <div class="wice-grid">
@@ -34,13 +38,52 @@
     </div>
   </div>
   <div class="w-row">
+  <div id="radio_buttons">
+        <form class="type flash">
+            <input type="radio" name="type" checked="checked" value="1">Energy bills</input>
+            <input type="radio" name="type" value="2">Water bills</input>
+            <input type="radio" name="type" value="3">Gas bills</input>
+        </form>
+    </div>  
     <div class="w-col w-col-11">
-      <%= high_stock("chart", @chart) %>
+      <%= high_stock("echart", @echart) %>
+      <%= high_stock("wchart", @wchart) %>
+      <%= high_stock("gchart", @gchart) %>
       <div class="asterisk">*This chart is independent from the above filters.</div>
     </div>
   </div>
 </div>
 
+
+<script>
+    $( document ).ready(function() {
+
+      $('#echart').show();
+      $('#wchart').hide();
+      $('#gchart').hide();
+
+    $("#radio_buttons input[name='type']").click(function(){
+        if($('input:radio[name=type]:checked').val() == "1"){
+          $('#echart').show();
+          $('#wchart').hide();
+          $('#gchart').hide();
+        }
+        if($('input:radio[name=type]:checked').val() == "2"){
+          $('#echart').hide();
+          $('#wchart').show();
+          $('#gchart').hide();
+        }
+        if($('input:radio[name=type]:checked').val() == "3"){
+          $('#echart').hide();
+          $('#wchart').hide();
+          $('#gchart').show();
+        }
+
+    });
+    });
+
+
+</script>
 
 
 

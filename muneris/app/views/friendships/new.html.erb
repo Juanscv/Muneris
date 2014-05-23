@@ -4,41 +4,35 @@
 
 	g.blank_slate 'There are no more users'
 
-	g.column do |user|
-		link_to image_tag(user.avatar.url, class: 'user-image'), profile_path(user.id)
+	g.column do |u|
+		link_to image_tag(u.avatar.url, class: 'user-image'), profile_path(u.id)
 	end
 
-	g.column name: 'Family Name', attribute: 'familyname', auto_reload:  true
+	g.column name: 'Family Name', attribute: 'familyname', auto_reload:  true do |u|
+		link_to u.familyname, profile_path(u.id)
+	end
 
-	g.column  name: 'Classification', attribute: 'tariff', auto_reload:  true, custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Oficial Nivel 1", "Oficial Nivel 2", "Comercial Nivel 1", "Comercial Nivel 2"]
+	g.column  name: 'Classification', attribute: 'tariff', auto_reload:  true, custom_filter: ["Residencial Estrato 1", "Residencial Estrato 2", "Residencial Estrato 3", "Residencial Estrato 4", "Residencial Estrato 5", "Residencial Estrato 6", "Oficial Nivel I", "Oficial Nivel II", "Comercial Nivel I", "Comercial Nivel II"]
 
 	g.column name: 'Location', attribute: 'locale', auto_reload:  true
 
-	g.column name: 'Status' do |user|
-		if current_user.friend_with? user 
-			"Already added"
-		elsif current_user.invited? user and !current_user.friend_with? user
-			"Pending request"
-		elsif user.invited? current_user
-			"Waiting response"
+	if !@user.admin? then
+		g.column  do |user|
+			if current_user.friend_with? user
+				link_to image_tag('cancel.png'), network_path(user), :method => "delete", data: { confirm: 'Are you sure?' }
+			elsif current_user.invited? user
+				link_to image_tag('cancel.png'), network_path(user), :method => "delete"
+			elsif user.invited? current_user and !current_user.friend_with? user
+				link_to image_tag('accept.png'), network_path(user), :method => "put"
+			else
+				link_to image_tag('add2.png'), network_index_path(:user_id => user), :method => "post"
+			end
 		end
-	end
 
-	g.column  do |user|
-		if current_user.friend_with? user
-			link_to image_tag('cancel.png'), network_path(user), :method => "delete", data: { confirm: 'Are you sure?' }
-		elsif current_user.invited? user
-			link_to image_tag('cancel.png'), network_path(user), :method => "delete"
-		elsif user.invited? current_user and !current_user.friend_with? user
-			link_to image_tag('accept.png'), network_path(user), :method => "put"
-		else
-			link_to image_tag('add2.png'), network_index_path(:user_id => user), :method => "post"
-		end
-	end
-
-	g.column do |user|
-		if user.invited? current_user and !current_user.friend_with? user
-			link_to  image_tag('cancel.png'), network_path(user), :method => "delete"
+		g.column do |user|
+			if user.invited? current_user and !current_user.friend_with? user
+				link_to  image_tag('cancel.png'), network_path(user), :method => "delete"
+			end
 		end
 	end
 
@@ -54,7 +48,7 @@ end -%>
 		<div class="w-col w-col-3" style="margin-Top: 0px">
 			<%= render partial: 'layouts/partials/suggestions' %></div>
 		</div>
-		<div><%= link_to 'Back', :back, class: "clickable btn" %></div>
+		<div><%= link_to 'Back', network_index_path, class: "clickable btn" %></div>
 	</div>
 
 </div>

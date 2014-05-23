@@ -64,7 +64,8 @@
     </ul>
 
   <% else %>
-
+    
+    <% if !current_user.nil? %>
     <ul class="w-list-unstyled">
       <li>
         <div class="w-row">
@@ -89,7 +90,7 @@
         </div>
       </li>
     </ul>
-
+    <% end %>
   <% end %>
 
   <% if !@is_current_user and @current_user.admin? %>

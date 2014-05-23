@@ -7,7 +7,7 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills_grid = initialize_grid(
-      Bill.unscoped.select('bills.id, bills.consumption, bills.value, bills.date, bills.service').joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id").where("users.id = ?", current_user.id),
+      current_user.bills,
       order:           'bills.date',
       order_direction: 'desc',
       per_page: 12
@@ -28,12 +28,22 @@ class BillsController < ApplicationController
       end
     end
 
-    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+    @echart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(style: {width: '100%'})
       f.yAxis({:title => {:text => "Consumption", :margin => 20} })
-      f.series(id: 3, name: "Energy bills", :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
-      f.series(id: 1, name: "Water bills", :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
-      f.series(id: 2, name: "Gas bills", :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
-      f.legend(:enabled => true, :align => 'center', :verticalAlign => 'top')
+      f.series(name: "Energy bills", :yAxis => 0, :data => @ebills, tooltip: {valueSuffix: ' kWh'})
+      f.rangeSelector(enabled: true, inputDateFormat: '%b %Y', inputEditDateFormat: '%b %Y')    
+    end
+    @wchart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(style: {width: '100%'})
+      f.yAxis({:title => {:text => "Consumption", :margin => 20} })
+      f.series(name: "Water bills", :yAxis => 0, :data => @wbills, tooltip: {valueSuffix: ' m3'})
+      f.rangeSelector(enabled: true, inputDateFormat: '%b %Y', inputEditDateFormat: '%b %Y')    
+    end
+    @gchart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(style: {width: '100%'})
+      f.yAxis({:title => {:text => "Consumption", :margin => 20} })
+      f.series(name: "Gas bills", :yAxis => 0, :data => @gbills, tooltip: {valueSuffix: ' m3'})
       f.rangeSelector(enabled: true, inputDateFormat: '%b %Y', inputEditDateFormat: '%b %Y')    
     end
 
@@ -116,15 +126,11 @@ class BillsController < ApplicationController
 
       avg_bill_yours = current_user.bills.where(:service => @bill.service).average(:consumption)
 
-      avg_bill_friends = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('bills.service = ? AND users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL', @bill.service, current_user.id, current_user.id, current_user.id).average("consumption").to_f
-
       avg_bill_tariff = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('bills.service = ? AND users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.tariff = ?', @bill.service, current_user.id, current_user.id, current_user.id, current_user.tariff).average("consumption").to_f
 
       avg_bill_neighbors = Bill.joins("INNER JOIN userbills ON userbills.bill_id = bills.id INNER JOIN users ON userbills.user_id = users.id INNER JOIN friendships ON (users.id = friendships.friendable_id OR users.id = friendships.friend_id)").where('bills.service = ? AND users.id not IN (?) AND (friendships.friendable_id= ? OR friendships.friend_id = ?) AND friendships.pending = 0 AND friendships.blocker_id IS NULL AND users.address = ?', @bill.service, current_user.id, current_user.id, current_user.id, current_user.address).average("consumption").to_f
 
-      if    @bill.consumption > 1.95*avg_bill_friends   and !avg_bill_friends.zero?
-        create_alert
-      elsif @bill.consumption > 1.8*avg_bill_tariff     and !avg_bill_tariff.zero?
+      if @bill.consumption > 1.8*avg_bill_tariff     and !avg_bill_tariff.zero?
         create_alert
       elsif @bill.consumption > 1.65*avg_bill_neighbors and !avg_bill_neighbors.zero?
        create_alert
