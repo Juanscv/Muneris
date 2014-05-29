@@ -56,7 +56,7 @@ class MunerisController < ApplicationController
           f.series(:name=>'Gas',:data=> @averagestariff.select{ |k,v| k[:service] == 3 }.collect { |e| e[:average]  } )
         end
         f.xAxis({:categories => @userstariff.collect { |e| e[:tariff]} })  
-        f.title({ :text=>"Average by tariff"})
+        f.title({ :text=>"Average by Classification"})
         f.legend(enabled: false)
         f.options[:chart][:defaultSeriesType] = "column"
       end
@@ -97,7 +97,7 @@ class MunerisController < ApplicationController
       @bills_pie_total = []
       [1, 2, 3].each do |service|
         @averagestariff = []
-        ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6'].each do |tariff|
+        ['Residencial Estrato 1', 'Residencial Estrato 2', 'Residencial Estrato 3','Residencial Estrato 4', 'Residencial Estrato 5', 'Residencial Estrato 6',"Oficial Nivel I", "Oficial Nivel II", "Comercial Nivel I", "Comercial Nivel II"].each do |tariff|
           users = @users.select{ |k,v| k[:tariff] == tariff}
 
           @consumption = users.map { |u| u.valor(service) }.inject(0, :+)
@@ -115,13 +115,13 @@ class MunerisController < ApplicationController
       @charttariff = LazyHighCharts::HighChart.new('pie') do |f|
             f.chart({:defaultSeriesType=>"pie"})
             if @current_user.admin == 1
-              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:consumption_total]  }[0]}
+              series = {:type=> 'pie',:name=> 'Classification chart',:data=> [@bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:tariff]  }[0], @bills_pie_total.select{ |k,v| k[:service] == 1 }.collect { |e| e[:consumption_total]  }[0]]}
             elsif @current_user.admin == 2
-              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:consumption_total]  }[0]}
+              series = {:type=> 'pie',:name=> 'Classification chart',:data=> [@bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:tariff]  }[0], @bills_pie_total.select{ |k,v| k[:service] == 2 }.collect { |e| e[:consumption_total]  }[0]]}
             elsif @current_user.admin == 3
-              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> @bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:consumption_total]  }[0]}
+              series = {:type=> 'pie',:name=> 'Classification chart',:data=> [@bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:tariff]  }[0], @bills_pie_total.select{ |k,v| k[:service] == 3 }.collect { |e| e[:consumption_total]  }[0]]}
             else
-              series = {:type=> 'pie',:name=> 'Tariff chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
+              series = {:type=> 'pie',:name=> 'Classification chart',:data=> [['Estrato1', 30.0],['Estrato 4', 22.4],['Estrato 2', 14.2],['Estrato 3', 10.2],['Estrato 5', 17],['Estrato 6', 6.2]]}
             end
             f.series(series)
             f.options[:title][:text] = "Energy"
