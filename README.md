@@ -12,6 +12,6 @@ Currently supports water, gas and electricity.
 <li> Get notified when a bill is too high.</li>
 
 <br>
-<h6>*This was my final project from Universidad del Norte, in conjunction with Michael Dussán, and Dr. Christian Quintero.</h6>
+<h6>*This was my final project from Universidad del Norte, in conjunction with Juan S. Camargo, and Dr. Christian Quintero.</h6>
 
 
